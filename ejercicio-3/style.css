@@ -1,0 +1,159 @@
+/*
+0. Selectores generales
+1. Tipografias
+2. Cabecera
+3. Seccion destacada
+4. Seccion vidio
+*/
+
+/* 0. Estilos generales */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --color-principal: #EF7BAB;
+    --color-acento: #ffb860;
+    --color-acento2: #1f5aac;
+    --color-parrafo: rgb(45, 45, 45);
+
+}
+.flex-element{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+img{
+    width: 100%;
+}
+/*1. tipografia*/
+
+h1{
+    font-family: "Google Sans", sans-serif;
+    font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+    font-variation-settings: "GRAD" 0;
+  font-size: 30px;
+  color: var(--color-acento2);
+}
+
+h2{
+    font-family: "Google Sans", sans-serif;
+    font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+    font-variation-settings: "GRAD" 0;
+  font-size: 30px;
+  color: var(--color-acento);
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+h3{
+    font-family: "Google Sans", sans-serif;
+    font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+    font-variation-settings: "GRAD" 0;
+  font-size: 22px;
+  color: var(--color-acento);
+}
+p{
+    font-family: "Google Sans", sans-serif;
+    font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+    font-variation-settings: "GRAD" 0;
+  font-size: 12px;
+  color: var(--color-parrafo);
+}
+
+/* 2. Cabecera */
+#cabecera-web{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid var(--color-acento2);
+}
+.bt-principal{
+    font-family: "Google Sans", sans-serif;
+    font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+    font-variation-settings: "GRAD" 0;
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+    background: var(--color-principal);
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: 0.3s all linear;
+}
+.bt-principal:hover{
+    background: var(--color-acento);
+    padding: 10px 17px;
+}
+
+.hide-element{
+    display: none;
+}
+/*seccion destacada*/
+
+#destacado{
+  padding: 50px 0px;
+}
+.bt-vermas{
+  background: var(--color-principal);
+    padding: 8px 15px;
+    border-radius: 50px;
+    margin: 5px 0 0 0;
+    display: inline-block;
+    transition: 0.3s all linear;
+}
+.bt-vermas:hover{
+  background: var(--color-acento);
+    padding: 10px 17px;
+}
+.articulo-index{
+  margin: 10px 15px;
+  padding: 10px;
+  box-shadow: 0 0 1px; color: #EF7BAB;
+  border-radius: 5px;
+}
+
+/*Seccion videos*/
+#vidio h2{
+  color: rgb(57, 13, 4)
+}
+#vidio {
+  background-color: #ef7bab47;
+  padding: 10px 0 0 0;
+}
+video{
+  width: 100%;
+}
+
+
+
+/*=========================================*/
+@media (max-width: 800px){
+    #cabecera-web{
+        flex-direction: column;
+    }
+    #cabecera-web > nav{
+        width: 100%;
+    }   
+    .bt-principal{
+        display: block;
+        width: 100%;
+        margin: 3px 0px;
+        text-align: center;
+        border-radius: 5px;
+    }
+    .flex-element{
+      flex-direction: column;
+    }
+}
