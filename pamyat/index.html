@@ -88,7 +88,7 @@ input[type=range]{accent-color:#6FA03C}
 @keyframes dropB{from{opacity:0;clip-path:inset(0 0 100% 0 round 16px);translate:0 -8px}to{opacity:1;clip-path:inset(0 0 0 0 round 16px);translate:0 0}}
 .dropA{animation:dropA .45s cubic-bezier(.2,.8,.25,1) both}.dropB{animation:dropB .45s cubic-bezier(.2,.8,.25,1) both}
 @media (max-width:1180px){.mapw{--coff:43px}}
-@media (max-width:760px){.mapw{--coff:22px;margin-bottom:200px}.ccard{left:0!important;right:0;width:auto;transform:none}}
+@media (max-width:760px){.rpop{position:fixed!important;left:16px!important;right:16px!important;top:auto!important;bottom:16px!important;width:auto!important;max-height:70vh;overflow:auto;z-index:40!important}.mapw{--coff:22px;margin-bottom:200px}.ccard{left:0!important;right:0;width:auto;transform:none}}
 @media (max-width:1180px){.zmap{zoom:0.78}.zver{zoom:0.7}.garl{height:auto!important;margin-top:0!important;margin-bottom:0!important}.garl svg{width:100%!important;height:auto!important}}
 @media (max-width:760px){.logo{height:auto!important}.zmap{zoom:0.4}.zver{zoom:0.37}.garl{height:auto!important;margin-top:0!important;margin-bottom:0!important}.garl svg{width:100%!important;height:auto!important}.h1{font-size:34px!important}.sec h2{font-size:30px!important}}
 .topin{padding:12px 40px}
@@ -667,7 +667,7 @@ input[type=range]{accent-color:#6FA03C}
 <button class="zm {{zb.pulse}}" style="{{zb.pos}}; background: {{zb.bg}}; color: {{zb.fg}}" aria-label="{{zb.aria}}" aria-expanded="{{zb.open}}" onClick="{{zb.toggle}}">{{zb.n}}</button>
 </sc-for>
 <sc-if value="{{popOn}}">
-<div role="dialog" aria-label="{{pop.title}}" style="position: absolute; {{pop.pos}}; width: 300px; z-index: 6; background: #FFFFFF; border-radius: 20px; padding: 16px; box-shadow: 0 24px 60px rgba(22,22,22,0.35); display: flex; flex-direction: column; gap: 8px">
+<div class="rpop" role="dialog" aria-label="{{pop.title}}" style="position: absolute; {{pop.pos}}; width: 300px; z-index: 6; background: #FFFFFF; border-radius: 20px; padding: 16px; box-shadow: 0 24px 60px rgba(22,22,22,0.35); display: flex; flex-direction: column; gap: 8px">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
 <span class="ptitle">{{pop.title}}</span>
 <button class="ib" aria-label="Close" onClick="{{closePop}}">✕</button>
