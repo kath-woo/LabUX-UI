@@ -278,9 +278,9 @@ input[type=range]{accent-color:#6FA03C}
 <div class="topin" style="max-width: 1380px; margin: 0 auto; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
 <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap">
 <svg class="logo" role="img" aria-label="ПАМЯТЬ" viewBox="-10 -10 590 120" style="width: 150px"><g filter="url(#lg-noise)"><path d="M91.20805369127517 0.0H7.449664429530201V100.0H28.120805369127517V17.718120805369125H70.60402684563759V100.0H91.20805369127517Z M96.57986577181207 100.0H118.86174496644294L126.11006711409395 78.18791946308724H163.4926174496644L170.47248322147652 100.0H193.35838926174495L158.25771812080535 0.0H131.68053691275168ZM131.68053691275168 61.67785234899329 135.10335570469798 51.34228187919463C138.32483221476508 41.14093959731544 141.41208053691275 30.939597315436245 145.03624161073824 18.52348993288591C148.593288590604 30.939597315436245 151.68053691275168 41.14093959731544 154.76778523489932 51.34228187919463L158.1234899328859 61.67785234899329Z M198.73020134228187 100.0H218.9986577181208V52.48322147651007C218.9986577181208 45.83892617449664 218.66308724832214 34.63087248322148 218.39463087248322 24.02684563758389C221.81744966442952 35.23489932885906 225.17315436241608 46.308724832214764 227.2536912751678 52.48322147651007L244.36778523489932 100.0H261.14630872483224L278.05906040268457 52.48322147651007C280.20671140939595 46.10738255033557 283.696644295302 34.29530201342281 287.11946308724833 22.61744966442953C286.85100671140935 33.624161073825505 286.44832214765097 45.50335570469799 286.44832214765097 52.48322147651007V100.0H306.64966442953016V0.0H276.5154362416107L260.20671140939595 46.57718120805369C258.3946308724832 52.48322147651007 255.24026845637582 63.02013422818792 252.8241610738255 71.61073825503355C250.40805369127517 63.02013422818792 247.2536912751678 52.48322147651007 245.3744966442953 46.57718120805369L228.86442953020133 0.0H198.73020134228187Z M393.29664429530203 100.0V0.0H353.296644295302C330.81342281879193 0.0 316.7194630872483 12.68456375838926 316.7194630872483 32.81879194630872C316.7194630872483 46.04026845637584 323.3637583892617 55.97315436241611 334.5718120805369 61.14093959731544L314.5046979865772 100.0H336.65234899328857L354.3704697986577 65.03355704697987C354.43758389261745 65.03355704697987 354.5046979865772 65.03355704697987 354.5718120805369 65.03355704697987H372.6926174496644V100.0ZM372.6926174496644 48.45637583892618H354.5718120805369C343.6993288590604 48.45637583892618 336.9208053691275 42.348993288590606 336.9208053691275 32.81879194630872C336.9208053691275 23.28859060402685 343.6993288590604 17.18120805369128 354.63892617449665 17.18120805369128H372.6926174496644Z M401.08456375838927 17.718120805369125H431.4201342281879V100.0H452.0912751677852V17.718120805369125H482.35973154362415V0.0H401.08456375838927Z M510.751677852349 35.57046979865771V0.0H490.08053691275165V100.0H531.4228187919463C552.9664429530201 100.0 566.3221476510067 87.4496644295302 566.3221476510067 67.51677852348993C566.3221476510067 47.919463087248324 552.3624161073826 35.57046979865771 529.6778523489933 35.57046979865771ZM510.751677852349 52.41610738255034H528.6040268456376C539.4093959731543 52.41610738255034 546.1879194630873 58.18791946308725 546.1879194630873 67.38255033557047C546.1879194630873 76.84563758389262 539.4093959731543 82.81879194630872 528.6040268456376 82.81879194630872H510.751677852349Z" fill="#161616"></path></g></svg>
-<span style="font-size: 13px; color: #5E5B6B">Archivo de la memoria · Moscú 2050</span>
+
 </div>
-<nav aria-label="Recorrido">
+<nav aria-label="Journey">
 <ol class="tabs" style="list-style: none; margin: 0; padding: 0; display: flex; gap: 2px">
 <sc-for list="{{stages}}" as="st" hint-placeholder-count="7">
 <li><button class="{{st.cls}}" aria-current="{{st.aria}}" onClick="{{st.go}}" style="border-radius: 12px"><span>{{st.es}}</span><sc-if value="{{st.hasBadge}}"><span class="pm" style="font-size: 11px; opacity: 0.8">{{st.badge}}</span></sc-if></button></li>
@@ -300,90 +300,55 @@ input[type=range]{accent-color:#6FA03C}
 <!-- 0 · INICIO -->
 <sc-if value="{{s0}}" hint-placeholder-val="{{ true }}">
 <section id="sec-0" class="sec" aria-labelledby="t0" style="display: flex; flex-direction: column; gap: 18px">
-<svg class="mark" aria-hidden="true" viewBox="0 0 120 160">
-<g filter="url(#f-grain)">
-<path d="M60 118 C44 118 30 128 22 142 C40 146 54 136 60 118 Z" fill="#A2CBB2"></path><path d="M60 118 C46 126 34 136 22 142 C40 136 52 130 60 118 Z" fill="#6E9E88"></path>
-<path d="M60 108 C76 106 92 112 102 124 C84 130 68 122 60 108 Z" fill="#A2CBB2"></path><path d="M60 108 C72 114 88 120 102 124 C86 116 72 110 60 108 Z" fill="#6E9E88"></path>
-<use href="#fl-daisy" transform="translate(60 102) scale(0.82)"></use>
-</g>
-</svg>
+
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
 <div style="flex: 999 1 440px; min-width: 0; padding: 8px 0 24px; display: flex; flex-direction: column; gap: 16px">
-<svg class="logo" role="img" aria-label="ПАМЯТЬ" viewBox="-10 -10 590 120" style="width: min(460px, 100%); margin-bottom: 6px"><g filter="url(#lg-noise)"><path d="M91.20805369127517 0.0H7.449664429530201V100.0H28.120805369127517V17.718120805369125H70.60402684563759V100.0H91.20805369127517Z M96.57986577181207 100.0H118.86174496644294L126.11006711409395 78.18791946308724H163.4926174496644L170.47248322147652 100.0H193.35838926174495L158.25771812080535 0.0H131.68053691275168ZM131.68053691275168 61.67785234899329 135.10335570469798 51.34228187919463C138.32483221476508 41.14093959731544 141.41208053691275 30.939597315436245 145.03624161073824 18.52348993288591C148.593288590604 30.939597315436245 151.68053691275168 41.14093959731544 154.76778523489932 51.34228187919463L158.1234899328859 61.67785234899329Z M198.73020134228187 100.0H218.9986577181208V52.48322147651007C218.9986577181208 45.83892617449664 218.66308724832214 34.63087248322148 218.39463087248322 24.02684563758389C221.81744966442952 35.23489932885906 225.17315436241608 46.308724832214764 227.2536912751678 52.48322147651007L244.36778523489932 100.0H261.14630872483224L278.05906040268457 52.48322147651007C280.20671140939595 46.10738255033557 283.696644295302 34.29530201342281 287.11946308724833 22.61744966442953C286.85100671140935 33.624161073825505 286.44832214765097 45.50335570469799 286.44832214765097 52.48322147651007V100.0H306.64966442953016V0.0H276.5154362416107L260.20671140939595 46.57718120805369C258.3946308724832 52.48322147651007 255.24026845637582 63.02013422818792 252.8241610738255 71.61073825503355C250.40805369127517 63.02013422818792 247.2536912751678 52.48322147651007 245.3744966442953 46.57718120805369L228.86442953020133 0.0H198.73020134228187Z M393.29664429530203 100.0V0.0H353.296644295302C330.81342281879193 0.0 316.7194630872483 12.68456375838926 316.7194630872483 32.81879194630872C316.7194630872483 46.04026845637584 323.3637583892617 55.97315436241611 334.5718120805369 61.14093959731544L314.5046979865772 100.0H336.65234899328857L354.3704697986577 65.03355704697987C354.43758389261745 65.03355704697987 354.5046979865772 65.03355704697987 354.5718120805369 65.03355704697987H372.6926174496644V100.0ZM372.6926174496644 48.45637583892618H354.5718120805369C343.6993288590604 48.45637583892618 336.9208053691275 42.348993288590606 336.9208053691275 32.81879194630872C336.9208053691275 23.28859060402685 343.6993288590604 17.18120805369128 354.63892617449665 17.18120805369128H372.6926174496644Z M401.08456375838927 17.718120805369125H431.4201342281879V100.0H452.0912751677852V17.718120805369125H482.35973154362415V0.0H401.08456375838927Z M510.751677852349 35.57046979865771V0.0H490.08053691275165V100.0H531.4228187919463C552.9664429530201 100.0 566.3221476510067 87.4496644295302 566.3221476510067 67.51677852348993C566.3221476510067 47.919463087248324 552.3624161073826 35.57046979865771 529.6778523489933 35.57046979865771ZM510.751677852349 52.41610738255034H528.6040268456376C539.4093959731543 52.41610738255034 546.1879194630873 58.18791946308725 546.1879194630873 67.38255033557047C546.1879194630873 76.84563758389262 539.4093959731543 82.81879194630872 528.6040268456376 82.81879194630872H510.751677852349Z" fill="#161616"></path></g></svg>
-<div class="kick">Antes de empezar · Moscú, 2050</div>
-<h1 id="t0" class="h1" style="font-size: 64px">La memoria no es un archivo. Es una raíz.</h1>
-<p style="margin: 0; max-width: 600px; font-size: 18px; line-height: 1.55; color: #3F3A57">Recordamos para entender quiénes somos. Cuando una foto se borra, se retoca o se «restaura» sin decir cómo, no cambia solo una imagen: cambia lo que una sociedad cree que pasó. En la Unión Soviética se borraba a personas de las fotografías. En 2050, una IA puede reconstruir el pasado en segundos, con colores perfectos y fechas equivocadas.</p>
-<p style="margin: 0; max-width: 600px; font-size: 18px; line-height: 1.55; color: #3F3A57">En PAMYAT investigas seis fotografías reales de la historia rusa: comparas sus versiones, encuentras lo que cambió y decides qué merece ser recordado.</p>
-<div style="margin-top: 6px"><button class="btn btn-p" onClick="{{startGame}}">Empezar la investigación</button></div>
+<svg class="logo" role="img" aria-label="ПАМЯТЬ" viewBox="-10 -10 590 120" style="width: 762px; margin-bottom: 6px; height: 168px"><g filter="url(#lg-noise)" style="display: block"><path d="M91.20805369127517 0.0H7.449664429530201V100.0H28.120805369127517V17.718120805369125H70.60402684563759V100.0H91.20805369127517Z M96.57986577181207 100.0H118.86174496644294L126.11006711409395 78.18791946308724H163.4926174496644L170.47248322147652 100.0H193.35838926174495L158.25771812080535 0.0H131.68053691275168ZM131.68053691275168 61.67785234899329 135.10335570469798 51.34228187919463C138.32483221476508 41.14093959731544 141.41208053691275 30.939597315436245 145.03624161073824 18.52348993288591C148.593288590604 30.939597315436245 151.68053691275168 41.14093959731544 154.76778523489932 51.34228187919463L158.1234899328859 61.67785234899329Z M198.73020134228187 100.0H218.9986577181208V52.48322147651007C218.9986577181208 45.83892617449664 218.66308724832214 34.63087248322148 218.39463087248322 24.02684563758389C221.81744966442952 35.23489932885906 225.17315436241608 46.308724832214764 227.2536912751678 52.48322147651007L244.36778523489932 100.0H261.14630872483224L278.05906040268457 52.48322147651007C280.20671140939595 46.10738255033557 283.696644295302 34.29530201342281 287.11946308724833 22.61744966442953C286.85100671140935 33.624161073825505 286.44832214765097 45.50335570469799 286.44832214765097 52.48322147651007V100.0H306.64966442953016V0.0H276.5154362416107L260.20671140939595 46.57718120805369C258.3946308724832 52.48322147651007 255.24026845637582 63.02013422818792 252.8241610738255 71.61073825503355C250.40805369127517 63.02013422818792 247.2536912751678 52.48322147651007 245.3744966442953 46.57718120805369L228.86442953020133 0.0H198.73020134228187Z M393.29664429530203 100.0V0.0H353.296644295302C330.81342281879193 0.0 316.7194630872483 12.68456375838926 316.7194630872483 32.81879194630872C316.7194630872483 46.04026845637584 323.3637583892617 55.97315436241611 334.5718120805369 61.14093959731544L314.5046979865772 100.0H336.65234899328857L354.3704697986577 65.03355704697987C354.43758389261745 65.03355704697987 354.5046979865772 65.03355704697987 354.5718120805369 65.03355704697987H372.6926174496644V100.0ZM372.6926174496644 48.45637583892618H354.5718120805369C343.6993288590604 48.45637583892618 336.9208053691275 42.348993288590606 336.9208053691275 32.81879194630872C336.9208053691275 23.28859060402685 343.6993288590604 17.18120805369128 354.63892617449665 17.18120805369128H372.6926174496644Z M401.08456375838927 17.718120805369125H431.4201342281879V100.0H452.0912751677852V17.718120805369125H482.35973154362415V0.0H401.08456375838927Z M510.751677852349 35.57046979865771V0.0H490.08053691275165V100.0H531.4228187919463C552.9664429530201 100.0 566.3221476510067 87.4496644295302 566.3221476510067 67.51677852348993C566.3221476510067 47.919463087248324 552.3624161073826 35.57046979865771 529.6778523489933 35.57046979865771ZM510.751677852349 52.41610738255034H528.6040268456376C539.4093959731543 52.41610738255034 546.1879194630873 58.18791946308725 546.1879194630873 67.38255033557047C546.1879194630873 76.84563758389262 539.4093959731543 82.81879194630872 528.6040268456376 82.81879194630872H510.751677852349Z" fill="#161616"></path></g></svg>
+
+<h1 id="t0" class="h1" style="font-size: 64px">Memory is not an archive. It’s a root.</h1>
+<p style="margin: 0; max-width: 600px; font-size: 18px; line-height: 1.55; color: #3F3A57">We remember to understand who we are. When a photo is erased, retouched or “restored” without saying how, it isn’t just an image that changes: it changes what a society believes happened. In the Soviet Union, people were erased from photographs. In 2050, an AI can rebuild the past in seconds, with perfect colors and the wrong dates.</p>
+<p style="margin: 0; max-width: 600px; font-size: 18px; line-height: 1.55; color: #3F3A57">In PAMYAT you investigate six real photographs from Russian history: you compare their versions, find what changed and decide what deserves to be remembered.</p>
+<div style="margin-top: 6px"><button class="btn btn-p" onClick="{{startGame}}">Start the investigation</button></div>
 </div>
-<div style="flex: 1 1 380px; min-width: 0; min-height: 460px; align-self: stretch; position: relative; background: radial-gradient(ellipse at 60% 45%, #EFE8FB 0%, rgba(247,242,230,0) 68%); -webkit-mask-image: linear-gradient(to right, transparent, #000 14%), linear-gradient(to bottom, #000 80%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 14%), linear-gradient(to bottom, #000 80%, transparent); mask-composite: intersect">
-<svg role="img" aria-label="Ilustración: raíces con flores" viewBox="40 0 560 460" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; display: block; width: 100%; height: 100%">
+<div style="flex: 1 1 480px; min-width: 0; align-self: stretch; display: flex; align-items: center; justify-content: center">
+<svg role="img" aria-label="Illustration: flowers growing from roots in the earth" viewBox="30 60 540 600" style="display: block; width: 100%; max-width: 600px; height: auto">
+<ellipse cx="300" cy="320" rx="262" ry="252" fill="#EFE8FB"></ellipse>
+<path d="M96 566 C200 556 400 556 504 566" stroke="#C9B88F" stroke-width="2" stroke-dasharray="3 6" fill="none" stroke-linecap="round"></path>
+<g filter="url(#f-grain)" fill="none" stroke-linecap="round"><path d="{{heroR.a}}" stroke="#5E8F7C" stroke-width="4.5" transform="translate(1 1)"></path><path d="{{heroR.a}}" stroke="#86B59C" stroke-width="4.5"></path><path d="{{heroR.b}}" stroke="#5E8F7C" stroke-width="3" transform="translate(1 1)"></path><path d="{{heroR.b}}" stroke="#86B59C" stroke-width="3"></path><path d="{{heroR.c}}" stroke="#5E8F7C" stroke-width="1.8" transform="translate(1 1)"></path><path d="{{heroR.c}}" stroke="#86B59C" stroke-width="1.8"></path><path d="{{heroR.d}}" stroke="#5E8F7C" stroke-width="1" transform="translate(1 1)"></path><path d="{{heroR.d}}" stroke="#86B59C" stroke-width="1"></path></g>
 <g filter="url(#f-grain)">
 <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="{{intro.s0}}" stroke="#5E8F7C" stroke-width="17" transform="translate(2.5 2.5)"></path>
-<path d="{{intro.s1}}" stroke="#5E8F7C" stroke-width="10" transform="translate(2 2)"></path>
-<path d="{{intro.s0}}" stroke="#86B59C" stroke-width="17"></path>
-<path d="{{intro.s1}}" stroke="#86B59C" stroke-width="10"></path>
-<path d="{{intro.s2}}" stroke="#7AAA91" stroke-width="3.2"></path>
-<path d="{{intro.s0}}" stroke="#B9DAC4" stroke-width="4.5" transform="translate(-2.5 -2.5)"></path>
-<path d="{{intro.s1}}" stroke="#B9DAC4" stroke-width="2" transform="translate(-1.5 -1.5)"></path>
+<path d="{{hero.s0}}" stroke="#5E8F7C" stroke-width="17" transform="translate(2.5 2.5)"></path>
+<path d="{{hero.s1}}" stroke="#5E8F7C" stroke-width="10" transform="translate(2 2)"></path>
+<path d="{{hero.s0}}" stroke="#86B59C" stroke-width="17"></path>
+<path d="{{hero.s1}}" stroke="#86B59C" stroke-width="10"></path>
+<path d="{{hero.s2}}" stroke="#7AAA91" stroke-width="3.2"></path>
+<path d="{{hero.s0}}" stroke="#B9DAC4" stroke-width="4.6" transform="translate(-2 -2)"></path>
+<path d="{{hero.s1}}" stroke="#B9DAC4" stroke-width="2" transform="translate(-1.5 -1.5)"></path>
 </g>
-<path d="{{intro.la}}" fill="#A2CBB2"></path><path d="{{intro.lb}}" fill="#6E9E88"></path>
-<path d="{{intro.pa}}" fill="#B8A3E6"></path><path d="{{intro.pb}}" fill="#8466C4"></path>
-<path d="{{intro.be}}" fill="#8A67C9"></path><path d="{{intro.bh}}" fill="#F29A55" opacity="0.75"></path>
-<use href="{{intro.f0.href}}" transform="{{intro.f0.tf}}" opacity="{{intro.f0.op}}"></use>
-<use href="{{intro.f1.href}}" transform="{{intro.f1.tf}}" opacity="{{intro.f1.op}}"></use>
-<use href="{{intro.f2.href}}" transform="{{intro.f2.tf}}" opacity="{{intro.f2.op}}"></use>
-<use href="{{intro.f3.href}}" transform="{{intro.f3.tf}}" opacity="{{intro.f3.op}}"></use>
-<use href="{{intro.f4.href}}" transform="{{intro.f4.tf}}" opacity="{{intro.f4.op}}"></use>
-<use href="{{intro.f5.href}}" transform="{{intro.f5.tf}}" opacity="{{intro.f5.op}}"></use>
-<use href="{{intro.f6.href}}" transform="{{intro.f6.tf}}" opacity="{{intro.f6.op}}"></use>
-<use href="{{intro.f7.href}}" transform="{{intro.f7.tf}}" opacity="{{intro.f7.op}}"></use>
-<use href="{{intro.f8.href}}" transform="{{intro.f8.tf}}" opacity="{{intro.f8.op}}"></use>
-<use href="{{intro.f9.href}}" transform="{{intro.f9.tf}}" opacity="{{intro.f9.op}}"></use>
-<use href="{{intro.f10.href}}" transform="{{intro.f10.tf}}" opacity="{{intro.f10.op}}"></use>
-<use href="{{intro.f11.href}}" transform="{{intro.f11.tf}}" opacity="{{intro.f11.op}}"></use>
+<path d="{{hero.la}}" fill="#A2CBB2"></path><path d="{{hero.lb}}" fill="#6E9E88"></path>
+<path d="{{hero.pa}}" fill="#B8A3E6"></path><path d="{{hero.pb}}" fill="#8466C4"></path>
+<path d="{{hero.be}}" fill="#8A67C9"></path><path d="{{hero.bh}}" fill="#F29A55" opacity="0.75"></path>
+<use href="{{hero.f0.href}}" transform="{{hero.f0.tf}}" opacity="{{hero.f0.op}}"></use>
+<use href="{{hero.f1.href}}" transform="{{hero.f1.tf}}" opacity="{{hero.f1.op}}"></use>
+<use href="{{hero.f2.href}}" transform="{{hero.f2.tf}}" opacity="{{hero.f2.op}}"></use>
+<use href="{{hero.f3.href}}" transform="{{hero.f3.tf}}" opacity="{{hero.f3.op}}"></use>
+<use href="{{hero.f4.href}}" transform="{{hero.f4.tf}}" opacity="{{hero.f4.op}}"></use>
+<use href="{{hero.f5.href}}" transform="{{hero.f5.tf}}" opacity="{{hero.f5.op}}"></use>
+<use href="{{hero.f6.href}}" transform="{{hero.f6.tf}}" opacity="{{hero.f6.op}}"></use>
+<use href="{{hero.f7.href}}" transform="{{hero.f7.tf}}" opacity="{{hero.f7.op}}"></use>
+<use href="{{hero.f8.href}}" transform="{{hero.f8.tf}}" opacity="{{hero.f8.op}}"></use>
+<use href="{{hero.f9.href}}" transform="{{hero.f9.tf}}" opacity="{{hero.f9.op}}"></use>
+<use href="{{hero.f10.href}}" transform="{{hero.f10.tf}}" opacity="{{hero.f10.op}}"></use>
+<use href="{{hero.f11.href}}" transform="{{hero.f11.tf}}" opacity="{{hero.f11.op}}"></use>
 </g>
+<g filter="url(#f-grain)"><path d="{{heroG.la}}" fill="#A2CBB2"></path><path d="{{heroG.lb}}" fill="#6E9E88"></path></g>
 </svg>
 </div>
 </div>
-<div class="garl" aria-hidden="true" style="height: 170px; margin-top: -36px; margin-bottom: -40px; overflow: visible"><svg viewBox="0 0 1200 170" style="height: 170px; overflow: visible">
-<g filter="url(#f-grain)">
-<g fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="{{ig.s0}}" stroke="#5E8F7C" stroke-width="12" transform="translate(2.5 2.5)"></path>
-<path d="{{ig.s1}}" stroke="#5E8F7C" stroke-width="6" transform="translate(2 2)"></path>
-<path d="{{ig.s0}}" stroke="#86B59C" stroke-width="12"></path>
-<path d="{{ig.s1}}" stroke="#86B59C" stroke-width="6"></path>
-<path d="{{ig.s2}}" stroke="#7AAA91" stroke-width="3.2"></path>
-<path d="{{ig.s0}}" stroke="#B9DAC4" stroke-width="3.2" transform="translate(-2 -2)"></path>
-<path d="{{ig.s1}}" stroke="#B9DAC4" stroke-width="2" transform="translate(-1.5 -1.5)"></path>
-</g>
-<path d="{{ig.la}}" fill="#A2CBB2"></path><path d="{{ig.lb}}" fill="#6E9E88"></path>
-<path d="{{ig.pa}}" fill="#B8A3E6"></path><path d="{{ig.pb}}" fill="#8466C4"></path>
-<path d="{{ig.be}}" fill="#8A67C9"></path><path d="{{ig.bh}}" fill="#F29A55" opacity="0.75"></path>
-<use href="{{ig.f0.href}}" transform="{{ig.f0.tf}}" opacity="{{ig.f0.op}}"></use>
-<use href="{{ig.f1.href}}" transform="{{ig.f1.tf}}" opacity="{{ig.f1.op}}"></use>
-<use href="{{ig.f2.href}}" transform="{{ig.f2.tf}}" opacity="{{ig.f2.op}}"></use>
-<use href="{{ig.f3.href}}" transform="{{ig.f3.tf}}" opacity="{{ig.f3.op}}"></use>
-<use href="{{ig.f4.href}}" transform="{{ig.f4.tf}}" opacity="{{ig.f4.op}}"></use>
-<use href="{{ig.f5.href}}" transform="{{ig.f5.tf}}" opacity="{{ig.f5.op}}"></use>
-<use href="{{ig.f6.href}}" transform="{{ig.f6.tf}}" opacity="{{ig.f6.op}}"></use>
-<use href="{{ig.f7.href}}" transform="{{ig.f7.tf}}" opacity="{{ig.f7.op}}"></use>
-<use href="{{ig.f8.href}}" transform="{{ig.f8.tf}}" opacity="{{ig.f8.op}}"></use>
-<use href="{{ig.f9.href}}" transform="{{ig.f9.tf}}" opacity="{{ig.f9.op}}"></use>
-<use href="{{ig.f10.href}}" transform="{{ig.f10.tf}}" opacity="{{ig.f10.op}}"></use>
-<use href="{{ig.f11.href}}" transform="{{ig.f11.tf}}" opacity="{{ig.f11.op}}"></use>
-</g>
-</svg></div>
-<div style="padding: 20px 0 8px; display: flex; flex-wrap: wrap; gap: 20px 48px; align-items: flex-start">
-<div style="flex: 1 1 300px; min-width: 0">
 
-<p style="margin: 8px 0 0; font-size: 36px; line-height: 1.08; font-weight: 700; letter-spacing: -0.035em">¿Qué aporta el diseñador gráfico que la IA no puede calcular?</p>
-</div>
-<div style="flex: 1.3 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
-<p style="margin: 0; font-size: 26px; line-height: 1.25; font-weight: 600; letter-spacing: -0.02em">La IA calcula lo <span style="background: linear-gradient(transparent 58%, #D9CCFF 58%)">probable</span>. El diseñador decide qué es <span style="background: linear-gradient(transparent 58%, #C8EC8E 58%)">honesto</span> mostrar.</p>
-<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3F3A57">La IA rellena, limpia y completa: elige la respuesta más parecida a millones de imágenes. El diseñador separa el documento de la interpretación, marca lo que falta en vez de inventarlo y le da a cada persona herramientas para dudar. Eso no es un cálculo: es criterio, ética y cuidado por la memoria.</p>
-</div>
+<div style="padding: 28px 0 4px; display: flex; flex-wrap: wrap; gap: 16px 48px; align-items: flex-end">
+<h2 style="flex: 1 1 300px; margin: 0; font-size: 44px; line-height: 1.05; font-weight: 700; letter-spacing: -0.035em">Memories are roots.</h2>
+<p style="flex: 1.4 1 380px; margin: 0; font-size: 18px; line-height: 1.6; color: #3F3A57">No story grows from a single seed. Our history is held up by many roots: the big events everyone remembers and, under them, thousands of smaller ones. Every little story and every version that someone lived is a thinner root. We all come from the same earth, connected underground even when we can’t see it.</p>
 </div>
 <div style="position: relative; margin-top: 8px">
 <svg aria-hidden="true" viewBox="0 0 1000 80" preserveAspectRatio="none" style="position: absolute; left: -68px; top: 0; width: calc(100% + 68px); height: 80px; pointer-events: none; overflow: visible">
@@ -397,7 +362,6 @@ input[type=range]{accent-color:#6FA03C}
 <svg aria-hidden="true" viewBox="0 0 90 70" style="width: 90px; height: 70px; overflow: visible; margin: -6px 0 0 -10px"><g filter="url(#f-grain)"><path d="M30 60 C20 52 8 54 2 60 C10 66 22 66 30 60 Z" fill="#A2CBB2"></path><path d="M30 60 C20 60 10 60 2 60 C10 64 22 64 30 60 Z" fill="#6E9E88"></path><use href="{{pl.k}}" transform="translate(40 64) scale(0.62)"></use></g></svg>
 <h2 class="ptitle" style="margin: 0">{{pl.title}}</h2>
 <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #3F3A57">{{pl.text}}</p>
-<p style="margin: 0; font-size: 12px; line-height: 1.45; color: #7B7868">{{pl.ref}}</p>
 </article>
 </sc-for>
 </div>
@@ -416,8 +380,8 @@ input[type=range]{accent-color:#6FA03C}
 </g>
 </svg>
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
-<div><h1 id="t1" class="h1">Elige una fotografía</h1></div>
-<div role="group" aria-label="Filtrar por tema" style="display: flex; gap: 6px; flex-wrap: wrap">
+<div><h1 id="t1" class="h1">Choose a photograph</h1></div>
+<div role="group" aria-label="Filter by theme" style="display: flex; gap: 6px; flex-wrap: wrap">
 <sc-for list="{{filters}}" as="f" hint-placeholder-count="4"><button class="seg {{f.cls}}" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}" style="border-radius: 12px">{{f.label}}</button></sc-for>
 </div>
 </div>
@@ -469,7 +433,7 @@ input[type=range]{accent-color:#6FA03C}
 <div style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15">{{cs.es}}</div>
 <div style="font-size: 14px; line-height: 1.45; color: #3F3A57; margin-top: 2px">{{cs.short}}</div>
 </div>
-<button class="btn btn-g" onClick="{{openCase}}">Explorar esta foto</button>
+<button class="btn btn-g" onClick="{{openCase}}">Explore this photo</button>
 </div>
 </div>
 </section>
@@ -486,7 +450,7 @@ input[type=range]{accent-color:#6FA03C}
 </g>
 </svg>
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
-<div><h1 id="t2" class="h1">Versiones de la historia</h1></div>
+<div><h1 id="t2" class="h1">Versions of the story</h1></div>
 
 </div>
 <div style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
@@ -569,17 +533,17 @@ input[type=range]{accent-color:#6FA03C}
 <div style="position: absolute; {{mem.pos}}; transform: translateX(-50%); z-index: 2">
 <div style="position: relative; padding: 20px 10px; background: #1F1C18; border-radius: 6px; box-shadow: {{mem.glow}}; transition: box-shadow 0.8s ease">
 <span aria-hidden="true" style="position: absolute; left: 10px; right: 10px; top: 6px; height: 8px; background: repeating-linear-gradient(90deg, #FBF8F0 0 9px, transparent 9px 20px); border-radius: 2px"></span>
-<div class="ph" style="aspect-ratio: {{cs.ratio}}; border-radius: 2px"><img src="{{cs.v1}}" alt="Fotografía: {{cs.es}}"></div>
+<div class="ph" style="aspect-ratio: {{cs.ratio}}; border-radius: 2px"><img src="{{cs.v1}}" alt="Photograph: {{cs.es}}"></div>
 <span aria-hidden="true" style="position: absolute; left: 10px; right: 10px; bottom: 6px; height: 8px; background: repeating-linear-gradient(90deg, #FBF8F0 0 9px, transparent 9px 20px); border-radius: 2px"></span>
 </div>
 </div>
 
 <div style="position: absolute; left: 2%; bottom: 3%; z-index: 3; display: flex; gap: 6px; flex-wrap: wrap; max-width: 96%">
-<span class="pill p-doc">Documento</span><span class="pill p-int">Interpretación</span><span class="pill p-disp">En disputa</span><span class="pill p-ia">IA</span>
+<span class="pill p-doc">Document</span><span class="pill p-int">Interpretation</span><span class="pill p-disp">Disputed</span><span class="pill p-ia">AI</span>
 </div>
 </div>
 </div>
-<aside aria-label="Versión seleccionada" style="flex: 1 1 280px; min-width: 0; padding: 18px 18px 18px 22px; display: flex; flex-direction: column; gap: 12px">
+<aside aria-label="Selected version" style="flex: 1 1 280px; min-width: 0; padding: 18px 18px 18px 22px; display: flex; flex-direction: column; gap: 12px">
 
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px">
 <div class="ptitle">{{vd.who}}</div>
@@ -590,7 +554,7 @@ input[type=range]{accent-color:#6FA03C}
 <p style="margin: 0; font-size: 15px; line-height: 1.6">{{vd.text}}</p>
 <p style="margin: 0; font-size: 12px; line-height: 1.5; color: #7B7868">{{vd.src}}</p>
 </sc-if>
-<button class="btn btn-g" onClick="{{goLayers}}">Ver las capas de la foto</button>
+<button class="btn btn-g" onClick="{{goLayers}}">See the photo’s layers</button>
 </aside>
 </div>
 </section>
@@ -607,12 +571,12 @@ input[type=range]{accent-color:#6FA03C}
 </g>
 </svg>
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
-<div><div class="kick">Paso 3 de 6 · {{cs.es}}</div><h1 id="t3" class="h1">Capas de la foto</h1></div>
+<div><div class="kick">Step 3 of 6 · {{cs.es}}</div><h1 id="t3" class="h1">Layers of the photo</h1></div>
 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
-<button class="ib" aria-label="Apilar capas" aria-pressed="{{isStacked}}" onClick="{{stack}}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6 L21 10 L12 14 L3 10 Z M3 13 L12 17 L21 13"></path></svg></button>
-<button class="ib" aria-label="Separar capas" aria-pressed="{{isExploded}}" onClick="{{explode}}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L21 6 L12 10 L3 6 Z M3 12 L12 16 L21 12 M3 18 L12 22 L21 18"></path></svg></button>
-<button class="ib" aria-label="Mostrar todas las capas" onClick="{{showAll}}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12 C5 6 19 6 22 12 C19 18 5 18 2 12 Z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
-<input type="range" min="0" max="100" step="1" value="{{sep}}" onChange="{{onSep}}" aria-label="Separación entre capas" style="width: 170px; height: 44px; margin-left: 6px">
+<button class="ib" aria-label="Stack layers" aria-pressed="{{isStacked}}" onClick="{{stack}}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6 L21 10 L12 14 L3 10 Z M3 13 L12 17 L21 13"></path></svg></button>
+<button class="ib" aria-label="Separate layers" aria-pressed="{{isExploded}}" onClick="{{explode}}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L21 6 L12 10 L3 6 Z M3 12 L12 16 L21 12 M3 18 L12 22 L21 18"></path></svg></button>
+<button class="ib" aria-label="Show all layers" onClick="{{showAll}}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12 C5 6 19 6 22 12 C19 18 5 18 2 12 Z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+<input type="range" min="0" max="100" step="1" value="{{sep}}" onChange="{{onSep}}" aria-label="Layer separation" style="width: 170px; height: 44px; margin-left: 6px">
 </div>
 </div>
 <div style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
@@ -620,7 +584,7 @@ input[type=range]{accent-color:#6FA03C}
 <div style="position: absolute; inset: 0; transform-style: preserve-3d">
 <sc-for list="{{layers}}" as="L" hint-placeholder-count="5">
 <div style="position: absolute; left: 50%; top: 50%; width: {{L.w}}px; transform: {{L.tf}}; opacity: {{L.op}}; transition: transform 0.55s ease, opacity 0.3s ease">
-<button aria-label="Ver de frente: {{L.title}}" onClick="{{L.focus}}" style="display: block; width: 100%; position: relative; padding: 8px; margin: 0; cursor: zoom-in; border-radius: 14px; border: 1.5px solid {{L.bd}}; background: rgba(255,255,255,0.45); box-shadow: 0 28px 50px rgba(63,58,87,0.22)">
+<button aria-label="View head-on: {{L.title}}" onClick="{{L.focus}}" style="display: block; width: 100%; position: relative; padding: 8px; margin: 0; cursor: zoom-in; border-radius: 14px; border: 1.5px solid {{L.bd}}; background: rgba(255,255,255,0.45); box-shadow: 0 28px 50px rgba(63,58,87,0.22)">
 <img src="{{L.img}}" alt="" style="display: block; width: 100%; height: auto; border-radius: 8px">
 <span class="pill" style="position: absolute; right: 10px; top: -30px; background: #FFFFFF; border-color: #FFFFFF; color: #161616">{{L.title}}</span>
 </button>
@@ -631,7 +595,7 @@ input[type=range]{accent-color:#6FA03C}
 <div role="dialog" aria-label="{{fv.title}}" class="{{fv.bgCls}}" style="position: absolute; inset: 0; z-index: 10; background: rgba(243,242,236,0.88); backdrop-filter: blur(6px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 24px; box-sizing: border-box">
 <div style="width: 100%; max-width: {{fv.maxw}}; display: flex; justify-content: space-between; align-items: center; gap: 12px">
 <span class="ptitle">{{fv.title}}</span>
-<button class="btn btn-p" onClick="{{closeFocus}}">Volver a la pila</button>
+<button class="btn btn-p" onClick="{{closeFocus}}">Back to the stack</button>
 </div>
 <div class="{{fv.cls}}" style="position: relative; width: 100%; max-width: {{fv.maxw}}; padding: 8px; background: #FFFFFF; border-radius: 16px; box-shadow: 0 30px 60px rgba(63,58,87,0.3)">
 <img src="{{fv.img}}" alt="{{fv.title}}" style="display: block; width: 100%; height: auto; border-radius: 10px">
@@ -645,7 +609,7 @@ input[type=range]{accent-color:#6FA03C}
 </div>
 <div style="flex: 1 1 280px; min-width: 0; padding: 18px 14px 18px 12px">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; padding-left: 10px">
-<span class="ptitle">Capas</span>
+<span class="ptitle">Layers</span>
 <button class="ib ib-d" aria-label="{{mStr.lbl}}" aria-expanded="{{mStr.open}}" onClick="{{mStr.toggle}}">{{mStr.icon}}</button>
 </div>
 <sc-if value="{{mStr.openB}}">
@@ -653,7 +617,7 @@ input[type=range]{accent-color:#6FA03C}
 <span aria-hidden="true" style="position: absolute; left: 21px; top: 22px; bottom: 22px; width: 2px; border-radius: 1px; background: linear-gradient(#CFC7EE, #7FB24A)"></span>
 <sc-for list="{{strataRows}}" as="r" hint-placeholder-count="5">
 <li style="display: flex; gap: 10px; align-items: flex-start; padding: 6px 0">
-<button class="tdot" aria-label="Aislar: {{r.title}}" aria-pressed="{{r.soloPressed}}" onClick="{{r.soloF}}"><span style="width: 16px; height: 16px; border-radius: 8px; box-sizing: border-box; {{r.dot}}"></span></button>
+<button class="tdot" aria-label="Isolate: {{r.title}}" aria-pressed="{{r.soloPressed}}" onClick="{{r.soloF}}"><span style="width: 16px; height: 16px; border-radius: 8px; box-sizing: border-box; {{r.dot}}"></span></button>
 <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px; padding-top: 10px">
 <span style="font-size: 16px; font-weight: 600; color: {{r.txt}}">{{r.title}}</span>
 <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap">
@@ -668,14 +632,14 @@ input[type=range]{accent-color:#6FA03C}
 </div>
 </div>
 <div style="display: flex; justify-content: flex-end; gap: 12px; flex-wrap: wrap">
-<button class="btn btn-s" onClick="{{goVersions}}">Volver a versiones</button>
-<button class="btn btn-p" onClick="{{goInvestigate}}">Buscar los cambios</button>
+<button class="btn btn-s" onClick="{{goVersions}}">Back to versions</button>
+<button class="btn btn-p" onClick="{{goInvestigate}}">Find the changes</button>
 </div>
 <sc-if value="{{docOpen}}">
 <aside role="dialog" aria-label="{{dd.es}}" style="position: absolute; right: 16px; top: 120px; width: 380px; max-width: calc(100% - 32px); z-index: 5; background-color: #F5EEDD; background-image: repeating-linear-gradient(0deg, rgba(122,95,51,0.10) 0 1px, transparent 1px 26px); color: #161616; padding: 24px; border-radius: 20px; box-shadow: 0 30px 60px rgba(63,58,87,0.3); display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px">
 <h3 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1">{{dd.es}}</h3>
-<button class="ib" aria-label="Cerrar" onClick="{{closeDoc}}">✕</button>
+<button class="ib" aria-label="Close" onClick="{{closeDoc}}">✕</button>
 </div>
 <span class="pill {{dd.t.cls}}" style="align-self: flex-start">{{dd.t.sym}} {{dd.t.w}}</span>
 <p style="margin: 0; font-size: 15px; line-height: 1.6">{{dd.text}}</p>
@@ -697,7 +661,7 @@ input[type=range]{accent-color:#6FA03C}
 <use href="#fl-tulip-o" transform="translate(60 102) scale(0.82)"></use>
 </g>
 </svg>
-<div><div class="kick">Paso 4 de 6 · {{cs.es}}</div><h1 id="t4" class="h1">Busca los cambios</h1></div>
+<div><div class="kick">Step 4 of 6 · {{cs.es}}</div><h1 id="t4" class="h1">Find the changes</h1></div>
 <div style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
 <div style="flex: 999 1 620px; min-width: 0; padding: 10px; display: flex; flex-direction: column; gap: 14px">
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
@@ -708,7 +672,7 @@ input[type=range]{accent-color:#6FA03C}
 </div>
 <div class="ph" style="aspect-ratio: {{cs.ratio}}">
 <img src="{{p.img}}" alt="{{p.title}}">
-<button class="hs" style="left: 0; top: 0; width: 100%; height: 100%" aria-label="Examinar otra parte de la imagen" onClick="{{p.miss}}"></button>
+<button class="hs" style="left: 0; top: 0; width: 100%; height: 100%" aria-label="Examine another part of the image" onClick="{{p.miss}}"></button>
 <sc-for list="{{p.spots}}" as="h" hint-placeholder-count="3"><button class="hs" style="left: {{h.l}}%; top: {{h.t}}%; width: {{h.w}}%; height: {{h.h}}%" aria-label="{{h.aria}}" onClick="{{h.pick}}"></button></sc-for>
 <sc-for list="{{p.marks}}" as="m">
 <span aria-hidden="true" style="position: absolute; {{m.box}}; border: 2.5px dashed {{m.col}}; border-radius: 10px; box-sizing: border-box; pointer-events: none"></span>
@@ -720,9 +684,9 @@ input[type=range]{accent-color:#6FA03C}
 </div>
 <p role="status" aria-live="polite" style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F3A57; font-weight: 500">{{msg}}</p>
 </div>
-<aside aria-label="Cambios encontrados" style="flex: 1 1 280px; min-width: 0; padding: 18px 18px 18px 22px; display: flex; flex-direction: column; gap: 14px">
+<aside aria-label="Changes found" style="flex: 1 1 280px; min-width: 0; padding: 18px 18px 18px 22px; display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
-<span class="ptitle">Cambios encontrados <span style="color: #3E6B17">{{foundN}}/{{anomTotal}}</span></span>
+<span class="ptitle">Changes found <span style="color: #3E6B17">{{foundN}}/{{anomTotal}}</span></span>
 <button class="ib ib-d" aria-label="{{mEv.lbl}}" aria-expanded="{{mEv.open}}" onClick="{{mEv.toggle}}">{{mEv.icon}}</button>
 </div>
 <sc-if value="{{mEv.openB}}">
@@ -735,9 +699,9 @@ input[type=range]{accent-color:#6FA03C}
 </sc-for>
 </ol>
 <sc-if value="{{showHint}}"><p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3F3A57">{{hintTxt}}</p></sc-if>
-<button class="btn btn-s" onClick="{{askHint}}">Pedir una pista</button>
+<button class="btn btn-s" onClick="{{askHint}}">Ask for a hint</button>
 </sc-if>
-<button class="btn btn-g" onClick="{{goRebuild}}">Reconstruir la foto</button>
+<button class="btn btn-g" onClick="{{goRebuild}}">Rebuild the photo</button>
 </aside>
 </div>
 </section>
@@ -756,14 +720,14 @@ input[type=range]{accent-color:#6FA03C}
 </g>
 </svg>
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
-<div><div class="kick">Paso 5 de 6 · {{cs.es}}</div><h1 id="t5" class="h1">Reconstruye la foto</h1></div>
-<p style="margin: 0; font-size: 15px; color: #3F3A57; font-weight: 500">Toca cada punto verde y decide.</p>
+<div><div class="kick">Step 5 of 6 · {{cs.es}}</div><h1 id="t5" class="h1">Rebuild the photo</h1></div>
+<p style="margin: 0; font-size: 15px; color: #3F3A57; font-weight: 500">Tap each green point and decide.</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
 <div style="flex: 999 1 600px; min-width: 0; padding: 4px">
 <div class="ph" style="aspect-ratio: {{cs.ratio}}; overflow: visible; border-radius: 16px">
 <div style="position: absolute; inset: 0; border-radius: 16px; overflow: hidden">
-<img src="{{rc.base}}" alt="Tu reconstrucción">
+<img src="{{rc.base}}" alt="Your reconstruction">
 <sc-if value="{{rc.cornerOn}}"><img src="{{rc.cornerImg}}" alt="" style="clip-path: {{rc.cornerClip}}"></sc-if>
 <sc-if value="{{rc.dateOn}}"><img src="{{rc.dateImg}}" alt="" style="clip-path: {{rc.dateClip}}"></sc-if>
 <sc-if value="{{rc.realOn}}"><span class="pm" style="position: absolute; right: 2%; bottom: 3%; background: #F5EEDD; color: #7A5F33; border: 1.5px solid #C7A974; border-radius: 8px; padding: 6px 10px; font-size: 13px; font-weight: 600">{{rc.realTxt}}</span></sc-if>
@@ -776,7 +740,7 @@ input[type=range]{accent-color:#6FA03C}
 <div role="dialog" aria-label="{{pop.title}}" style="position: absolute; {{pop.pos}}; width: 300px; z-index: 6; background: #FFFFFF; border-radius: 20px; padding: 16px; box-shadow: 0 24px 60px rgba(22,22,22,0.35); display: flex; flex-direction: column; gap: 8px">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
 <span class="ptitle">{{pop.title}}</span>
-<button class="ib" aria-label="Cerrar" onClick="{{closePop}}">✕</button>
+<button class="ib" aria-label="Close" onClick="{{closePop}}">✕</button>
 </div>
 <p style="margin: 0 0 4px; font-size: 13px; line-height: 1.45; color: #5E5B6B">{{pop.q}}</p>
 <sc-for list="{{pop.opts}}" as="o" hint-placeholder-count="3">
@@ -789,19 +753,19 @@ input[type=range]{accent-color:#6FA03C}
 <div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
 <div style="padding: 14px 14px 14px 20px; display: flex; flex-direction: column; gap: 10px">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
-<span class="ptitle">Tus decisiones <span style="color: #3E6B17">{{chosenN}}/3</span></span>
+<span class="ptitle">Your decisions <span style="color: #3E6B17">{{chosenN}}/3</span></span>
 <button class="ib ib-d" aria-label="{{mDec.lbl}}" aria-expanded="{{mDec.open}}" onClick="{{mDec.toggle}}">{{mDec.icon}}</button>
 </div>
 <sc-if value="{{mDec.openB}}">
 <sc-for list="{{decList}}" as="dl" hint-placeholder-count="3">
 <button class="opt" onClick="{{dl.open}}"><span>{{dl.txt}}</span><span class="pill {{dl.cls}}">{{dl.w}}</span></button>
 </sc-for>
-<svg role="img" aria-label="Raíces que unen cada zona con su fuente" viewBox="0 0 360 210" style="display: block; width: 100%; height: auto; background: #FFFFFF; border-radius: 16px; margin-top: 6px">
+<svg role="img" aria-label="Roots linking each zone to its source" viewBox="0 0 360 210" style="display: block; width: 100%; height: auto; background: #FFFFFF; border-radius: 16px; margin-top: 6px">
 <g font-family="General Sans, IBM Plex Sans, sans-serif" font-size="13" font-weight="600" fill="#161616">
 <text x="98" y="34" text-anchor="end">Original</text>
-<text x="98" y="84" text-anchor="end">Editada</text>
-<text x="98" y="134" text-anchor="end">IA</text>
-<text x="98" y="184" text-anchor="end">Sin fuente</text>
+<text x="98" y="84" text-anchor="end">Edited</text>
+<text x="98" y="134" text-anchor="end">AI</text>
+<text x="98" y="184" text-anchor="end">No source</text>
 <text x="284" y="54">{{zn1}}</text><text x="284" y="109">{{zn2}}</text><text x="284" y="164">{{zn3}}</text>
 </g>
 <path d="{{rp1.d}}" fill="none" stroke="{{rp1.stroke}}" stroke-width="{{rp1.w}}" stroke-dasharray="{{rp1.dash}}" opacity="{{rp1.op}}" stroke-linecap="round"></path>
@@ -815,9 +779,9 @@ input[type=range]{accent-color:#6FA03C}
 <circle cx="270" cy="105" r="7" fill="#FFFFFF" stroke="#161616" stroke-width="2"></circle>
 <circle cx="270" cy="160" r="7" fill="#FFFFFF" stroke="#161616" stroke-width="2"></circle>
 </svg>
-<textarea rows="2" value="{{note}}" onChange="{{onNote}}" aria-label="Nota del investigador" placeholder="Nota del investigador…" style="background: #FFFFFF; color: #161616; border: 1px solid #D9D6CC; border-radius: 14px; padding: 12px 14px; resize: vertical"></textarea>
+<textarea rows="2" value="{{note}}" onChange="{{onNote}}" aria-label="Researcher’s note" placeholder="Researcher’s note…" style="background: #FFFFFF; color: #161616; border: 1px solid #D9D6CC; border-radius: 14px; padding: 12px 14px; resize: vertical"></textarea>
 </sc-if>
-<button class="btn btn-g" disabled="{{notReady}}" onClick="{{goCompare}}">Comparar versiones</button>
+<button class="btn btn-g" disabled="{{notReady}}" onClick="{{goCompare}}">Compare versions</button>
 </div>
 </div>
 </div>
@@ -834,7 +798,7 @@ input[type=range]{accent-color:#6FA03C}
 <use href="#fl-peony" transform="translate(60 102) scale(0.82)"></use>
 </g>
 </svg>
-<div><div class="kick">Paso 6 de 6 · {{cs.es}}</div><h1 id="t6" class="h1">¿Cuál es la original?</h1></div>
+<div><div class="kick">Step 6 of 6 · {{cs.es}}</div><h1 id="t6" class="h1">Which one is the original?</h1></div>
 <p style="margin: 0; max-width: 860px; font-size: 17px; line-height: 1.55; color: #3F3A57">{{cmp.lede}}</p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
 <sc-for list="{{cmp.cards}}" as="k" hint-placeholder-count="3">
@@ -859,10 +823,10 @@ input[type=range]{accent-color:#6FA03C}
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; justify-content: space-between">
 <blockquote style="flex: 1 1 480px; max-width: 760px; margin: 0">
-<p style="margin: 0; font-size: 34px; line-height: 1.08; font-weight: 700; letter-spacing: -0.035em">La memoria no debería depender solo de <span style="background: linear-gradient(transparent 58%, #D9CCFF 58%)">lo que un algoritmo puede reconstruir</span>, sino de <span style="background: linear-gradient(transparent 58%, #C8EC8E 58%)">lo que las personas pueden recordar, cuestionar y preservar</span>.</p>
+<p style="margin: 0; font-size: 34px; line-height: 1.08; font-weight: 700; letter-spacing: -0.035em">Memory should not depend only on <span style="background: linear-gradient(transparent 58%, #D9CCFF 58%)">what an algorithm can reconstruct</span>, but on <span style="background: linear-gradient(transparent 58%, #C8EC8E 58%)">what people can remember, question and preserve</span>.</p>
 </blockquote>
 <div style="display: flex; gap: 10px; flex-wrap: wrap">
-<button class="btn btn-s" onClick="{{toArchive}}">Elegir otra foto</button>
+<button class="btn btn-s" onClick="{{toArchive}}">Choose another photo</button>
 <button class="btn btn-g" disabled="{{archivedCur}}" onClick="{{archive}}">{{archiveLabel}}</button>
 </div>
 </div>
@@ -880,12 +844,12 @@ class DCLogic {
 }
 
 const ST = {
-  doc: { w: 'Documento', sym: '■', cls: 'p-doc' },
-  int: { w: 'Interpretación', sym: '◆', cls: 'p-int' },
-  unk: { w: 'Desconocido', sym: '?', cls: 'p-unk' },
-  ia: { w: 'IA', sym: '⬡', cls: 'p-ia' },
-  alt: { w: 'Alterado', sym: '✕', cls: 'p-alt' },
-  disp: { w: 'En disputa', sym: '≠', cls: 'p-disp' }
+  doc: { w: 'Document', sym: '■', cls: 'p-doc' },
+  int: { w: 'Interpretation', sym: '◆', cls: 'p-int' },
+  unk: { w: 'Unknown', sym: '?', cls: 'p-unk' },
+  ia: { w: 'AI', sym: '⬡', cls: 'p-ia' },
+  alt: { w: 'Altered', sym: '✕', cls: 'p-alt' },
+  disp: { w: 'Disputed', sym: '≠', cls: 'p-disp' }
 };
 const B = 'img/';
 const ROOT_COL = { doc: '#F2A65A', int: '#86B59C', ia: '#B7A6EC', disp: '#F5C451', alt: '#F08A80', unk: '#C9C7D3' };
@@ -992,104 +956,104 @@ const LABEL = [70, 88, 30, 12];
 
 const CASES = [
   { id: 'e1', x: 150, y: 250, tags: ['revolucion'], ratio: '800 / 536', w: 420,
-    imgs: ['7a9ad67a18ac950847417b26ac0d8bf1', '74f152ff74b5063b1545ceb78b6882d5', '2dde0c943cc538d6d97a300f16f031d1', 'c9cd58a456617805fc8c80b15591ea48', '9c2000f1ea65cf0700f8448f4a55c089'],
-    place: 'Petrogrado, ¿1917?', es: 'Caballería en la nieve', date: '1917', aiDate: '1918',
-    short: 'Jinetes armados en una plaza nevada. Se atribuye a la Revolución de Febrero, en Petrogrado.',
+    imgs: ['7a9ad67a18ac950847417b26ac0d8bf1', '74f152ff74b5063b1545ceb78b6882d5', '2dde0c943cc538d6d97a300f16f031d1', 'c9cd58a456617805fc8c80b15591ea48', '6f81c307edc76bf97f3b6caa8db73efd'],
+    place: 'Petrograd, 1917?', es: 'Cavalry in the snow', date: '1917', aiDate: '1918',
+    short: 'Armed riders in a snowy square. Attributed to the February Revolution in Petrograd.',
     corner: 'tl', edits: [
-      { es: 'Jinete borrado', box: [48, 50.4, 7.2, 27.2], txt: 'Se borró a uno de los jinetes; el hueco se rellenó copiando el fondo de al lado.', hint: 'Compara Original y Editada: cuenta los jinetes del centro.' },
-      { es: 'Tejado retocado', box: [87.5, 24, 12.5, 10], txt: 'Se borraron las chimeneas del edificio de la derecha.', hint: 'Mira el tejado del edificio de la derecha.' }],
+      { es: 'Rider erased', box: [48, 50.4, 7.2, 27.2], txt: 'One of the riders was erased; the gap was filled by copying the background next to it.', hint: 'Compare Original and Edited: count the riders in the center.' },
+      { es: 'Roof retouched', box: [87.5, 24, 12.5, 10], txt: 'The chimneys of the building on the right were erased.', hint: 'Look at the roof of the building on the right.' }],
     versions: [
-      { who: 'Informe de la policía', year: 'Febrero de 1917', st: 'doc', text: 'Según un informe policial citado por la historiografía soviética, en la isla Vasílievski una patrulla de cosacos se negó a ayudar a un inspector rodeado por la multitud, y en la plaza Známenskaya los cosacos se mantuvieron al margen mientras la gente expulsaba a la policía montada.', src: 'Historia de la Guerra Civil en la URSS, vol. 1 (cita el informe policial).' },
-      { who: 'León Trotski', year: 'Relato de 1930', st: 'int', text: 'En su Historia de la Revolución Rusa, Trotski cuenta que la multitud gritaba «¡Abajo la policía!» y, cada vez más, «¡Hurra!» a los cosacos. Para él, era la señal de que la tropa empezaba a cambiar de lado.', src: 'L. Trotski, Historia de la Revolución Rusa, cap. 7.' },
-      { who: 'Gobernador A. P. Balk', year: '27 de febrero de 1917', st: 'doc', text: 'Ese día, unidades de la guarnición se negaron a salir de los cuarteles para reprimir las protestas y se unieron a los rebeldes. «Hemos perdido el poder», escribió el gobernador de Petrogrado.', src: 'Memorias de A. P. Balk, Russkoe proshloe, 1991.' },
-      { who: 'Cifras de víctimas', year: 'Fuentes posteriores', st: 'disp', text: 'Las cifras de muertos no coinciden: una enciclopedia de San Petersburgo habla de más de 300 personas; otras fuentes cifran en 1.443 los muertos en Petrogrado.', src: 'Enciclopedia de San Petersburgo · Wikipedia (Revolución de Febrero).' },
-      { who: 'Modelo IA', year: '2050 · ficción del escenario', st: 'ia', text: 'Clasificación automática: «Cosacos cargan contra manifestantes, 1918». La IA no sabe quiénes son los jinetes ni contra quién iban; el relato de los testigos dice lo contrario.', src: 'Informe ficticio del escenario Moscú 2050.' }
+      { who: 'Police report', year: 'February 1917', st: 'doc', text: 'According to a police report cited by Soviet historians, on Vasilievsky Island a Cossack patrol refused to help an inspector surrounded by the crowd, and on Znamenskaya Square the Cossacks stood aside while people drove out the mounted police.', src: 'History of the Civil War in the USSR, vol. 1 (quotes the police report).' },
+      { who: 'Leon Trotsky', year: '1930 account', st: 'int', text: 'In his History of the Russian Revolution, Trotsky writes that the crowd shouted “Down with the police!” and, more and more often, “Hurrah!” to the Cossacks. For him, it was a sign that the troops were starting to switch sides.', src: 'L. Trotsky, History of the Russian Revolution, ch. 7.' },
+      { who: 'Governor A. P. Balk', year: 'February 27, 1917', st: 'doc', text: 'That day, garrison units refused to leave their barracks to put down the protests and joined the rebels. “We have lost power,” wrote the governor of Petrograd.', src: 'Memoirs of A. P. Balk, Russkoe proshloe, 1991.' },
+      { who: 'Casualty figures', year: 'Later sources', st: 'disp', text: 'The death tolls don’t match: an encyclopedia of Saint Petersburg speaks of more than 300 people; other sources put the dead in Petrograd at 1,443.', src: 'Encyclopedia of Saint Petersburg · Wikipedia (February Revolution).' },
+      { who: 'AI model', year: '2050 · scenario fiction', st: 'ia', text: 'Automatic classification: “Cossacks charge at protesters, 1918.” The AI doesn’t know who the riders are or who they were riding against; witness accounts say the opposite.', src: 'Fictional report from the Moscow 2050 scenario.' }
     ] },
   { id: 'e2', x: 290, y: 430, tags: ['revolucion'], ratio: '1200 / 794', w: 430,
-    imgs: ['e6a838d5ab219fa20131192268d3b392', 'e207e319bd7b438abbc7f39d0a132a09', '8f7c6d3676a48c310a8d99bc791efe88', '49ebec1600ff9e8c208514c21a36063c', '52ce172e453f0da277ca7df4521c62cb'],
-    place: 'Petrogrado, julio de 1920', es: 'Asamblea en la fábrica Putílov', date: '1920', aiDate: '1917',
-    short: 'Suele publicarse como de 1917, pero el estandarte delata que es de 1920.',
+    imgs: ['e6a838d5ab219fa20131192268d3b392', 'e207e319bd7b438abbc7f39d0a132a09', '8f7c6d3676a48c310a8d99bc791efe88', '49ebec1600ff9e8c208514c21a36063c', '8af8f8de0999ad717749974f4dc478bd'],
+    place: 'Petrograd, July 1920', es: 'Assembly at the Putilov factory', date: '1920', aiDate: '1917',
+    short: 'It is often published as 1917, but the banner shows it is from 1920.',
     corner: 'bl', edits: [
-      { es: 'Lema borrado', box: [7, 28, 13, 10], txt: 'Se borró «III Интернационал» del estandarte copiando la tela de abajo. Sin esa pista, la foto puede pasar por una de 1917.', hint: 'Compara Original y Editada: lee el estandarte de la izquierda.' },
-      { es: 'Estandarte en blanco', box: [74.6, 14.2, 12.5, 14.2], txt: 'Se borró el nombre de la fábrica del estandarte de la derecha.', hint: 'Lee el estandarte de la derecha.' }],
+      { es: 'Slogan erased', box: [7, 28, 13, 10], txt: '“III Интернационал” was erased from the banner by copying the fabric below. Without that clue, the photo can pass for one from 1917.', hint: 'Compare Original and Edited: read the banner on the left.' },
+      { es: 'Blank banner', box: [74.6, 14.2, 12.5, 14.2], txt: 'The factory name was erased from the banner on the right.', hint: 'Read the banner on the right.' }],
     versions: [
-      { who: 'Nota al dorso', year: 'Julio de 1920', st: 'doc', text: '«Nuevas elecciones al sóviet de Petrogrado en la fábrica Putílov, tras el informe del camarada Glebov-Putilovski, julio de 1920.»', src: 'Graduate Institute Geneva, colección «Soviet Russia Photos».' },
-      { who: 'Historiadores de Ginebra', year: 'Estudio de 2021', st: 'int', text: 'La foto muestra la política de Petrogrado alrededor del II Congreso de la Internacional Comunista, en julio de 1920 o poco antes.', src: 'J.-L. Maurer, OpenEdition Books, 2021.' },
-      { who: 'Banco de imágenes', year: 'Pie de foto comercial', st: 'disp', text: 'Algunos bancos de imágenes la venden como una votación obrera «celebrada en 1917» en la fábrica Putílov. El estandarte de la III Internacional, fundada en 1919, lo desmiente.', src: 'Mediastorehouse / Mary Evans Picture Library.' },
-      { who: 'La huelga de 1917', year: 'Contexto', st: 'doc', text: 'La confusión tiene una causa: la huelga de la fábrica Putílov, iniciada el 18 de febrero de 1917, se considera la chispa de la Revolución de Febrero.', src: 'Wikipedia, «Putilov strike of 1917».' },
-      { who: 'Modelo IA', year: '2050 · ficción del escenario', st: 'ia', text: 'Fecha estimada: 1917, por correlación con otras imágenes de la fábrica. El modelo trabajó sobre la copia sin el estandarte completo.', src: 'Informe ficticio del escenario Moscú 2050.' }
+      { who: 'Note on the back', year: 'July 1920', st: 'doc', text: '“New elections to the Petrograd Soviet at the Putilov factory, after the report by Comrade Glebov-Putilovsky, July 1920.”', src: 'Graduate Institute Geneva, “Soviet Russia Photos” collection.' },
+      { who: 'Geneva historians', year: '2021 study', st: 'int', text: 'The photo shows Petrograd politics around the Second Congress of the Communist International, in July 1920 or shortly before.', src: 'J.-L. Maurer, OpenEdition Books, 2021.' },
+      { who: 'Stock image site', year: 'Commercial caption', st: 'disp', text: 'Some stock image sites sell it as a workers’ vote “held in 1917” at the Putilov factory. The banner of the Third International, founded in 1919, proves otherwise.', src: 'Mediastorehouse / Mary Evans Picture Library.' },
+      { who: 'The 1917 strike', year: 'Context', st: 'doc', text: 'The confusion has a cause: the Putilov factory strike, which began on February 18, 1917, is considered the spark of the February Revolution.', src: 'Wikipedia, «Putilov strike of 1917».' },
+      { who: 'AI model', year: '2050 · scenario fiction', st: 'ia', text: 'Estimated date: 1917, by correlation with other images of the factory. The model worked from the copy without the full banner.', src: 'Fictional report from the Moscow 2050 scenario.' }
     ] },
   { id: 'e6', x: 450, y: 300, tags: ['poder'], ratio: '1200 / 803', w: 430,
-    imgs: ['9d6cb9fe5bfeb421bbf494101d76009f', 'aeddfa1ac5e996a5deddbd0c134bfd52', 'fcd7226eff16b99f8dfc8afd9b4bd815', '16322e21dfe83270a0404e578e75b4a0', '77c6e5eb8b93ad843f4083d05e76d21f'],
-    place: 'Moscú, 19 de agosto de 1991', es: 'Tanques frente a la Casa Blanca', date: '1991', aiDate: '1993',
-    short: 'Golpe de agosto: civiles rodean un tanque ante el parlamento ruso.',
+    imgs: ['9d6cb9fe5bfeb421bbf494101d76009f', 'aeddfa1ac5e996a5deddbd0c134bfd52', 'fcd7226eff16b99f8dfc8afd9b4bd815', '16322e21dfe83270a0404e578e75b4a0', 'cdf1820d586b6a243d782a57e9184709'],
+    place: 'Moscow, August 19, 1991', es: 'Tanks outside the White House', date: '1991', aiDate: '1993',
+    short: 'August coup: civilians surround a tank outside the Russian parliament.',
     corner: 'br', edits: [
-      { es: 'Bandera borrada', box: [19, 0, 9, 13], txt: 'Se borró la bandera tricolor rusa del techo del edificio.', hint: 'Compara Original y Editada: mira lo más alto del edificio.' },
-      { es: 'Coche de otro color', box: [0, 75.6, 21, 22.2], txt: 'El coche azul de la izquierda ahora es marrón.', hint: 'Fíjate en los colores de la esquina inferior izquierda.' },
-      { es: 'Farola borrada', box: [90, 1, 10, 10], txt: 'Se borró la farola de la esquina superior derecha.', hint: 'Mira la esquina superior derecha.' }],
+      { es: 'Flag erased', box: [19, 0, 9, 13], txt: 'The Russian tricolor flag was erased from the roof of the building.', hint: 'Compare Original and Edited: look at the top of the building.' },
+      { es: 'Car in another color', box: [0, 75.6, 21, 22.2], txt: 'The blue car on the left is now brown.', hint: 'Look at the colors in the bottom-left corner.' },
+      { es: 'Streetlight erased', box: [90, 1, 10, 10], txt: 'The streetlight in the top-right corner was erased.', hint: 'Look at the top-right corner.' }],
     versions: [
-      { who: 'Comunicado del GKChP', year: '19 de agosto de 1991', st: 'doc', text: 'La agencia TASS anunció que Gorbachov no podía ejercer sus funciones «por motivos de salud» y que el vicepresidente Yanáyev asumía la presidencia.', src: 'UPI, 19-08-1991 (texto del comunicado).' },
-      { who: 'Diario de Cherniáyev', year: 'Foros, agosto de 1991', st: 'doc', text: 'El asesor de Gorbachov cuenta que el presidente estaba retenido en su dacha de Crimea, incomunicado, y que se negó a colaborar con los golpistas.', src: 'National Security Archive, diario de A. Cherniáyev.' },
-      { who: 'La televisión', year: 'Mañana del 19 de agosto', st: 'doc', text: 'La televisión estatal sustituyó su programación por «El lago de los cisnes», intercalado con los comunicados del comité de emergencia.', src: 'The Moscow Times · NPR.' },
-      { who: 'Los defensores', year: 'Testimonios', st: 'int', text: 'Miles de moscovitas formaron un escudo humano alrededor de la Casa Blanca. Ese día Yeltsin leyó su llamamiento subido a un tanque, la imagen que pasó a la historia.', src: 'The Moscow Times, 2016.' },
-      { who: 'Modelo IA', year: '2050 · ficción del escenario', st: 'ia', text: 'Clasificación automática: «Tanques ante la Casa Blanca, octubre de 1993». Confunde los dos episodios porque ocurren en el mismo edificio.', src: 'Informe ficticio del escenario Moscú 2050.' }
+      { who: 'GKChP statement', year: 'August 19, 1991', st: 'doc', text: 'The TASS agency announced that Gorbachev could not perform his duties “for health reasons” and that Vice President Yanayev was taking over the presidency.', src: 'UPI, 08-19-1991 (text of the statement).' },
+      { who: 'Chernyaev’s diary', year: 'Forums, August 1991', st: 'doc', text: 'Gorbachev’s adviser writes that the president was held at his dacha in Crimea, cut off from the world, and that he refused to cooperate with the coup plotters.', src: 'National Security Archive, diary of A. Chernyaev.' },
+      { who: 'Television', year: 'Morning of August 19', st: 'doc', text: 'State television replaced its programming with “Swan Lake,” interspersed with statements from the emergency committee.', src: 'The Moscow Times · NPR.' },
+      { who: 'The defenders', year: 'Testimonies', st: 'int', text: 'Thousands of Muscovites formed a human shield around the White House. That day Yeltsin read his appeal standing on a tank, the image that went down in history.', src: 'The Moscow Times, 2016.' },
+      { who: 'AI model', year: '2050 · scenario fiction', st: 'ia', text: 'Automatic classification: “Tanks outside the White House, October 1993.” It confuses the two events because they happened at the same building.', src: 'Fictional report from the Moscow 2050 scenario.' }
     ] },
   { id: 'e4', x: 610, y: 440, tags: ['poder'], ratio: '1 / 1', w: 360,
-    imgs: ['309e8a386fa6ad91e8b71d504e0f5bc2', 'b56cb9a5b92860d5457cd0e1d1d0fcef', '4d0699a8ed3158bff1487daf148afb40', '31e7fa236fc12297cc2dc2169849d321', 'abfe4b928fcecb594a869c4390a514bb'],
-    place: 'Moscú, 4 de octubre de 1993', es: 'La Casa Blanca en llamas', date: '1993', aiDate: '1991',
-    short: 'El mismo edificio de 1991, dos años después, bombardeado por tanques.',
+    imgs: ['309e8a386fa6ad91e8b71d504e0f5bc2', 'b56cb9a5b92860d5457cd0e1d1d0fcef', '4d0699a8ed3158bff1487daf148afb40', '31e7fa236fc12297cc2dc2169849d321', '7cbe0a54d5c2b628dd29fedf36b9af6b'],
+    place: 'Moscow, October 4, 1993', es: 'The White House on fire', date: '1993', aiDate: '1991',
+    short: 'The same building as in 1991, two years later, shelled by tanks.',
     corner: 'br', edits: [
-      { es: 'Incendio borrado', box: [23.8, 12.5, 37.9, 22.5], txt: 'Se borraron las llamas y el humo: la fachada se rellenó copiando ventanas intactas.', hint: 'Compara Original y Editada: mira las ventanas de los pisos altos.' },
-      { es: 'Número cambiado', box: [38.5, 73.5, 8, 11], txt: 'El número del blindado pasó de 027 a 022.', hint: 'Lee el número pintado en el blindado.' },
-      { es: 'Bandera borrada', box: [89, 30, 10, 10], txt: 'Se borró una de las banderas de la fachada.', hint: 'Cuenta las banderas de la derecha.' }],
+      { es: 'Fire erased', box: [23.8, 12.5, 37.9, 22.5], txt: 'The flames and smoke were erased: the facade was filled in by copying intact windows.', hint: 'Compare Original and Edited: look at the upper-floor windows.' },
+      { es: 'Number changed', box: [38.5, 73.5, 8, 11], txt: 'The armored vehicle’s number changed from 027 to 022.', hint: 'Read the number painted on the armored vehicle.' },
+      { es: 'Flag erased', box: [89, 30, 10, 10], txt: 'One of the flags on the facade was erased.', hint: 'Count the flags on the right.' }],
     versions: [
-      { who: 'Decreto presidencial', year: '21 de septiembre de 1993', st: 'doc', text: 'Yeltsin firmó el decreto n.º 1400 «Sobre la reforma constitucional por etapas», que disolvía el parlamento y convocaba elecciones y un referéndum constitucional.', src: 'Meduza, 2023.' },
-      { who: 'El parlamento', year: '23 de septiembre de 1993', st: 'doc', text: 'El parlamento, encabezado por Jasbulátov, destituyó a Yeltsin, proclamó presidente interino a Rutskói y se atrincheró en la Casa Blanca.', src: 'Wikipedia, «1993 Russian constitutional crisis».' },
-      { who: 'Cifra oficial', year: 'Gobierno ruso', st: 'disp', text: 'Según las fuentes oficiales, entre el 3 y el 4 de octubre murieron 147 personas y 372 resultaron heridas.', src: 'Carnegie Endowment, L. Shevtsova, 2013.' },
-      { who: 'Rutskói y testigos', year: 'Años después', st: 'disp', text: 'Rutskói y otros sostienen que murieron cientos de personas más; algunos testigos hablan de cientos y hasta miles de víctimas. La cifra real sigue sin conocerse.', src: 'The Irish Times, 2003 · Carnegie Endowment, 2013.' },
-      { who: 'Modelo IA', year: '2050 · ficción del escenario', st: 'ia', text: 'Fecha estimada: 1991. El modelo reconoce el edificio y la presencia de blindados, y lo asocia con el golpe de agosto.', src: 'Informe ficticio del escenario Moscú 2050.' }
+      { who: 'Presidential decree', year: 'September 21, 1993', st: 'doc', text: 'Yeltsin signed Decree No. 1400 “On Gradual Constitutional Reform,” which dissolved parliament and called elections and a constitutional referendum.', src: 'Meduza, 2023.' },
+      { who: 'The parliament', year: 'September 23, 1993', st: 'doc', text: 'Parliament, led by Khasbulatov, removed Yeltsin, proclaimed Rutskoy acting president and barricaded itself inside the White House.', src: 'Wikipedia, «1993 Russian constitutional crisis».' },
+      { who: 'Official figure', year: 'Russian government', st: 'disp', text: 'According to official sources, 147 people died and 372 were injured on October 3 and 4.', src: 'Carnegie Endowment, L. Shevtsova, 2013.' },
+      { who: 'Rutskoy and witnesses', year: 'Years later', st: 'disp', text: 'Rutskoy and others claim that hundreds more people died; some witnesses speak of hundreds or even thousands of victims. The real figure is still unknown.', src: 'The Irish Times, 2003 · Carnegie Endowment, 2013.' },
+      { who: 'AI model', year: '2050 · scenario fiction', st: 'ia', text: 'Estimated date: 1991. The model recognizes the building and the armored vehicles and links them to the August coup.', src: 'Fictional report from the Moscow 2050 scenario.' }
     ] },
   { id: 'e5', x: 720, y: 230, tags: ['ciudad'], ratio: '800 / 536', w: 420,
-    imgs: ['370c16bf09ced8f7918a7c12aa73b7b2', '4f94eaac8b85416dc7c1eda0ae7f2909', '151eec4d23b7be0839e98cc14d4ec8bf', '019d50ea4988ca139d27ceebaf56bdc1', '247561cc4f03bfb98b578ed7c2dab071'],
-    place: 'Moscú, septiembre de 1997', es: '850 años de Moscú', date: '1997', aiDate: '1987',
-    short: 'La gran fiesta del alcalde Luzhkov en la Plaza Roja.',
+    imgs: ['370c16bf09ced8f7918a7c12aa73b7b2', '4f94eaac8b85416dc7c1eda0ae7f2909', '151eec4d23b7be0839e98cc14d4ec8bf', '019d50ea4988ca139d27ceebaf56bdc1', '2ac15a3f8bca843385bb8e79c366079e'],
+    place: 'Moscow, September 1997', es: 'Moscow turns 850', date: '1997', aiDate: '1987',
+    short: 'Mayor Luzhkov’s big celebration in Red Square.',
     corner: 'bl', edits: [
-      { es: 'Fuego duplicado', box: [45, 5.6, 18.1, 42.9], txt: 'Se duplicó un fuego artificial para que la celebración pareciera más grande.', hint: 'Compara Original y Editada: cuenta los fuegos artificiales.' },
-      { es: 'Estrella borrada', box: [75, 3, 8, 9], txt: 'Se borró la estrella roja de la punta de la torre Spásskaya.', hint: 'Mira la punta de la torre de la derecha.' },
-      { es: 'Cruz borrada', box: [37.5, 32, 7.5, 12], txt: 'Se borró la cruz que colgaba sobre la cúpula del escenario.', hint: 'Mira encima de la cúpula dorada.' }],
+      { es: 'Firework duplicated', box: [45, 5.6, 18.1, 42.9], txt: 'A firework was duplicated to make the celebration look bigger.', hint: 'Compare Original and Edited: count the fireworks.' },
+      { es: 'Star erased', box: [75, 3, 8, 9], txt: 'The red star on top of the Spasskaya Tower was erased.', hint: 'Look at the top of the tower on the right.' },
+      { es: 'Cross erased', box: [37.5, 32, 7.5, 12], txt: 'The cross hanging above the stage dome was erased.', hint: 'Look above the golden dome.' }],
     versions: [
-      { who: 'Ayuntamiento de Moscú', year: '5–7 de septiembre de 1997', st: 'doc', text: 'La celebración duró tres días. Antes del 1 de septiembre se restauraron más de 400 edificios y espacios, entre ellos la plaza del Manège y salas del Kremlin.', src: 'Vechérniaya Moskvá (archivo).' },
-      { who: 'Prensa crítica', year: 'Septiembre de 1997', st: 'int', text: 'Un análisis de la época se preguntaba si la fiesta era «una luz al final del túnel o un banquete en medio de la hambruna», en plena crisis económica.', src: 'Jamestown Foundation, Prism, 1997.' },
-      { who: 'Concierto de Jean-Michel Jarre', year: '6 de septiembre de 1997', st: 'disp', text: 'Según la prensa de la época, unas 500.000 personas asistieron al concierto frente a la Universidad de Moscú. La cifra procede de estimaciones de prensa, no de un recuento.', src: 'Guinness World Records (según la prensa).' },
-      { who: 'Modelo IA', year: '2050 · ficción del escenario', st: 'ia', text: 'Fecha estimada: 1987, año del 840 aniversario. El modelo confunde dos celebraciones parecidas en la misma plaza.', src: 'Informe ficticio del escenario Moscú 2050.' }
+      { who: 'Moscow City Hall', year: 'September 5–7, 1997', st: 'doc', text: 'The celebration lasted three days. Before September 1, more than 400 buildings and spaces were restored, including Manege Square and halls of the Kremlin.', src: 'Vechernyaya Moskva (archive).' },
+      { who: 'Critical press', year: 'September 1997', st: 'int', text: 'An analysis at the time asked whether the celebration was “a light at the end of the tunnel or a feast in the middle of a famine,” in the midst of an economic crisis.', src: 'Jamestown Foundation, Prism, 1997.' },
+      { who: 'Jean-Michel Jarre concert', year: 'September 6, 1997', st: 'disp', text: 'According to the press at the time, about 500,000 people attended the concert in front of Moscow University. The figure comes from press estimates, not from a count.', src: 'Guinness World Records (according to the press).' },
+      { who: 'AI model', year: '2050 · scenario fiction', st: 'ia', text: 'Estimated date: 1987, the year of the 840th anniversary. The model confuses two similar celebrations in the same square.', src: 'Fictional report from the Moscow 2050 scenario.' }
     ] },
   { id: 'e3', x: 790, y: 440, tags: ['ciudad'], ratio: '1000 / 667', w: 420,
-    imgs: ['d7603dc5134e1ed574021d25092c3fd0', '37cc9b3bcd3b7172e2fa382ebceb1fe5', '2c7cb579b999a866985e5bb2acfa84e1', '1bed9169074fa14a8f95b06e0476e2df', 'fc59fe24c8dc981c6e1347bc0649b110'],
-    place: 'Moscú, 9 de septiembre de 1999', es: 'Calle Guriánova, 19', date: '1999', aiDate: '2000',
-    short: 'Equipos de rescate tras la explosión de un edificio de viviendas.',
+    imgs: ['d7603dc5134e1ed574021d25092c3fd0', '37cc9b3bcd3b7172e2fa382ebceb1fe5', '2c7cb579b999a866985e5bb2acfa84e1', '1bed9169074fa14a8f95b06e0476e2df', '8d8d393aad761cb5127d43770255818e'],
+    place: 'Moscow, September 9, 1999', es: '19 Guryanova Street', date: '1999', aiDate: '2000',
+    short: 'Rescue teams after the explosion of an apartment building.',
     corner: 'bl', edits: [
-      { es: 'Poste borrado', box: [66.5, 40, 5, 28], txt: 'Se borró un poste de luz que asomaba entre el humo.', hint: 'Compara Original y Editada: mira entre el humo y la grúa.' },
-      { es: 'Máquina de otro color', box: [31.5, 70.5, 25, 26.2], txt: 'La excavadora amarilla del centro ahora es verde.', hint: 'Fíjate en el color de la máquina del centro.' }],
+      { es: 'Pole erased', box: [66.5, 40, 5, 28], txt: 'A light pole peeking through the smoke was erased.', hint: 'Compare Original and Edited: look between the smoke and the crane.' },
+      { es: 'Machine in another color', box: [31.5, 70.5, 25, 26.2], txt: 'The yellow excavator in the center is now green.', hint: 'Look at the color of the machine in the center.' }],
     versions: [
-      { who: 'Versión oficial', year: 'Investigación, 2002', st: 'doc', text: 'Las autoridades atribuyeron los atentados a militantes vinculados al norte del Cáucaso. Señalaron como organizador a Achemez Gochiyáyev, que nunca fue detenido. Las investigaciones de Moscú y Volgodonsk se cerraron en 2002.', src: 'Wikipedia, «1999 Russian apartment bombings».' },
-      { who: 'El incidente de Riazán', year: '22–24 de septiembre de 1999', st: 'disp', text: 'La policía local detuvo a tres agentes del FSB que habían colocado sacos en el sótano de un edificio. El director del FSB, Pátrushev, dijo que era un simulacro y que los sacos solo tenían azúcar.', src: 'VOA · Meduza.' },
-      { who: 'El anuncio de Selezniov', year: '13 de septiembre de 1999', st: 'disp', text: 'El presidente de la Duma anunció en el parlamento una explosión en Volgodonsk que todavía no había ocurrido; el atentado llegó tres días después.', src: 'Yahoo News · TheCollector.' },
-      { who: 'Investigación académica', year: 'Debate posterior', st: 'int', text: 'Algunos investigadores defienden que la teoría de la participación del FSB no se sostiene y que en Riazán no había una bomba real. El debate sigue abierto.', src: 'Higher School of Economics (artículo académico).' },
-      { who: 'Modelo IA', year: '2050 · ficción del escenario', st: 'ia', text: 'Fecha estimada: 2000. La reconstrucción limpia el humo y el polvo, pero no detecta que la excavadora cambió de color ni que falta un poste.', src: 'Informe ficticio del escenario Moscú 2050.' }
+      { who: 'Official version', year: 'Investigation, 2002', st: 'doc', text: 'The authorities blamed the attacks on militants linked to the North Caucasus. They named Achemez Gochiyaev, who was never arrested, as the organizer. The Moscow and Volgodonsk investigations were closed in 2002.', src: 'Wikipedia, «1999 Russian apartment bombings».' },
+      { who: 'The Ryazan incident', year: 'September 22–24, 1999', st: 'disp', text: 'Local police detained three FSB agents who had placed sacks in the basement of a building. FSB director Patrushev said it was a training exercise and that the sacks only contained sugar.', src: 'VOA · Meduza.' },
+      { who: 'Seleznyov’s announcement', year: 'September 13, 1999', st: 'disp', text: 'The speaker of the Duma announced in parliament an explosion in Volgodonsk that had not yet happened; the attack came three days later.', src: 'Yahoo News · TheCollector.' },
+      { who: 'Academic research', year: 'Later debate', st: 'int', text: 'Some researchers argue that the theory of FSB involvement does not hold up and that there was no real bomb in Ryazan. The debate remains open.', src: 'Higher School of Economics (academic article).' },
+      { who: 'AI model', year: '2050 · scenario fiction', st: 'ia', text: 'Estimated date: 2000. The reconstruction cleans up the smoke and dust, but doesn’t notice that the excavator changed color or that a pole is missing.', src: 'Fictional report from the Moscow 2050 scenario.' }
     ] }
 ];
 CASES.forEach((c) => { c.imgs = c.imgs.map((h, k) => c.id + '_v' + (k + 1) + '.jpg'); });
-const FIL = [{ id: 'all', label: 'Todas' }, { id: 'revolucion', label: 'Revolución' }, { id: 'poder', label: 'Poder' }, { id: 'ciudad', label: 'Ciudad' }];
+const FIL = [{ id: 'all', label: 'All' }, { id: 'revolucion', label: 'Revolution' }, { id: 'poder', label: 'Power' }, { id: 'ciudad', label: 'City' }];
 const STAGES = [
-  { n: 0, es: 'Inicio', icon: 'M4 11 L12 4 L20 11 V20 H4 Z' },
-  { n: 1, es: 'Archivo', icon: 'M4 5 H20 V9 H4 Z M5 9 V19 H19 V9 M10 13 H14' },
-  { n: 2, es: 'Versiones', icon: 'M12 3 V10 M12 10 C12 14 7 15 5 21 M12 10 C12 14 17 15 19 21 M12 10 V21' },
-  { n: 3, es: 'Capas', icon: 'M12 3 L21 8 L12 13 L3 8 Z M3 12 L12 17 L21 12 M3 16 L12 21 L21 16' },
-  { n: 4, es: 'Buscar cambios', icon: 'M16 10 A6 6 0 1 1 4 10 A6 6 0 1 1 16 10 Z M14.5 14.5 L20 20' },
-  { n: 5, es: 'Reconstruir', icon: 'M12 21 V12 M12 12 C12 7 16 5 20 5 C20 9 17 12 12 12 M12 15 C12 11 9 9 5 9 C5 12 7 15 12 15' },
-  { n: 6, es: 'Comparar', icon: 'M3 5 H10 V19 H3 Z M14 5 H21 V19 H14 Z' }
+  { n: 0, es: 'Home', icon: 'M4 11 L12 4 L20 11 V20 H4 Z' },
+  { n: 1, es: 'Archive', icon: 'M4 5 H20 V9 H4 Z M5 9 V19 H19 V9 M10 13 H14' },
+  { n: 2, es: 'Versions', icon: 'M12 3 V10 M12 10 C12 14 7 15 5 21 M12 10 C12 14 17 15 19 21 M12 10 V21' },
+  { n: 3, es: 'Layers', icon: 'M12 3 L21 8 L12 13 L3 8 Z M3 12 L12 17 L21 12 M3 16 L12 21 L21 16' },
+  { n: 4, es: 'Find changes', icon: 'M16 10 A6 6 0 1 1 4 10 A6 6 0 1 1 16 10 Z M14.5 14.5 L20 20' },
+  { n: 5, es: 'Rebuild', icon: 'M12 21 V12 M12 12 C12 7 16 5 20 5 C20 9 17 12 12 12 M12 15 C12 11 9 9 5 9 C5 12 7 15 12 15' },
+  { n: 6, es: 'Compare', icon: 'M3 5 H10 V19 H3 Z M14 5 H21 V19 H14 Z' }
 ];
-const LAYER_SHORT = ['Original', 'Editada', 'Dañada', 'IA', 'Falta'];
+const LAYER_SHORT = ['Original', 'Edited', 'Damaged', 'AI', 'Missing'];
 const LAYER_ST = ['doc', 'alt', 'doc', 'ia', 'unk'];
 const STATUS_COL = { doc: '#C7A974', alt: '#E2574C', ia: '#8E7CC3', unk: '#9A97A8', int: '#6FA03C' };
 const STY = { doc: ['#C7A974', 'none', 3], alt: ['#E2574C', '7 5', 2.5], ia: ['#8E7CC3', '9 5 2 5', 2.5], unk: ['#9A97A8', '2 6', 2.5] };
@@ -1099,27 +1063,27 @@ const SRC_I = { r01: 0, r02: 1, r04: 2, none: 3 };
 const SY = [30, 80, 130, 180];
 const ZY = [50, 105, 160];
 function caseById(id) { return CASES.find((c) => c.id === id) || CASES[0]; }
-function layerTitle(c, i) { return ['Foto original · ' + c.date, 'Versión editada', 'Copia dañada', 'Versión de la IA · 2050', 'Lo que falta'][i]; }
+function layerTitle(c, i) { return ['Original photo · ' + c.date, 'Edited version', 'Damaged copy', 'AI version · 2050', 'What’s missing'][i]; }
 function anomsFor(c) {
   return c.edits.map((e, k) => ({ id: 'e' + k, es: e.es, st: 'alt', s1: [0], s2: [1, 2], box: e.box, hint: e.hint, text: e.txt })).concat([
-    { id: 'a2', es: 'Esquina perdida', st: 'unk', s1: [0, 1], s2: [2], box: CORNER[c.corner], hint: 'Compara Editada y Dañada: una esquina se perdió con el tiempo.', text: 'La copia que llegó al archivo está rota: esa parte de la imagen ya no existe en ella.' },
-    { id: 'a3', es: 'Relleno inventado', st: 'ia', s1: [2], s2: [3], box: CORNER[c.corner], hint: 'Compara Dañada e IA en la esquina rota.', text: 'La IA rellenó la esquina perdida con algo que parece real, pero no tiene fuente.' },
-    { id: 'a4', es: 'Fecha cambiada', st: 'ia', s1: [0, 1, 2], s2: [3], box: LABEL, hint: 'Lee la etiqueta de la esquina inferior de la versión IA.', text: 'La IA fecha la foto en ' + c.aiDate + '; los registros dicen ' + c.date + '.' }
+    { id: 'a2', es: 'Lost corner', st: 'unk', s1: [0, 1], s2: [2], box: CORNER[c.corner], hint: 'Compare Edited and Damaged: a corner was lost over time.', text: 'The copy that reached the archive is torn: that part of the image no longer exists in it.' },
+    { id: 'a3', es: 'Invented fill', st: 'ia', s1: [2], s2: [3], box: CORNER[c.corner], hint: 'Compare Damaged and AI at the torn corner.', text: 'The AI filled the lost corner with something that looks real but has no source.' },
+    { id: 'a4', es: 'Date changed', st: 'ia', s1: [0, 1, 2], s2: [3], box: LABEL, hint: 'Read the label in the bottom corner of the AI version.', text: 'The AI dates the photo to ' + c.aiDate + '; the records say ' + c.date + '.' }
   ]);
 }
 function zonesFor(c) {
   return [
-    { id: 'z1', n: 'Z1', es: 'Retoques', q: 'Esta foto tiene ' + c.edits.length + ' retoques: ' + c.edits.map((e) => e.es.toLowerCase()).join(', ') + '.', box: c.edits[0].box, opts: [
-      { id: 'restore', label: 'Volver al original', st: 'doc', src: 'r01' },
-      { id: 'keep', label: 'Dejar la versión editada', st: 'alt', src: 'r02' },
-      { id: 'unk', label: 'Marcar como no verificable', st: 'unk', src: 'none' }] },
-    { id: 'z2', n: 'Z2', es: 'Esquina', q: 'La copia perdió esta esquina y la IA la completó por su cuenta.', box: CORNER[c.corner], opts: [
-      { id: 'orig', label: 'Recuperar desde el original', st: 'doc', src: 'r01' },
-      { id: 'ia', label: 'Aceptar el relleno de la IA', st: 'ia', src: 'r04' },
-      { id: 'lost', label: 'Dejar la pérdida a la vista', st: 'unk', src: 'none' }] },
-    { id: 'z3', n: 'Z3', es: 'Fecha', q: 'Los registros dicen ' + c.date + '; la IA propone ' + c.aiDate + '.', box: LABEL, opts: [
-      { id: 'real', label: c.date + ', según los registros', st: 'doc', src: 'r01' },
-      { id: 'ai', label: c.aiDate + ', según la IA', st: 'ia', src: 'r04' }] }
+    { id: 'z1', n: 'Z1', es: 'Retouches', q: 'This photo has ' + c.edits.length + ' retouches: ' + c.edits.map((e) => e.es.toLowerCase()).join(', ') + '.', box: c.edits[0].box, opts: [
+      { id: 'restore', label: 'Back to the original', st: 'doc', src: 'r01' },
+      { id: 'keep', label: 'Keep the edited version', st: 'alt', src: 'r02' },
+      { id: 'unk', label: 'Mark as unverifiable', st: 'unk', src: 'none' }] },
+    { id: 'z2', n: 'Z2', es: 'Corner', q: 'The copy lost this corner and the AI completed it on its own.', box: CORNER[c.corner], opts: [
+      { id: 'orig', label: 'Restore from the original', st: 'doc', src: 'r01' },
+      { id: 'ia', label: 'Accept the AI’s fill', st: 'ia', src: 'r04' },
+      { id: 'lost', label: 'Leave the loss visible', st: 'unk', src: 'none' }] },
+    { id: 'z3', n: 'Z3', es: 'Date', q: 'The records say ' + c.date + '; the AI suggests ' + c.aiDate + '.', box: LABEL, opts: [
+      { id: 'real', label: c.date + ', according to the records', st: 'doc', src: 'r01' },
+      { id: 'ai', label: c.aiDate + ', according to the AI', st: 'ia', src: 'r04' }] }
   ];
 }
 const caseRootD = (k) => 'M450 118 C' + (450 + (k.x - 450) * 0.15).toFixed(0) + ' ' + (118 + (k.y - 118) * 0.6).toFixed(0) + ' ' + (k.x - (k.x - 450) * 0.35).toFixed(0) + ' ' + (k.y - (k.y - 118) * 0.55).toFixed(0) + ' ' + k.x + ' ' + k.y;
@@ -1130,12 +1094,21 @@ const CASE_D = CASES.map(caseRootD);
 const CASE_LEAVES = stemLeaves(CASE_D, [0.3, 0.55, 0.8], 32);
 const ART_SOIL = artVals(folk(61, [[-10, 330, 0.25, 64, 1, 4, 0.3], [1010, 340, PI - 0.25, 64, 1, 4, PI - 0.3], [230, 730, -1.3, 52, 1, 3, -1.4], [780, 730, -1.8, 52, 1, 3, -1.7]], { flowers: false }), []);
 const GROUND = (() => { let a = '', b = '', c = '', d = ''; const r = rng(5); for (let k = 0; k < 46; k++) { const x = 8 + r() * 984; if (Math.abs(x - 500) < 40) continue; const y = 266 + (r() - 0.5) * 6; const L = 22 + r() * 30; const lean = (x < 500 ? -1 : 1) * (0.15 + r() * 0.6) * (r() < 0.3 ? -1 : 1); const lp = leafPair(x, y, -PI / 2 + lean, L, L * 0.34, lean * 0.4); if (r() < 0.2) { c += lp[0]; d += lp[1]; } else { a += lp[0]; b += lp[1]; } } return { la: a, lb: b, pa: c, pb: d }; })();
+const HERO = (() => { const o = folk(133, [[300, 560, -PI / 2, 62, 0, 6, -PI / 2], [285, 560, -1.95, 56, 0, 5, -2.0], [315, 560, -1.2, 56, 0, 5, -1.15]], {}); return artVals(o, flowerSlots(o, 12, 1.05)); })();
+const HERO_ROOTS = (() => { const r = rng(136); const W = [4.5, 3, 1.8, 1]; const B = { a: '', b: '', c: '', d: '' }; const K = ['a', 'b', 'c', 'd'];
+  function g(x, y, a, l, w, d) { if (d <= 0 || w < 0.8) return; const a2 = a + (r() - 0.5) * 0.9; const ex = x + Math.cos(a2) * l, ey = y + Math.sin(a2) * l;
+    let ki = 0; W.forEach((q, i) => { if (Math.abs(q - w) < Math.abs(W[ki] - w)) ki = i; });
+    B[K[ki]] += 'M' + x.toFixed(1) + ' ' + y.toFixed(1) + 'Q' + (x + Math.cos(a) * l * 0.5).toFixed(1) + ' ' + (y + Math.sin(a) * l * 0.5).toFixed(1) + ' ' + ex.toFixed(1) + ' ' + ey.toFixed(1);
+    g(ex, ey, a2 * 0.75 + PI / 2 * 0.25, l * 0.9, w * 0.8, d - 1); if (r() < 0.7) { const sg = r() < 0.5 ? -1 : 1; g(ex, ey, a2 + sg * (0.6 + r() * 0.5), l * 0.7, w * 0.58, d - 2); } }
+  g(300, 566, PI / 2, 17, 4.5, 7); g(296, 566, PI / 2 + 0.9, 15, 3, 6); g(304, 566, PI / 2 - 0.9, 15, 3, 6); g(290, 566, PI - 0.25, 14, 2.2, 6); g(310, 566, 0.25, 14, 2.2, 6);
+  return B; })();
+const HERO_GROUND = (() => { const r = rng(138); let a = '', b = ''; for (let k = 0; k < 26; k++) { const x = 300 + (r() - 0.5) * 260; const L = 22 + r() * 26; const lean = (x < 300 ? -1 : 1) * (0.2 + r() * 0.7); const lp = leafPair(x, 566, -PI / 2 + lean, L, L * 0.34, lean * 0.4); a += lp[0]; b += lp[1]; } return { la: a, lb: b }; })();
 const PERMS = [[1, 2, 0], [2, 0, 1], [0, 2, 1], [1, 0, 2], [2, 1, 0], [0, 1, 2]];
 const PILLARS = [
-  { n: 1, k: '#fl-daisy', bg: '#C8EC8E', title: 'La foto es una imagen técnica', text: 'Toda fotografía sale de un aparato que sigue un programa. La IA es un aparato todavía más opaco: aquí lo abrimos capa por capa para ver qué decide por nosotros.', ref: 'Vilém Flusser · Hacia una filosofía de la fotografía' },
-  { n: 2, k: '#fl-poppy', bg: '#D9CCFF', title: 'Hacer visible lo invisible', text: 'Un buen diseño muestra el estado del sistema. Raíces, colores y etiquetas dejan ver qué es documento, qué es interpretación y qué inventó la IA.', ref: 'Don Norman · El diseño de los objetos cotidianos' },
-  { n: 3, k: '#fl-star', bg: '#FFD39A', title: 'La experiencia construye el sentido', text: 'No te contamos la historia: la investigas. Comparar, dudar y decidir hace que el significado sea tuyo y no del algoritmo.', ref: 'Nathan Shedroff · Experience Design' },
-  { n: 4, k: '#fl-corn', bg: '#BFDDFF', title: 'Diseñar anticipando', text: 'En 2050 el pasado podrá generarse en segundos. Diseñamos hoy las herramientas para que la memoria siga siendo verificable mañana.', ref: 'R. Buckminster Fuller · diseño integral anticipatorio' }
+  { n: 1, k: '#fl-daisy', title: 'The earth', text: 'Where we come from: places, families and communities that keep what happened, even when nobody writes it down.' },
+  { n: 2, k: '#fl-poppy', title: 'The roots', text: 'The big events a whole society remembers: a revolution, a coup, a city celebrating its birthday.' },
+  { n: 3, k: '#fl-star', title: 'The rootlets', text: 'Each small story and each version that one person lived. They are thinner, but without them the big roots could not hold.' },
+  { n: 4, k: '#fl-corn', title: 'The sprouts', text: 'What we choose to keep and pass on. Memory grows again every time someone remembers and asks.' }
 ];
 function garland(seed, endX, H) {
   const r = rng(seed);
@@ -1182,15 +1155,15 @@ function clipOf(b) { return 'inset(' + b[1] + '% ' + (100 - b[0] - b[2]).toFixed
 class Component extends DCLogic {
   state = {
     stage: 0, caseSel: 'e2', filter: 'all', sep: 60, solo: -1, hidden: [false, false, false, false, false], doc: null,
-    cmpA: 0, cmpB: 1, found: {}, msg: 'Toca una zona de la imagen para examinarla.', hint: false,
+    cmpA: 0, cmpB: 1, found: {}, msg: 'Tap an area of the image to examine it.', hint: false,
     ch: {}, pop: null, note: '', archived: {}, seen: {}, vsel: 0, mini: {}, focus: null, fk: 0, fclose: false, guess: {}
   };
 
   go(n) { this.setState({ stage: n, doc: null, pop: null, focus: null, fclose: false }); setTimeout(() => { const el = typeof document !== 'undefined' ? document.getElementById('sec-' + n) : null; if (el && el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 40); }
-  pickCase(id) { this.setState({ caseSel: id, found: {}, ch: {}, seen: {}, vsel: 0, solo: -1, hidden: [false, false, false, false, false], cmpA: 0, cmpB: 1, hint: false, note: '', msg: 'Toca una zona de la imagen para examinarla.' }); }
+  pickCase(id) { this.setState({ caseSel: id, found: {}, ch: {}, seen: {}, vsel: 0, solo: -1, hidden: [false, false, false, false, false], cmpA: 0, cmpB: 1, hint: false, note: '', msg: 'Tap an area of the image to examine it.' }); }
   mini(key, title) {
     const closed = !!this.state.mini[key];
-    return { open: closed ? 'false' : 'true', openB: !closed, icon: closed ? '+' : '–', lbl: (closed ? 'Mostrar ' : 'Minimizar ') + title,
+    return { open: closed ? 'false' : 'true', openB: !closed, icon: closed ? '+' : '–', lbl: (closed ? 'Show ' : 'Minimize ') + title,
       toggle: () => { const m = Object.assign({}, this.state.mini); m[key] = !closed; this.setState({ mini: m }); } };
   }
 
@@ -1198,17 +1171,17 @@ class Component extends DCLogic {
     const s = this.state;
     const L = pane === 0 ? s.cmpA : s.cmpB;
     const O = pane === 0 ? s.cmpB : s.cmpA;
-    let msg = 'No hay cambios verificables aquí.';
+    let msg = 'No verifiable changes here.';
     for (let k = 0; k < list.length; k++) {
       const a = list[k];
-      if (s.found[a.id]) { msg = 'Ya lo encontraste: ' + a.es + '.'; continue; }
+      if (s.found[a.id]) { msg = 'You already found it: ' + a.es + '.'; continue; }
       const in1 = a.s1.indexOf(L) > -1, in2 = a.s2.indexOf(L) > -1;
       if (!in1 && !in2) continue;
       const ok = in1 ? a.s2.indexOf(O) > -1 : a.s1.indexOf(O) > -1;
-      if (!ok) { msg = 'Algo cambia aquí. Compáralo con otra capa.'; continue; }
+      if (!ok) { msg = 'Something changes here. Compare it with another layer.'; continue; }
       const f = Object.assign({}, s.found);
       f[a.id] = Object.keys(f).length + 1;
-      this.setState({ found: f, hint: false, msg: '¡Encontrado! ' + a.text });
+      this.setState({ found: f, hint: false, msg: 'Found it! ' + a.text });
       return;
     }
     this.setState({ msg: msg });
@@ -1272,13 +1245,13 @@ class Component extends DCLogic {
       vr.push({ d: d, off: seen ? 0 : 1, col: ROOT_COL[ver.st], dark: ROOT_DARK[ver.st], hi: ROOT_HI[ver.st], w: w, wh: sel ? 5 : 4, la: lv.la, lb: lv.lb, fop: seen ? 1 : 0,
         ftf: 'translate(' + bp[0].toFixed(1) + ' ' + bp[1].toFixed(1) + ') rotate(' + (nrm * 180 / PI + 90).toFixed(1) + ') scale(0.72)', fk: ['#fl-daisy', '#fl-poppy', '#fl-star', '#fl-corn', '#fl-tulip-o'][i], fs: seen ? 1 : 0 });
       if (seen) rlabels.push({ txt: ST[ver.st].w, pos: 'left: ' + (mx / 10).toFixed(1) + '%; top: ' + (my / 7.2).toFixed(1) + '%', bg: NODE_BG[ver.st], fg: '#161616', bd: NODE_BD[ver.st] });
-      vnodes.push({ who: ver.who, year: seen ? ver.year : 'Toca para abrir', pressed: sel ? 'true' : 'false',
-        aria: ver.who + (seen ? ', ' + ST[ver.st].w : ', versión sin abrir'),
+      vnodes.push({ who: ver.who, year: seen ? ver.year : 'Tap to open', pressed: sel ? 'true' : 'false',
+        aria: ver.who + (seen ? ', ' + ST[ver.st].w : ', unopened version'),
         style: 'left: ' + (x / 10).toFixed(1) + '%; top: ' + (y / 7.2).toFixed(1) + '%; background: ' + (seen ? NODE_BG[ver.st] : '#FFFFFF') + '; border: ' + (seen ? '2px solid ' + ROOT_DARK[ver.st] : '2px dashed #C9B88F') + '; color: #161616; box-shadow: ' + (seen ? (sel ? '6px 6px 0 ' : '4px 4px 0 ') + ROOT_DARK[ver.st] : 'none'),
         pick: () => { const sn = Object.assign({}, this.state.seen); sn[i] = true; this.setState({ seen: sn, vsel: i }); } });
     }
     const vcur = c.versions[Math.min(s.vsel, N - 1)];
-    const vd = s.seen[s.vsel] ? { who: vcur.who, year: vcur.year, t: ST[vcur.st], text: vcur.text, src: 'Fuente: ' + vcur.src } : { who: 'Abre una versión', year: '', t: ST.unk, text: 'Cada versión cuenta la historia de esta foto de una manera distinta. Al abrirla, su raíz crece desde la tierra hasta la memoria.', src: '' };
+    const vd = s.seen[s.vsel] ? { who: vcur.who, year: vcur.year, t: ST[vcur.st], text: vcur.text, src: 'Source: ' + vcur.src } : { who: 'Open a version', year: '', t: ST.unk, text: 'Each version tells the story of this photo in a different way. When you open it, its root grows from the earth up to the memory.', src: '' };
     const mem = { n: seenN, total: vtotal, pos: 'left: 50%; top: ' + (memTop / 7.2).toFixed(1) + '%; width: ' + (PW / 10).toFixed(1) + '%',
       shadowRx: PW * 0.62, badgePos: 'left: ' + ((500 + PW / 2 + 40) / 10).toFixed(1) + '%; top: ' + ((memTop + 20) / 7.2).toFixed(1) + '%',
       glow: '0 0 0 ' + (seenN * 4) + 'px #C8EC8E' };
@@ -1293,11 +1266,11 @@ class Component extends DCLogic {
         op: op, bd: s.solo === i ? '#6E5BD0' : 'rgba(255,255,255,0.95)' };
     });
     const DOCS = [
-      { es: 'Historia de la foto', st: 'doc', text: c.versions[0].text, note: 'Fuente: ' + c.versions[0].src },
-      { es: 'Qué se editó', st: 'alt', text: c.edits.map((e) => e.txt).join(' '), note: 'Manipulaciones creadas para el juego.' },
-      { es: 'Estado de la copia', st: 'doc', text: 'La copia que llegó al archivo es la versión editada, no el original. Llega con grano, rayas, manchas y una esquina rota.', note: 'Deterioro simulado para el juego.' },
-      { es: 'Informe de la IA', st: 'ia', text: 'Entrada: la copia dañada. Ruido eliminado, nitidez aumentada, esquina completada por inferencia. Fecha estimada: ' + c.aiDate + '. La foto original no fue consultada.', note: 'Informe ficticio del escenario Moscú 2050.' },
-      { es: 'Lo que no sabemos', st: 'unk', text: 'Autor de la fotografía, paradero del negativo y circunstancias exactas de la toma: sin verificar en este archivo.', note: '' }
+      { es: 'The photo’s story', st: 'doc', text: c.versions[0].text, note: 'Source: ' + c.versions[0].src },
+      { es: 'What was edited', st: 'alt', text: c.edits.map((e) => e.txt).join(' '), note: 'Manipulations created for the game.' },
+      { es: 'State of the copy', st: 'doc', text: 'The copy that reached the archive is the edited version, not the original. It arrives with grain, scratches, stains and a torn corner.', note: 'Damage simulated for the game.' },
+      { es: 'AI report', st: 'ia', text: 'Input: the damaged copy. Noise removed, sharpness increased, corner completed by inference. Estimated date: ' + c.aiDate + '. The original photo was not consulted.', note: 'Fictional report from the Moscow 2050 scenario.' },
+      { es: 'What we don’t know', st: 'unk', text: 'Photographer, whereabouts of the negative and exact circumstances of the shot: not verified in this archive.', note: '' }
     ];
     const dbtnStyle = {
       doc: 'background: #F5EEDD; color: #7A5F33; border: 1px solid #F5EEDD',
@@ -1311,7 +1284,7 @@ class Component extends DCLogic {
       return { title: layerTitle(c, i), txt: s.hidden[i] ? '#B9B6C6' : '#161616',
         dot: solo ? 'background: #6FA03C; box-shadow: 0 0 0 5px rgba(111,160,60,0.25)' : (st === 'unk' ? 'border: 2px dashed ' + col + '; background: #FFFFFF' : 'background: ' + col),
         dlabel: DOCS[i].es, dstyle: dbtnStyle[DOCS[i].st], open: () => this.setState({ doc: String(i) }),
-        visLabel: s.hidden[i] ? 'Mostrar' : 'Ocultar', hidPressed: s.hidden[i] ? 'true' : 'false', eye: s.hidden[i] ? EYE_OFF : EYE_ON,
+        visLabel: s.hidden[i] ? 'Show' : 'Hide', hidPressed: s.hidden[i] ? 'true' : 'false', eye: s.hidden[i] ? EYE_OFF : EYE_ON,
         toggle: () => { const h = this.state.hidden.slice(); h[i] = !h[i]; this.setState({ hidden: h }); },
         soloPressed: solo ? 'true' : 'false', soloF: () => this.setState({ solo: this.state.solo === i ? -1 : i }) };
     });
@@ -1327,10 +1300,10 @@ class Component extends DCLogic {
     const mkPane = (pane) => {
       const Li = pane === 0 ? s.cmpA : s.cmpB;
       return {
-        groupLabel: 'Capa ' + (pane === 0 ? 'izquierda' : 'derecha'), img: v[Li], title: layerTitle(c, Li),
+        groupLabel: 'Layer ' + (pane === 0 ? 'left' : 'right'), img: v[Li], title: layerTitle(c, Li),
         opts: [0, 1, 2, 3, 4].map((j) => ({ n: LAYER_SHORT[j], pressed: j === Li ? 'true' : 'false', cls: j === Li ? 'seg-on' : '', pick: () => this.setState(pane === 0 ? { cmpA: j } : { cmpB: j }) })),
-        miss: () => this.setState({ msg: 'No hay cambios verificables aquí.' }),
-        spots: spotsDef.map((sp, k) => ({ l: sp.box[0], t: sp.box[1], w: sp.box[2], h: sp.box[3], aria: 'Zona de análisis ' + (k + 1), pick: () => this.hit(pane, sp.list) })),
+        miss: () => this.setState({ msg: 'No verifiable changes here.' }),
+        spots: spotsDef.map((sp, k) => ({ l: sp.box[0], t: sp.box[1], w: sp.box[2], h: sp.box[3], aria: 'Analysis zone ' + (k + 1), pick: () => this.hit(pane, sp.list) })),
         marks: ANOM.filter((an) => s.found[an.id] && an.s1.concat(an.s2).indexOf(Li) > -1).map((an) => ({
           num: s.found[an.id], col: an.st === 'alt' ? '#E2574C' : (an.st === 'ia' ? '#6E5BD0' : '#5E5B6B'),
           box: 'left: ' + an.box[0] + '%; top: ' + an.box[1] + '%; width: ' + an.box[2] + '%; height: ' + an.box[3] + '%',
@@ -1354,7 +1327,7 @@ class Component extends DCLogic {
       const cx = Math.min(94, Math.max(6, z.box[0] + z.box[2] / 2)), cy = Math.min(92, Math.max(8, z.box[1] + z.box[3] / 2));
       return { n: o ? '✓' : String(k + 1), pos: 'left: ' + cx.toFixed(1) + '%; top: ' + cy.toFixed(1) + '%',
         bg: open ? '#161616' : (o ? STATUS_COL[o.st] : '#B6E07A'), fg: open || (o && o.st !== 'doc') ? '#FFFFFF' : '#161616',
-        pulse: o || open ? '' : 'pulse', open: open ? 'true' : 'false', aria: z.es + (o ? ', elegido: ' + o.label : ', sin decidir'),
+        pulse: o || open ? '' : 'pulse', open: open ? 'true' : 'false', aria: z.es + (o ? ', chosen: ' + o.label : ', undecided'),
         toggle: () => this.setState({ pop: this.state.pop === z.id ? null : z.id }) };
     });
     const zi = ZD.findIndex((z) => z.id === s.pop);
@@ -1366,7 +1339,7 @@ class Component extends DCLogic {
       opts: pz.opts.map((op) => ({ label: op.label, t: ST[op.st], pressed: s.ch[pz.id] === op.id ? 'true' : 'false', cls: s.ch[pz.id] === op.id ? 'opt-on' : '',
         pick: () => { const ch = Object.assign({}, this.state.ch); ch[pz.id] = op.id; const nxt = ZD.find((z) => !ch[z.id]); this.setState({ ch: ch, pop: nxt ? nxt.id : null }); } }))
     };
-    const decList = ZD.map((z, k) => { const o = chosen[k]; return { txt: z.es + ': ' + (o ? o.label : 'sin decidir'), w: o ? ST[o.st].w : '—', cls: o ? ST[o.st].cls : 'p-unk', open: () => this.setState({ pop: z.id }) }; });
+    const decList = ZD.map((z, k) => { const o = chosen[k]; return { txt: z.es + ': ' + (o ? o.label : 'undecided'), w: o ? ST[o.st].w : '—', cls: o ? ST[o.st].cls : 'p-unk', open: () => this.setState({ pop: z.id }) }; });
     const rp = ZD.map((z, k) => {
       const o = chosen[k];
       if (!o) return { d: 'M0 0', op: 0, stroke: 'none', dash: 'none', w: 0 };
@@ -1375,8 +1348,8 @@ class Component extends DCLogic {
     });
 
     // 6 · compare
-    const HIST = [{ txt: 'Como en el original', st: 'doc' }, { txt: 'Intacta', st: 'doc' }, { txt: c.date, st: 'doc' }];
-    const AIV = [{ txt: 'Hereda la edición', st: 'alt' }, { txt: 'Relleno inventado', st: 'ia' }, { txt: c.aiDate, st: 'ia' }];
+    const HIST = [{ txt: 'As in the original', st: 'doc' }, { txt: 'Intact', st: 'doc' }, { txt: c.date, st: 'doc' }];
+    const AIV = [{ txt: 'Inherits the edit', st: 'alt' }, { txt: 'Invented fill', st: 'ia' }, { txt: c.aiDate, st: 'ia' }];
     const rows = ZD.map((z, k) => { const o = chosen[k]; const u = o ? { txt: o.label, st: o.st } : { txt: '—', st: 'unk' };
       return { name: z.es, h: { txt: HIST[k].txt, t: ST[HIST[k].st] }, i: { txt: AIV[k].txt, t: ST[AIV[k].st] }, u: { txt: u.txt, t: ST[u.st] } }; });
 
@@ -1385,32 +1358,32 @@ class Component extends DCLogic {
     const done = g != null;
     const plain = { cornerOn: false, cornerImg: '', cornerClip: '', dateOn: false, dateImg: '', dateClip: '', realOn: false, realTxt: '', hatchOn: false, hatches: [] };
     const ITEMS = [
-      Object.assign({}, plain, { base: v[0], name: 'Foto original · ' + c.date, t: ST.doc, note: 'Tiene grano, rayones y la fecha que confirman los registros: ' + c.date + '. Es la fuente.' }),
-      Object.assign({}, plain, { base: v[3], name: 'Versión de la IA · 2050', t: ST.ia, note: 'Más nítida y limpia, pero inventó la esquina perdida y fechó la foto en ' + c.aiDate + '.' }),
-      Object.assign({}, rc, { base: rc.base, name: 'Tu reconstrucción', t: ST.int, note: chosenN < 3 ? 'Todavía te faltan decisiones en Reconstruir.' : 'Muestra lo que decidiste: ' + chosen.map((o) => o.label.toLowerCase()).join(' · ') + '.' })
+      Object.assign({}, plain, { base: v[0], name: 'Original photo · ' + c.date, t: ST.doc, note: 'It has grain, scratches and the date the records confirm: ' + c.date + '. It is the source.' }),
+      Object.assign({}, plain, { base: v[3], name: 'AI version · 2050', t: ST.ia, note: 'Sharper and cleaner, but it invented the lost corner and dated the photo to ' + c.aiDate + '.' }),
+      Object.assign({}, rc, { base: rc.base, name: 'Your reconstruction', t: ST.int, note: chosenN < 3 ? 'You still have decisions to make in Rebuild.' : 'It shows what you decided: ' + chosen.map((o) => o.label.toLowerCase()).join(' · ') + '.' })
     ];
     const LET = ['A', 'B', 'C'];
     const DEF_SH = '0 0 0 0 transparent';
     const cmp = {
       done: done,
-      lede: done ? 'Así se ven las tres versiones con sus etiquetas.' : 'Aquí están tres versiones de la misma foto, sin etiquetas: la original de ' + c.date + ', la que reconstruyó una IA en 2050 y la tuya. Mira el grano, el color, las esquinas y la fecha de cada una. ¿Cuál crees que es la foto original?',
+      lede: done ? 'This is how the three versions look with their labels.' : 'Here are three versions of the same photo, without labels: the original from ' + c.date + ', the one an AI reconstructed in 2050, and yours. Look at the grain, the color, the corners and the date of each one. Which one do you think is the original photo?',
       cards: perm.map((it, p) => { const I = ITEMS[it]; const mine = g === it;
-        return Object.assign({}, I, { title: done ? LET[p] + ' · ' + I.name : 'Versión ' + LET[p], alt: done ? I.name : 'Versión ' + LET[p], revealed: done, pickOn: !done, pickTxt: 'La original es la ' + LET[p],
+        return Object.assign({}, I, { title: done ? LET[p] + ' · ' + I.name : 'Version ' + LET[p], alt: done ? I.name : 'Version ' + LET[p], revealed: done, pickOn: !done, pickTxt: 'The original is ' + LET[p],
           ring: mine ? (it === 0 ? '0 0 0 4px #B6E07A' : '0 0 0 4px #F08A80') : DEF_SH,
           pick: () => { const gs = Object.assign({}, this.state.guess); gs[c.id] = it; this.setState({ guess: gs }); } }); }),
-      verdict: g === 0 ? '¡Acertaste! Esa es la original.' : (g === 1 ? 'Elegiste la versión de la IA.' : 'Elegiste tu reconstrucción.'),
-      feedback: g === 0 ? 'La original no es la más bonita: es la que tiene grano, imperfecciones y una fecha que coincide con los registros. La IA la dejó más nítida y más limpia, y por eso parece más «real». Ese es el riesgo en 2050: lo verosímil le gana a lo verdadero.'
-        : (g === 1 ? 'Es la que parece más real: nítida, limpia y sin daños. Justamente por eso engaña. La IA no recuperó el pasado, lo calculó: completó la esquina perdida con algo que nunca existió y fechó la foto en ' + c.aiDate + ', aunque los registros dicen ' + c.date + '.'
-        : 'Se parece a la original en lo que decidiste restaurar. La diferencia es que tus decisiones quedan a la vista: lo que no se sabe aparece como un vacío marcado, no como una invención.')
+      verdict: g === 0 ? 'You got it! That’s the original.' : (g === 1 ? 'You chose the AI version.' : 'You chose your reconstruction.'),
+      feedback: g === 0 ? 'The original isn’t the prettiest one: it’s the one with grain, imperfections and a date that matches the records. The AI made it sharper and cleaner, and that’s why it looks more “real.” That is the risk in 2050: the plausible beats the true.'
+        : (g === 1 ? 'It is the one that looks most real: sharp, clean and undamaged. That is exactly why it deceives. The AI didn’t recover the past, it calculated it: it filled the lost corner with something that never existed and dated the photo to ' + c.aiDate + ', although the records say ' + c.date + '.'
+        : 'It resembles the original in what you chose to restore. The difference is that your decisions stay visible: what isn’t known appears as a marked gap, not as an invention.')
     };
 
     return {
-      ig: INTRO_G, s0: s.stage === 0, s1: s.stage === 1, s2: s.stage === 2, s3: s.stage === 3, s4: s.stage === 4, s5: s.stage === 5, s6: s.stage === 6,
+      hero: HERO, heroR: HERO_ROOTS, heroG: HERO_GROUND, ig: INTRO_G, s0: s.stage === 0, s1: s.stage === 1, s2: s.stage === 2, s3: s.stage === 3, s4: s.stage === 4, s5: s.stage === 5, s6: s.stage === 6,
       cs, stages, bg: ART_BG, map: ART_MAP, intro: ART_INTRO, pillars: PILLARS, startGame: () => this.go(1), cmp,
       navFlex: navClosed ? '0 0 64px' : '1 1 210px', navOpen: navClosed ? 'false' : 'true', navOpenB: !navClosed,
-      navToggleIcon: navClosed ? '»' : '«', navToggleLbl: navClosed ? 'Mostrar el menú' : 'Minimizar el menú',
+      navToggleIcon: navClosed ? '»' : '«', navToggleLbl: navClosed ? 'Show the menu' : 'Minimize the menu',
       navToggle: () => { const m = Object.assign({}, this.state.mini); m.nav = !navClosed; this.setState({ mini: m }); },
-      mVer: this.mini('ver', 'versión'), mStr: this.mini('str', 'capas'), mEv: this.mini('ev', 'cambios encontrados'), mDec: this.mini('dec', 'decisiones'),
+      mVer: this.mini('ver', 'version'), mStr: this.mini('str', 'layers'), mEv: this.mini('ev', 'changes found'), mDec: this.mini('dec', 'decisions'),
       filters, caseCards, caseRootsD: CASE_D.join(' '), caseRootsSel: caseRootD(c), caseLeaves: CASE_LEAVES, openCase: () => this.go(2),
       vsoil: ART_SOIL, vground: GROUND, vnodes, rlabels, vr0: vr[0], vr1: vr[1], vr2: vr[2], vr3: vr[3], vr4: vr[4], vd, mem,
       goVersions: () => this.go(2), goLayers: () => this.go(3),
@@ -1427,7 +1400,7 @@ class Component extends DCLogic {
       zn1: ZD[0].es, zn2: ZD[1].es, zn3: ZD[2].es,
       rp1: rp[0], rp2: rp[1], rp3: rp[2],
       note: s.note, onNote: (e) => this.setState({ note: e.target.value }), notReady: chosenN < 3,
-      rows, archivedCur: !!s.archived[c.id], archiveLabel: s.archived[c.id] ? '✓ Guardada en el archivo' : 'Guardar mi versión',
+      rows, archivedCur: !!s.archived[c.id], archiveLabel: s.archived[c.id] ? '✓ Saved to the archive' : 'Save my version',
       archive: () => { const a = Object.assign({}, this.state.archived); a[c.id] = true; this.setState({ archived: a }); },
       toArchive: () => this.go(1)
     };
