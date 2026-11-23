@@ -82,6 +82,13 @@ input[type=range]{accent-color:#6FA03C}
 .garl svg{display:block;width:1200px;height:230px}
 .btn-s,.seg,.tab,.dbtn,.ib:not(.ib-d),.opt,.vnode,.cnode{border-radius:12px}
 .logo{display:block;height:auto;max-width:100%}
+.mapw{position:relative;--coff:54px;margin-bottom:150px}
+.ccard{position:absolute;z-index:6;width:270px;box-sizing:border-box;transform:translateX(-50%);background:#FFFFFF;border-radius:16px;box-shadow:0 18px 40px rgba(63,58,87,0.18);padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+@keyframes dropA{from{opacity:0;clip-path:inset(0 0 100% 0 round 16px);translate:0 -8px}to{opacity:1;clip-path:inset(0 0 0 0 round 16px);translate:0 0}}
+@keyframes dropB{from{opacity:0;clip-path:inset(0 0 100% 0 round 16px);translate:0 -8px}to{opacity:1;clip-path:inset(0 0 0 0 round 16px);translate:0 0}}
+.dropA{animation:dropA .45s cubic-bezier(.2,.8,.25,1) both}.dropB{animation:dropB .45s cubic-bezier(.2,.8,.25,1) both}
+@media (max-width:1180px){.mapw{--coff:43px}}
+@media (max-width:760px){.mapw{--coff:22px;margin-bottom:200px}.ccard{left:0!important;right:0;width:auto;transform:none}}
 @media (max-width:1180px){.zmap{zoom:0.78}.zver{zoom:0.7}.garl{height:auto!important;margin-top:0!important;margin-bottom:0!important}.garl svg{width:100%!important;height:auto!important}}
 @media (max-width:760px){.logo{height:auto!important}.zmap{zoom:0.4}.zver{zoom:0.37}.garl{height:auto!important;margin-top:0!important;margin-bottom:0!important}.garl svg{width:100%!important;height:auto!important}.h1{font-size:34px!important}.sec h2{font-size:30px!important}}
 .topin{padding:12px 40px}
@@ -382,7 +389,8 @@ input[type=range]{accent-color:#6FA03C}
 <sc-for list="{{filters}}" as="f" hint-placeholder-count="4"><button class="seg {{f.cls}}" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}" style="border-radius: 12px">{{f.label}}</button></sc-for>
 </div>
 </div>
-<div style="overflow-x: auto; padding: 8px">
+<div style="padding: 8px">
+<div class="mapw">
 <div class="zbox zmap" style="position: relative; width: 100%; min-width: 760px; aspect-ratio: 900 / 560; border-radius: 18px; overflow: hidden; background: radial-gradient(ellipse at 50% 30%, #EFE8FB 0%, rgba(247,242,230,0) 72%)">
 <svg aria-hidden="true" viewBox="0 0 900 560" style="position: absolute; inset: 0; width: 100%; height: 100%">
 <g filter="url(#f-grain)">
@@ -402,14 +410,19 @@ input[type=range]{accent-color:#6FA03C}
 <button class="cnode" style="{{c.pos}}" aria-pressed="{{c.pressed}}" aria-label="{{c.aria}}" onClick="{{c.pick}}"><img src="{{c.thumb}}" alt=""></button>
 </sc-for>
 </div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; padding: 14px 10px 6px">
-<img src="{{cs.v1}}" alt="" style="width: 96px; height: 64px; object-fit: cover; border-radius: 10px; flex: none">
-<div style="flex: 1 1 320px; min-width: 0">
-<div style="font-size: 13px; color: #7B7868">{{cs.place}}</div>
-<div style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15">{{cs.es}}</div>
-<div style="font-size: 14px; line-height: 1.45; color: #3F3A57; margin-top: 2px">{{cs.short}}</div>
+<sc-if value="{{tip.on}}">
+<div class="ccard {{tip.cls}}" role="region" aria-label="{{cs.es}}" style="{{tip.pos}}">
+<div style="display: flex; gap: 10px; align-items: center">
+<img src="{{cs.v1}}" alt="" style="width: 56px; height: 40px; object-fit: cover; border-radius: 8px; flex: none">
+<div style="min-width: 0">
+<div style="font-size: 12px; color: #7B7868">{{cs.place}}</div>
+<div style="font-size: 16px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2">{{cs.es}}</div>
 </div>
-<button class="btn btn-g" onClick="{{openCase}}">Explore this photo</button>
+</div>
+<div style="font-size: 13px; line-height: 1.45; color: #3F3A57">{{cs.short}}</div>
+<button class="btn btn-g" style="min-height: 40px; align-self: flex-start" onClick="{{openCase}}">Explore this photo</button>
+</div>
+</sc-if>
 </div>
 </div>
 </section>
@@ -1073,7 +1086,7 @@ class Component extends DCLogic {
   };
 
   go(n) { this.setState({ stage: n, doc: null, pop: null, focus: null, fclose: false }); setTimeout(() => { const el = typeof document !== 'undefined' ? document.getElementById('sec-' + n) : null; if (el && el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 40); }
-  pickCase(id) { this.setState({ caseSel: id, found: {}, ch: {}, seen: {}, vsel: 0, solo: -1, hidden: [false, false, false, false, false], cmpA: 0, cmpB: 1, hint: false, note: '', msg: 'Tap an area of the image to examine it.' }); }
+  pickCase(id) { this.setState({ tipOpen: true, pk: (this.state.pk || 0) + 1, caseSel: id, found: {}, ch: {}, seen: {}, vsel: 0, solo: -1, hidden: [false, false, false, false, false], cmpA: 0, cmpB: 1, hint: false, note: '', msg: 'Tap an area of the image to examine it.' }); }
   mini(key, title) {
     const closed = !!this.state.mini[key];
     return { open: closed ? 'false' : 'true', openB: !closed, icon: closed ? '+' : '–', lbl: (closed ? 'Show ' : 'Minimize ') + title,
@@ -1297,7 +1310,7 @@ class Component extends DCLogic {
       navToggleIcon: navClosed ? '»' : '«', navToggleLbl: navClosed ? 'Show the menu' : 'Minimize the menu',
       navToggle: () => { const m = Object.assign({}, this.state.mini); m.nav = !navClosed; this.setState({ mini: m }); },
       mVer: this.mini('ver', 'version'), mStr: this.mini('str', 'layers'), mEv: this.mini('ev', 'changes found'), mDec: this.mini('dec', 'decisions'),
-      filters, caseCards, caseRootsD: CASE_D.join(' '), caseRootsSel: caseRootD(c), caseLeaves: CASE_LEAVES, openCase: () => this.go(2),
+      tip: { on: !!s.tipOpen, cls: (s.pk || 0) % 2 ? 'dropA' : 'dropB', pos: 'left: ' + Math.min(86, Math.max(14, c.x / 9)).toFixed(2) + '%; top: calc(' + (c.y / 5.6).toFixed(2) + '% + var(--coff))' }, filters, caseCards, caseRootsD: CASE_D.join(' '), caseRootsSel: caseRootD(c), caseLeaves: CASE_LEAVES, openCase: () => this.go(2),
       vsoil: ART_SOIL, vground: GROUND, vnodes, rlabels, vr0: vr[0], vr1: vr[1], vr2: vr[2], vr3: vr[3], vr4: vr[4], vd, mem,
       goVersions: () => this.go(2), goLayers: () => this.go(3),
       sep, onSep: (e) => this.setState({ sep: +e.target.value }),
