@@ -476,9 +476,6 @@ input[type=range]{accent-color:#6FA03C}
 </g>
 </g>
 </svg>
-<sc-for list="{{rlabels}}" as="rl">
-<span style="position: absolute; {{rl.pos}}; transform: translate(-50%, -50%); z-index: 2; pointer-events: none; font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: {{rl.bg}}; color: {{rl.fg}}; border: 1.5px solid {{rl.bd}}"><br></span>
-</sc-for>
 <sc-for list="{{vnodes}}" as="vn" hint-placeholder-count="5">
 <button class="vnode" style="{{vn.style}}" aria-pressed="{{vn.pressed}}" aria-label="{{vn.aria}}" onClick="{{vn.pick}}">
 <span style="display: block; font-size: 12px; font-weight: 500; opacity: 0.75">{{vn.year}}</span>
@@ -589,7 +586,6 @@ input[type=range]{accent-color:#6FA03C}
 <h3 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1">{{dd.es}}</h3>
 <button class="ib" aria-label="Close" onClick="{{closeDoc}}">✕</button>
 </div>
-<span class="pill {{dd.t.cls}}" style="align-self: flex-start">{{dd.t.sym}} {{dd.t.w}}</span>
 <p style="margin: 0; font-size: 15px; line-height: 1.6">{{dd.text}}</p>
 <p style="margin: 0; font-size: 12px; color: #7A5F33">{{dd.note}}</p>
 </aside>
@@ -730,7 +726,7 @@ input[type=range]{accent-color:#6FA03C}
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
 <sc-for list="{{cmp.cards}}" as="k" hint-placeholder-count="3">
 <article style="padding: 10px; border-radius: 22px; display: flex; flex-direction: column; gap: 10px; box-shadow: {{k.ring}}; transition: box-shadow 0.3s">
-<div style="padding: 6px 8px 0; display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 30px"><h2 class="ptitle" style="margin: 0">{{k.title}}</h2><sc-if value="{{k.revealed}}"><span class="pill {{k.t.cls}}">{{k.t.w}}</span></sc-if></div>
+<div style="padding: 6px 8px 0; display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 30px"><h2 class="ptitle" style="margin: 0">{{k.title}}</h2></div>
 <div class="ph" style="aspect-ratio: {{cs.ratio}}">
 <img src="{{k.base}}" alt="{{k.alt}}">
 <sc-if value="{{k.cornerOn}}"><img src="{{k.cornerImg}}" alt="" style="clip-path: {{k.cornerClip}}"></sc-if>
