@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&amp;display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap">
 <style>
-body{margin:0;background:#F3F2EC}
+body{margin:0;background:#F7F2E6}
 .pm{font-family:'IBM Plex Mono',monospace}
 .gs{font-family:'General Sans','IBM Plex Sans',sans-serif}
 .btn{font:600 14px/1.2 'General Sans','IBM Plex Sans',sans-serif;min-height:44px;padding:0 22px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}
@@ -49,7 +49,7 @@ body{margin:0;background:#F3F2EC}
 .seg{min-width:44px;height:44px;background:#FFFFFF;border:1px solid #D9D6CC;color:#161616;font:600 13px 'General Sans','IBM Plex Sans',sans-serif;cursor:pointer;border-radius:22px;padding:0 14px}
 .seg:hover{border-color:#161616}
 .seg-on{background:#161616;color:#FFFFFF;border-color:#161616}
-.opt{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:48px;padding:10px 14px;background:#F7F6F1;border:1.5px solid transparent;color:#161616;font:500 14px 'General Sans','IBM Plex Sans',sans-serif;text-align:left;cursor:pointer;border-radius:14px}
+.opt{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:48px;padding:10px 14px;background:#FFFFFF;border:1.5px solid transparent;color:#161616;font:500 14px 'General Sans','IBM Plex Sans',sans-serif;text-align:left;cursor:pointer;border-radius:14px}
 .opt:hover{border-color:#D9D6CC}
 .opt-on{border-color:#6FA03C;background:#F1F8E7}
 .dbtn{min-height:40px;border-radius:999px;font:600 12px 'General Sans','IBM Plex Sans',sans-serif;cursor:pointer;padding:0 14px}
@@ -66,6 +66,22 @@ input[type=range]{accent-color:#6FA03C}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(182,224,122,.8)}100%{box-shadow:0 0 0 14px rgba(182,224,122,0)}}
 .pulse{animation:pulse 1.6s ease-out infinite}
 .grow{transition:stroke-dashoffset 1.4s ease}
+.topbar{position:sticky;top:0;z-index:30;background:rgba(247,242,230,0.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.tab{min-height:44px;padding:0 14px;border:0;border-radius:999px;background:transparent;color:#5E5B6B;font:600 14px 'General Sans','IBM Plex Sans',sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.tab:hover{color:#161616;background:rgba(63,58,87,0.07)}
+.tab-on,.tab-on:hover{background:#3F3A57;color:#FFFFFF}
+.tab:focus-visible{outline:2px solid #6E5BD0;outline-offset:2px}
+.flow{position:relative;max-width:1380px;margin:0 auto;padding:8px 40px 96px 128px;box-sizing:border-box}
+.gutter{position:absolute;left:0;top:0;width:120px;height:100%;pointer-events:none}
+.mark{position:absolute;left:-128px;top:-30px;width:120px;height:160px;pointer-events:none}
+.sec{position:relative;scroll-margin-top:90px;padding:36px 0 12px}
+.garl{margin:0 0 0 -128px;height:230px;overflow:hidden;pointer-events:none}
+.garl svg{display:block;width:1200px;height:230px}
+.btn-s,.seg,.tab,.dbtn,.ib:not(.ib-d),.opt,.vnode,.cnode{border-radius:12px}
+.logo{display:block;height:auto}
+.topin{padding:12px 40px}
+.tabs{flex-wrap:wrap}
+@media (max-width:760px){.topin{padding:8px 16px}.topin nav{max-width:100%;overflow-x:auto}.tabs{flex-wrap:nowrap}.tab{white-space:nowrap}.flow{padding:8px 16px 72px 72px}.gutter{left:-28px}.mark{left:-100px}.garl{margin-left:-100px}}
 @keyframes flyA{0%{transform:perspective(1400px) translate3d(0,120px,-420px) rotateX(58deg) rotateZ(-20deg) scale(.5);opacity:0;filter:blur(4px)}45%{opacity:1;filter:blur(0)}72%{transform:perspective(1400px) translate3d(0,-16px,60px) rotateX(-7deg) rotateZ(2deg) scale(1.05)}88%{transform:perspective(1400px) translate3d(0,4px,0) rotateX(2deg) rotateZ(-.5deg) scale(.99)}100%{transform:none;opacity:1}}
 @keyframes flyB{0%{transform:perspective(1400px) translate3d(0,120px,-420px) rotateX(58deg) rotateZ(-20deg) scale(.5);opacity:0;filter:blur(4px)}45%{opacity:1;filter:blur(0)}72%{transform:perspective(1400px) translate3d(0,-16px,60px) rotateX(-7deg) rotateZ(2deg) scale(1.05)}88%{transform:perspective(1400px) translate3d(0,4px,0) rotateX(2deg) rotateZ(-.5deg) scale(.99)}100%{transform:none;opacity:1}}
 @keyframes flyBack{0%{transform:none;opacity:1}100%{transform:perspective(1400px) translate3d(0,140px,-480px) rotateX(58deg) rotateZ(-20deg) scale(.45);opacity:0;filter:blur(3px)}}
@@ -87,9 +103,9 @@ input[type=range]{accent-color:#6FA03C}
 <body>
 <div id="app"></div>
 <template id="pamyat-tpl">
-<div class="gs" style="position: relative; min-height: 1000px; background-color: #F3F2EC; background-image: linear-gradient(#E9E7DF 1px, transparent 1px), linear-gradient(90deg, #E9E7DF 1px, transparent 1px); background-size: 96px 96px; color: #161616; display: flex; flex-direction: column; overflow: hidden">
+<div class="gs" style="position: relative; background-color: #F7F2E6; color: #161616; overflow-x: clip">
 
-<svg aria-hidden="true" viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMin slice" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+<svg aria-hidden="true" width="0" height="0" style="position: absolute; width: 0; height: 0">
 <defs>
 <linearGradient id="g-lilac" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEEAFD"></stop><stop offset="1" stop-color="#B3A3EA"></stop></linearGradient>
 <linearGradient id="g-violet" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7A65A"></stop><stop offset="0.45" stop-color="#A985DC"></stop><stop offset="1" stop-color="#6E52B5"></stop></linearGradient>
@@ -137,63 +153,170 @@ input[type=range]{accent-color:#6FA03C}
 <path d="M0 0 C-24 -4 -28 -40 -12 -66 C-6 -56 6 -56 12 -66 C28 -40 24 -4 0 0 Z" fill="url(#g-orange)"></path>
 <path d="M-9 -14 C-15 -26 -13 -40 -7 -50" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="3" fill="none" stroke-linecap="round"></path>
 </g>
+<linearGradient id="g-cream" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset="1" stop-color="#E6DEFB"></stop></linearGradient>
+<linearGradient id="g-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C6D4FB"></stop><stop offset="1" stop-color="#5F78D2"></stop></linearGradient>
+<g id="fl-daisy">
+<path d="M0 0 C-2 -14 2 -26 0 -34" stroke="#6E9E88" stroke-width="5" fill="none" stroke-linecap="round"></path>
+<g transform="translate(0 -52)">
+<ellipse cx="0" cy="-21" rx="7" ry="19" transform="rotate(15)" fill="#C9BCF2"></ellipse>
+<ellipse cx="0" cy="-21" rx="7" ry="19" transform="rotate(45)" fill="#C9BCF2"></ellipse>
+<ellipse cx="0" cy="-21" rx="7" ry="19" transform="rotate(75)" fill="#C9BCF2"></ellipse>
+<ellipse cx="0" cy="-21" rx="7" ry="19" transform="rotate(105)" fill="#C9BCF2"></ellipse>
+<ellipse cx="0" cy="-21" rx="7" ry="19" transform="rotate(135)" fill="#C9BCF2"></ellipse>
+<ellipse cx="0" cy="-21" rx="7" ry="19" transform="rotate(165)" fill="#C9BCF2"></ellipse>
+<ellipse cx="0" cy="-21" rx="7" ry="19" transform="rotate(195)" fill="#C9BCF2"></ellipse>
+<ellipse cx="0" cy="-21" rx="7" ry="19" transform="rotate(225)" fill="#C9BCF2"></ellipse>
+<ellipse cx="0" cy="-21" rx="7" ry="19" transform="rotate(255)" fill="#C9BCF2"></ellipse>
+<ellipse cx="0" cy="-21" rx="7" ry="19" transform="rotate(285)" fill="#C9BCF2"></ellipse>
+<ellipse cx="0" cy="-21" rx="7" ry="19" transform="rotate(315)" fill="#C9BCF2"></ellipse>
+<ellipse cx="0" cy="-21" rx="7" ry="19" transform="rotate(345)" fill="#C9BCF2"></ellipse>
+<ellipse cx="0" cy="-20" rx="7" ry="18" transform="rotate(0)" fill="url(#g-cream)"></ellipse>
+<ellipse cx="0" cy="-20" rx="7" ry="18" transform="rotate(30)" fill="url(#g-cream)"></ellipse>
+<ellipse cx="0" cy="-20" rx="7" ry="18" transform="rotate(60)" fill="url(#g-cream)"></ellipse>
+<ellipse cx="0" cy="-20" rx="7" ry="18" transform="rotate(90)" fill="url(#g-cream)"></ellipse>
+<ellipse cx="0" cy="-20" rx="7" ry="18" transform="rotate(120)" fill="url(#g-cream)"></ellipse>
+<ellipse cx="0" cy="-20" rx="7" ry="18" transform="rotate(150)" fill="url(#g-cream)"></ellipse>
+<ellipse cx="0" cy="-20" rx="7" ry="18" transform="rotate(180)" fill="url(#g-cream)"></ellipse>
+<ellipse cx="0" cy="-20" rx="7" ry="18" transform="rotate(210)" fill="url(#g-cream)"></ellipse>
+<ellipse cx="0" cy="-20" rx="7" ry="18" transform="rotate(240)" fill="url(#g-cream)"></ellipse>
+<ellipse cx="0" cy="-20" rx="7" ry="18" transform="rotate(270)" fill="url(#g-cream)"></ellipse>
+<ellipse cx="0" cy="-20" rx="7" ry="18" transform="rotate(300)" fill="url(#g-cream)"></ellipse>
+<ellipse cx="0" cy="-20" rx="7" ry="18" transform="rotate(330)" fill="url(#g-cream)"></ellipse>
+<circle r="12" fill="url(#g-orange)"></circle><circle cx="-4" cy="-3" r="2" fill="#C2561A"></circle><circle cx="4" cy="2" r="2" fill="#C2561A"></circle><circle cx="-1" cy="5" r="1.6" fill="#C2561A"></circle><circle cx="3" cy="-5" r="1.6" fill="#C2561A"></circle>
+</g></g>
+<g id="fl-poppy">
+<path d="M0 0 C3 -12 -2 -22 0 -30" stroke="#6E9E88" stroke-width="5" fill="none" stroke-linecap="round"></path>
+<g transform="translate(0 -50)">
+<circle cx="-15" cy="-14" r="23" fill="#E8692A"></circle>
+<circle cx="15" cy="-14" r="23" fill="#F07A2E"></circle>
+<circle cx="-16" cy="6" r="22" fill="url(#g-orange)"></circle>
+<circle cx="16" cy="6" r="22" fill="url(#g-orange)"></circle>
+<path d="M-10 -24 C-4 -30 4 -30 10 -24" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="3" fill="none" stroke-linecap="round"></path>
+<circle r="10" fill="#4B3780"></circle>
+<circle cx="14.0" cy="0.0" r="2.2" fill="#3A2B66"></circle>
+<circle cx="9.9" cy="9.9" r="2.2" fill="#3A2B66"></circle>
+<circle cx="0.0" cy="14.0" r="2.2" fill="#3A2B66"></circle>
+<circle cx="-9.9" cy="9.9" r="2.2" fill="#3A2B66"></circle>
+<circle cx="-14.0" cy="0.0" r="2.2" fill="#3A2B66"></circle>
+<circle cx="-9.9" cy="-9.9" r="2.2" fill="#3A2B66"></circle>
+<circle cx="-0.0" cy="-14.0" r="2.2" fill="#3A2B66"></circle>
+<circle cx="9.9" cy="-9.9" r="2.2" fill="#3A2B66"></circle>
+</g></g>
+<g id="fl-star">
+<path d="M0 0 C-2 -12 2 -20 0 -28" stroke="#6E9E88" stroke-width="5" fill="none" stroke-linecap="round"></path>
+<g transform="translate(0 -50)">
+<path d="M0 0 C10 -12 8 -32 0 -46 C-8 -32 -10 -12 0 0 Z" transform="rotate(0)" fill="url(#g-lilac)"></path>
+<path d="M0 0 C10 -12 8 -32 0 -46 C-8 -32 -10 -12 0 0 Z" transform="rotate(60)" fill="url(#g-violet2)"></path>
+<path d="M0 0 C10 -12 8 -32 0 -46 C-8 -32 -10 -12 0 0 Z" transform="rotate(120)" fill="url(#g-lilac)"></path>
+<path d="M0 0 C10 -12 8 -32 0 -46 C-8 -32 -10 -12 0 0 Z" transform="rotate(180)" fill="url(#g-violet2)"></path>
+<path d="M0 0 C10 -12 8 -32 0 -46 C-8 -32 -10 -12 0 0 Z" transform="rotate(240)" fill="url(#g-lilac)"></path>
+<path d="M0 0 C10 -12 8 -32 0 -46 C-8 -32 -10 -12 0 0 Z" transform="rotate(300)" fill="url(#g-violet2)"></path>
+<path d="M0 0 L0 -18" transform="rotate(30)" stroke="#F7E9FF" stroke-width="2" stroke-linecap="round" opacity="0.7"></path>
+<path d="M0 0 L0 -18" transform="rotate(90)" stroke="#F7E9FF" stroke-width="2" stroke-linecap="round" opacity="0.7"></path>
+<path d="M0 0 L0 -18" transform="rotate(150)" stroke="#F7E9FF" stroke-width="2" stroke-linecap="round" opacity="0.7"></path>
+<path d="M0 0 L0 -18" transform="rotate(210)" stroke="#F7E9FF" stroke-width="2" stroke-linecap="round" opacity="0.7"></path>
+<path d="M0 0 L0 -18" transform="rotate(270)" stroke="#F7E9FF" stroke-width="2" stroke-linecap="round" opacity="0.7"></path>
+<path d="M0 0 L0 -18" transform="rotate(330)" stroke="#F7E9FF" stroke-width="2" stroke-linecap="round" opacity="0.7"></path>
+<path d="M0 0 L-8.9 -24.4" stroke="#6E52B5" stroke-width="1.8" stroke-linecap="round"></path><circle cx="-8.9" cy="-24.4" r="3.6" fill="#F39A52"></circle>
+<path d="M0 0 L0.0 -26.0" stroke="#6E52B5" stroke-width="1.8" stroke-linecap="round"></path><circle cx="0.0" cy="-26.0" r="3.6" fill="#F39A52"></circle>
+<path d="M0 0 L8.9 -24.4" stroke="#6E52B5" stroke-width="1.8" stroke-linecap="round"></path><circle cx="8.9" cy="-24.4" r="3.6" fill="#F39A52"></circle>
+<circle r="6" fill="#F7A65A"></circle></g></g>
+<g id="fl-lavender">
+<path d="M0 0 C-3 -30 3 -60 0 -100" stroke="#6E9E88" stroke-width="4" fill="none" stroke-linecap="round"></path>
+<ellipse cx="-5.0" cy="-30" rx="5.5" ry="8.0" transform="rotate(-25 -5.0 -30)" fill="#B39CEB"></ellipse>
+<ellipse cx="5.0" cy="-30" rx="5.5" ry="8.0" transform="rotate(25 5.0 -30)" fill="#8E6FD0"></ellipse>
+<ellipse cx="-4.6" cy="-38" rx="5.1" ry="7.4" transform="rotate(-25 -4.6 -38)" fill="#8E6FD0"></ellipse>
+<ellipse cx="4.6" cy="-38" rx="5.1" ry="7.4" transform="rotate(25 4.6 -38)" fill="#B39CEB"></ellipse>
+<ellipse cx="-4.3" cy="-46" rx="4.7" ry="6.9" transform="rotate(-25 -4.3 -46)" fill="#B39CEB"></ellipse>
+<ellipse cx="4.3" cy="-46" rx="4.7" ry="6.9" transform="rotate(25 4.3 -46)" fill="#8E6FD0"></ellipse>
+<ellipse cx="-4.0" cy="-54" rx="4.3" ry="6.3" transform="rotate(-25 -4.0 -54)" fill="#8E6FD0"></ellipse>
+<ellipse cx="4.0" cy="-54" rx="4.3" ry="6.3" transform="rotate(25 4.0 -54)" fill="#B39CEB"></ellipse>
+<ellipse cx="-3.6" cy="-62" rx="4.0" ry="5.8" transform="rotate(-25 -3.6 -62)" fill="#B39CEB"></ellipse>
+<ellipse cx="3.6" cy="-62" rx="4.0" ry="5.8" transform="rotate(25 3.6 -62)" fill="#8E6FD0"></ellipse>
+<ellipse cx="-3.2" cy="-70" rx="3.6" ry="5.2" transform="rotate(-25 -3.2 -70)" fill="#8E6FD0"></ellipse>
+<ellipse cx="3.2" cy="-70" rx="3.6" ry="5.2" transform="rotate(25 3.2 -70)" fill="#B39CEB"></ellipse>
+<ellipse cx="-2.9" cy="-78" rx="3.2" ry="4.6" transform="rotate(-25 -2.9 -78)" fill="#B39CEB"></ellipse>
+<ellipse cx="2.9" cy="-78" rx="3.2" ry="4.6" transform="rotate(25 2.9 -78)" fill="#8E6FD0"></ellipse>
+<ellipse cx="-2.5" cy="-86" rx="2.8" ry="4.1" transform="rotate(-25 -2.5 -86)" fill="#8E6FD0"></ellipse>
+<ellipse cx="2.5" cy="-86" rx="2.8" ry="4.1" transform="rotate(25 2.5 -86)" fill="#B39CEB"></ellipse>
+<ellipse cx="-2.2" cy="-94" rx="2.4" ry="3.5" transform="rotate(-25 -2.2 -94)" fill="#B39CEB"></ellipse>
+<ellipse cx="2.2" cy="-94" rx="2.4" ry="3.5" transform="rotate(25 2.2 -94)" fill="#8E6FD0"></ellipse>
+<ellipse cx="0" cy="-104" rx="3.5" ry="6" fill="#B39CEB"></ellipse>
+<path d="M0 -24 C-10 -22 -18 -14 -20 -6 C-10 -8 -4 -14 0 -24 Z" fill="#6E9E88"></path></g>
+<g id="fl-corn">
+<path d="M0 0 C2 -10 -2 -18 0 -26" stroke="#6E9E88" stroke-width="5" fill="none" stroke-linecap="round"></path>
+<path d="M-9 -24 C-9 -34 9 -34 9 -24 L5 -18 L-5 -18 Z" fill="#6E9E88"></path>
+<g transform="translate(0 -44)">
+<path d="M0 -4 L-9 -27 L-5 -24 L-2.5 -30 L0 -25 L2.5 -30 L5 -24 L9 -27 Z" transform="rotate(0)" fill="#9DB2F2"></path>
+<path d="M0 -4 L-9 -27 L-5 -24 L-2.5 -30 L0 -25 L2.5 -30 L5 -24 L9 -27 Z" transform="rotate(36)" fill="url(#g-blue)"></path>
+<path d="M0 -4 L-9 -27 L-5 -24 L-2.5 -30 L0 -25 L2.5 -30 L5 -24 L9 -27 Z" transform="rotate(72)" fill="#9DB2F2"></path>
+<path d="M0 -4 L-9 -27 L-5 -24 L-2.5 -30 L0 -25 L2.5 -30 L5 -24 L9 -27 Z" transform="rotate(108)" fill="url(#g-blue)"></path>
+<path d="M0 -4 L-9 -27 L-5 -24 L-2.5 -30 L0 -25 L2.5 -30 L5 -24 L9 -27 Z" transform="rotate(144)" fill="#9DB2F2"></path>
+<path d="M0 -4 L-9 -27 L-5 -24 L-2.5 -30 L0 -25 L2.5 -30 L5 -24 L9 -27 Z" transform="rotate(180)" fill="url(#g-blue)"></path>
+<path d="M0 -4 L-9 -27 L-5 -24 L-2.5 -30 L0 -25 L2.5 -30 L5 -24 L9 -27 Z" transform="rotate(216)" fill="#9DB2F2"></path>
+<path d="M0 -4 L-9 -27 L-5 -24 L-2.5 -30 L0 -25 L2.5 -30 L5 -24 L9 -27 Z" transform="rotate(252)" fill="url(#g-blue)"></path>
+<path d="M0 -4 L-9 -27 L-5 -24 L-2.5 -30 L0 -25 L2.5 -30 L5 -24 L9 -27 Z" transform="rotate(288)" fill="#9DB2F2"></path>
+<path d="M0 -4 L-9 -27 L-5 -24 L-2.5 -30 L0 -25 L2.5 -30 L5 -24 L9 -27 Z" transform="rotate(324)" fill="url(#g-blue)"></path>
+<circle r="8" fill="#4B3780"></circle><circle cx="-2" cy="-2" r="2" fill="#9C80DA"></circle><circle cx="3" cy="1" r="1.6" fill="#9C80DA"></circle></g></g>
+<filter id="lg-noise" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="3" result="zone"></feTurbulence>
+<feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="1" seed="7" result="n1"></feTurbulence>
+<feComposite in="n1" in2="zone" operator="arithmetic" k1="1.6" k2="0" k3="0" k4="0" result="n1z"></feComposite>
+<feColorMatrix in="n1z" type="matrix" values="0 0 0 0 0.6  0 0 0 0 0.47  0 0 0 0 0.93  4 0 0 0 -1.2" result="p"></feColorMatrix>
+<feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="1" seed="23" result="n2"></feTurbulence>
+<feColorMatrix in="zone" type="matrix" values="-1 0 0 0 1  -1 0 0 0 1  -1 0 0 0 1  0 0 0 0 1" result="zinv"></feColorMatrix>
+<feComposite in="n2" in2="zinv" operator="arithmetic" k1="1.6" k2="0" k3="0" k4="0" result="n2z"></feComposite>
+<feColorMatrix in="n2z" type="matrix" values="0 0 0 0 0.55  0 0 0 0 0.85  0 0 0 0 0.42  4 0 0 0 -1.25" result="g"></feColorMatrix>
+<feMerge result="sp"><feMergeNode in="p"></feMergeNode><feMergeNode in="g"></feMergeNode></feMerge>
+<feComposite in="sp" in2="SourceGraphic" operator="in" result="sp2"></feComposite>
+<feMerge><feMergeNode in="SourceGraphic"></feMergeNode><feMergeNode in="sp2"></feMergeNode></feMerge>
+</filter>
 </defs>
-<g opacity="0.3">
-<g fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="{{bg.s0}}" stroke="#5E8F7C" stroke-width="17" transform="translate(2.5 2.5)"></path>
-<path d="{{bg.s1}}" stroke="#5E8F7C" stroke-width="10" transform="translate(2 2)"></path>
-<path d="{{bg.s0}}" stroke="#86B59C" stroke-width="17"></path>
-<path d="{{bg.s1}}" stroke="#86B59C" stroke-width="10"></path>
-<path d="{{bg.s2}}" stroke="#7AAA91" stroke-width="3.2"></path>
-<path d="{{bg.s0}}" stroke="#B9DAC4" stroke-width="4.5" transform="translate(-2.5 -2.5)"></path>
-<path d="{{bg.s1}}" stroke="#B9DAC4" stroke-width="2" transform="translate(-1.5 -1.5)"></path>
-</g>
-<path d="{{bg.la}}" fill="#A2CBB2"></path><path d="{{bg.lb}}" fill="#6E9E88"></path>
-<path d="{{bg.pa}}" fill="#B8A3E6"></path><path d="{{bg.pb}}" fill="#8466C4"></path>
-<path d="{{bg.be}}" fill="#8A67C9"></path><path d="{{bg.bh}}" fill="#F29A55" opacity="0.75"></path>
-</g>
 </svg>
 
-<header style="position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding: 20px 32px">
-<div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap">
-<span style="font-size: 34px; font-weight: 700; letter-spacing: -0.02em; line-height: 1">ПАМЯТЬ</span>
-<span style="font-size: 14px; color: #5E5B6B">Archivo de la memoria · Moscú 2050</span>
+<header class="topbar">
+<div class="topin" style="max-width: 1380px; margin: 0 auto; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
+<div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap">
+<svg class="logo" role="img" aria-label="ПАМЯТЬ" viewBox="-10 -10 590 120" style="width: 150px"><g filter="url(#lg-noise)"><path d="M91.20805369127517 0.0H7.449664429530201V100.0H28.120805369127517V17.718120805369125H70.60402684563759V100.0H91.20805369127517Z M96.57986577181207 100.0H118.86174496644294L126.11006711409395 78.18791946308724H163.4926174496644L170.47248322147652 100.0H193.35838926174495L158.25771812080535 0.0H131.68053691275168ZM131.68053691275168 61.67785234899329 135.10335570469798 51.34228187919463C138.32483221476508 41.14093959731544 141.41208053691275 30.939597315436245 145.03624161073824 18.52348993288591C148.593288590604 30.939597315436245 151.68053691275168 41.14093959731544 154.76778523489932 51.34228187919463L158.1234899328859 61.67785234899329Z M198.73020134228187 100.0H218.9986577181208V52.48322147651007C218.9986577181208 45.83892617449664 218.66308724832214 34.63087248322148 218.39463087248322 24.02684563758389C221.81744966442952 35.23489932885906 225.17315436241608 46.308724832214764 227.2536912751678 52.48322147651007L244.36778523489932 100.0H261.14630872483224L278.05906040268457 52.48322147651007C280.20671140939595 46.10738255033557 283.696644295302 34.29530201342281 287.11946308724833 22.61744966442953C286.85100671140935 33.624161073825505 286.44832214765097 45.50335570469799 286.44832214765097 52.48322147651007V100.0H306.64966442953016V0.0H276.5154362416107L260.20671140939595 46.57718120805369C258.3946308724832 52.48322147651007 255.24026845637582 63.02013422818792 252.8241610738255 71.61073825503355C250.40805369127517 63.02013422818792 247.2536912751678 52.48322147651007 245.3744966442953 46.57718120805369L228.86442953020133 0.0H198.73020134228187Z M393.29664429530203 100.0V0.0H353.296644295302C330.81342281879193 0.0 316.7194630872483 12.68456375838926 316.7194630872483 32.81879194630872C316.7194630872483 46.04026845637584 323.3637583892617 55.97315436241611 334.5718120805369 61.14093959731544L314.5046979865772 100.0H336.65234899328857L354.3704697986577 65.03355704697987C354.43758389261745 65.03355704697987 354.5046979865772 65.03355704697987 354.5718120805369 65.03355704697987H372.6926174496644V100.0ZM372.6926174496644 48.45637583892618H354.5718120805369C343.6993288590604 48.45637583892618 336.9208053691275 42.348993288590606 336.9208053691275 32.81879194630872C336.9208053691275 23.28859060402685 343.6993288590604 17.18120805369128 354.63892617449665 17.18120805369128H372.6926174496644Z M401.08456375838927 17.718120805369125H431.4201342281879V100.0H452.0912751677852V17.718120805369125H482.35973154362415V0.0H401.08456375838927Z M510.751677852349 35.57046979865771V0.0H490.08053691275165V100.0H531.4228187919463C552.9664429530201 100.0 566.3221476510067 87.4496644295302 566.3221476510067 67.51677852348993C566.3221476510067 47.919463087248324 552.3624161073826 35.57046979865771 529.6778523489933 35.57046979865771ZM510.751677852349 52.41610738255034H528.6040268456376C539.4093959731543 52.41610738255034 546.1879194630873 58.18791946308725 546.1879194630873 67.38255033557047C546.1879194630873 76.84563758389262 539.4093959731543 82.81879194630872 528.6040268456376 82.81879194630872H510.751677852349Z" fill="#161616"></path></g></svg>
+<span style="font-size: 13px; color: #5E5B6B">Archivo de la memoria · Moscú 2050</span>
 </div>
-<span style="font-size: 14px; font-weight: 600; color: #3F3A57">{{cs.es}} · {{cs.date}}</span>
-</header>
-
-<div style="position: relative; display: flex; flex-wrap: wrap; flex: 1; align-items: flex-start; gap: 20px; padding: 0 24px 28px">
-
-<nav aria-label="Recorrido" class="card" style="flex: {{navFlex}}; max-width: 100%; padding: 10px; display: flex; flex-direction: column; gap: 6px; overflow: hidden">
-<div style="display: flex; justify-content: flex-end">
-<button class="ib" aria-label="{{navToggleLbl}}" aria-expanded="{{navOpen}}" onClick="{{navToggle}}" style="border: 0">{{navToggleIcon}}</button>
-</div>
-<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px">
-<sc-for list="{{stages}}" as="st" hint-placeholder-count="6">
-<li>
-<button class="step" aria-current="{{st.aria}}" aria-label="{{st.es}}" onClick="{{st.go}}" style="{{st.style}}">
-<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="{{st.icon}}"></path></svg>
-<sc-if value="{{navOpenB}}"><span style="flex: 1">{{st.es}}</span><span class="pm" style="font-size: 11px; opacity: 0.75">{{st.badge}}</span></sc-if>
-</button>
-</li>
+<nav aria-label="Recorrido">
+<ol class="tabs" style="list-style: none; margin: 0; padding: 0; display: flex; gap: 2px">
+<sc-for list="{{stages}}" as="st" hint-placeholder-count="7">
+<li><button class="{{st.cls}}" aria-current="{{st.aria}}" onClick="{{st.go}}" style="border-radius: 12px"><span>{{st.es}}</span><sc-if value="{{st.hasBadge}}"><span class="pm" style="font-size: 11px; opacity: 0.8">{{st.badge}}</span></sc-if></button></li>
 </sc-for>
 </ol>
 </nav>
+</div>
+</header>
 
-<main style="flex: 999 1 680px; min-width: 0; position: relative">
+<main class="flow">
+<svg class="gutter" aria-hidden="true" viewBox="0 0 120 1000" preserveAspectRatio="none">
+<path d="M60 0 C54 200 66 400 60 600 S54 900 60 1000" fill="none" stroke="#5E8F7C" stroke-width="14" vector-effect="non-scaling-stroke" transform="translate(2.5 0)"></path>
+<path d="M60 0 C54 200 66 400 60 600 S54 900 60 1000" fill="none" stroke="#86B59C" stroke-width="14" vector-effect="non-scaling-stroke"></path>
+<path d="M60 0 C54 200 66 400 60 600 S54 900 60 1000" fill="none" stroke="#B9DAC4" stroke-width="4" vector-effect="non-scaling-stroke" transform="translate(-3 0)"></path>
+</svg>
 
 <!-- 0 · INICIO -->
 <sc-if value="{{s0}}" hint-placeholder-val="{{ true }}">
-<section aria-labelledby="t0" style="display: flex; flex-direction: column; gap: 18px">
-<div class="card" style="overflow: hidden; display: flex; flex-wrap: wrap; align-items: center">
-<div style="flex: 999 1 440px; min-width: 0; padding: 40px 8px 40px 40px; display: flex; flex-direction: column; gap: 16px">
+<section id="sec-0" class="sec" aria-labelledby="t0" style="display: flex; flex-direction: column; gap: 18px">
+<svg class="mark" aria-hidden="true" viewBox="0 0 120 160">
+<g filter="url(#f-grain)">
+<path d="M60 118 C44 118 30 128 22 142 C40 146 54 136 60 118 Z" fill="#A2CBB2"></path><path d="M60 118 C46 126 34 136 22 142 C40 136 52 130 60 118 Z" fill="#6E9E88"></path>
+<path d="M60 108 C76 106 92 112 102 124 C84 130 68 122 60 108 Z" fill="#A2CBB2"></path><path d="M60 108 C72 114 88 120 102 124 C86 116 72 110 60 108 Z" fill="#6E9E88"></path>
+<use href="#fl-daisy" transform="translate(60 102) scale(0.82)"></use>
+</g>
+</svg>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+<div style="flex: 999 1 440px; min-width: 0; padding: 8px 0 24px; display: flex; flex-direction: column; gap: 16px">
+<svg class="logo" role="img" aria-label="ПАМЯТЬ" viewBox="-10 -10 590 120" style="width: min(460px, 100%); margin-bottom: 6px"><g filter="url(#lg-noise)"><path d="M91.20805369127517 0.0H7.449664429530201V100.0H28.120805369127517V17.718120805369125H70.60402684563759V100.0H91.20805369127517Z M96.57986577181207 100.0H118.86174496644294L126.11006711409395 78.18791946308724H163.4926174496644L170.47248322147652 100.0H193.35838926174495L158.25771812080535 0.0H131.68053691275168ZM131.68053691275168 61.67785234899329 135.10335570469798 51.34228187919463C138.32483221476508 41.14093959731544 141.41208053691275 30.939597315436245 145.03624161073824 18.52348993288591C148.593288590604 30.939597315436245 151.68053691275168 41.14093959731544 154.76778523489932 51.34228187919463L158.1234899328859 61.67785234899329Z M198.73020134228187 100.0H218.9986577181208V52.48322147651007C218.9986577181208 45.83892617449664 218.66308724832214 34.63087248322148 218.39463087248322 24.02684563758389C221.81744966442952 35.23489932885906 225.17315436241608 46.308724832214764 227.2536912751678 52.48322147651007L244.36778523489932 100.0H261.14630872483224L278.05906040268457 52.48322147651007C280.20671140939595 46.10738255033557 283.696644295302 34.29530201342281 287.11946308724833 22.61744966442953C286.85100671140935 33.624161073825505 286.44832214765097 45.50335570469799 286.44832214765097 52.48322147651007V100.0H306.64966442953016V0.0H276.5154362416107L260.20671140939595 46.57718120805369C258.3946308724832 52.48322147651007 255.24026845637582 63.02013422818792 252.8241610738255 71.61073825503355C250.40805369127517 63.02013422818792 247.2536912751678 52.48322147651007 245.3744966442953 46.57718120805369L228.86442953020133 0.0H198.73020134228187Z M393.29664429530203 100.0V0.0H353.296644295302C330.81342281879193 0.0 316.7194630872483 12.68456375838926 316.7194630872483 32.81879194630872C316.7194630872483 46.04026845637584 323.3637583892617 55.97315436241611 334.5718120805369 61.14093959731544L314.5046979865772 100.0H336.65234899328857L354.3704697986577 65.03355704697987C354.43758389261745 65.03355704697987 354.5046979865772 65.03355704697987 354.5718120805369 65.03355704697987H372.6926174496644V100.0ZM372.6926174496644 48.45637583892618H354.5718120805369C343.6993288590604 48.45637583892618 336.9208053691275 42.348993288590606 336.9208053691275 32.81879194630872C336.9208053691275 23.28859060402685 343.6993288590604 17.18120805369128 354.63892617449665 17.18120805369128H372.6926174496644Z M401.08456375838927 17.718120805369125H431.4201342281879V100.0H452.0912751677852V17.718120805369125H482.35973154362415V0.0H401.08456375838927Z M510.751677852349 35.57046979865771V0.0H490.08053691275165V100.0H531.4228187919463C552.9664429530201 100.0 566.3221476510067 87.4496644295302 566.3221476510067 67.51677852348993C566.3221476510067 47.919463087248324 552.3624161073826 35.57046979865771 529.6778523489933 35.57046979865771ZM510.751677852349 52.41610738255034H528.6040268456376C539.4093959731543 52.41610738255034 546.1879194630873 58.18791946308725 546.1879194630873 67.38255033557047C546.1879194630873 76.84563758389262 539.4093959731543 82.81879194630872 528.6040268456376 82.81879194630872H510.751677852349Z" fill="#161616"></path></g></svg>
 <div class="kick">Antes de empezar · Moscú, 2050</div>
 <h1 id="t0" class="h1" style="font-size: 64px">La memoria no es un archivo. Es una raíz.</h1>
 <p style="margin: 0; max-width: 600px; font-size: 18px; line-height: 1.55; color: #3F3A57">Recordamos para entender quiénes somos. Cuando una foto se borra, se retoca o se «restaura» sin decir cómo, no cambia solo una imagen: cambia lo que una sociedad cree que pasó. En la Unión Soviética se borraba a personas de las fotografías. En 2050, una IA puede reconstruir el pasado en segundos, con colores perfectos y fechas equivocadas.</p>
 <p style="margin: 0; max-width: 600px; font-size: 18px; line-height: 1.55; color: #3F3A57">En PAMYAT investigas seis fotografías reales de la historia rusa: comparas sus versiones, encuentras lo que cambió y decides qué merece ser recordado.</p>
 <div style="margin-top: 6px"><button class="btn btn-p" onClick="{{startGame}}">Empezar la investigación</button></div>
 </div>
-<div style="flex: 1 1 380px; min-width: 0; min-height: 420px; align-self: stretch; position: relative; background: radial-gradient(ellipse at 70% 30%, #F1ECFB 0%, #FBF8F0 65%)">
+<div style="flex: 1 1 380px; min-width: 0; min-height: 460px; align-self: stretch; position: relative; background: radial-gradient(ellipse at 60% 45%, #EFE8FB 0%, rgba(247,242,230,0) 68%); -webkit-mask-image: linear-gradient(to right, transparent, #000 14%), linear-gradient(to bottom, #000 80%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 14%), linear-gradient(to bottom, #000 80%, transparent); mask-composite: intersect">
 <svg role="img" aria-label="Ilustración: raíces con flores" viewBox="40 0 560 460" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; display: block; width: 100%; height: 100%">
 <g filter="url(#f-grain)">
 <g fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -224,40 +347,82 @@ input[type=range]{accent-color:#6FA03C}
 </svg>
 </div>
 </div>
-<div class="dark" style="padding: 32px 36px; display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: flex-start">
+<div class="garl" aria-hidden="true" style="height: 170px; margin-top: -36px; margin-bottom: -40px; overflow: visible"><svg viewBox="0 0 1200 170" style="height: 170px; overflow: visible">
+<g filter="url(#f-grain)">
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="{{ig.s0}}" stroke="#5E8F7C" stroke-width="12" transform="translate(2.5 2.5)"></path>
+<path d="{{ig.s1}}" stroke="#5E8F7C" stroke-width="6" transform="translate(2 2)"></path>
+<path d="{{ig.s0}}" stroke="#86B59C" stroke-width="12"></path>
+<path d="{{ig.s1}}" stroke="#86B59C" stroke-width="6"></path>
+<path d="{{ig.s2}}" stroke="#7AAA91" stroke-width="3.2"></path>
+<path d="{{ig.s0}}" stroke="#B9DAC4" stroke-width="3.2" transform="translate(-2 -2)"></path>
+<path d="{{ig.s1}}" stroke="#B9DAC4" stroke-width="2" transform="translate(-1.5 -1.5)"></path>
+</g>
+<path d="{{ig.la}}" fill="#A2CBB2"></path><path d="{{ig.lb}}" fill="#6E9E88"></path>
+<path d="{{ig.pa}}" fill="#B8A3E6"></path><path d="{{ig.pb}}" fill="#8466C4"></path>
+<path d="{{ig.be}}" fill="#8A67C9"></path><path d="{{ig.bh}}" fill="#F29A55" opacity="0.75"></path>
+<use href="{{ig.f0.href}}" transform="{{ig.f0.tf}}" opacity="{{ig.f0.op}}"></use>
+<use href="{{ig.f1.href}}" transform="{{ig.f1.tf}}" opacity="{{ig.f1.op}}"></use>
+<use href="{{ig.f2.href}}" transform="{{ig.f2.tf}}" opacity="{{ig.f2.op}}"></use>
+<use href="{{ig.f3.href}}" transform="{{ig.f3.tf}}" opacity="{{ig.f3.op}}"></use>
+<use href="{{ig.f4.href}}" transform="{{ig.f4.tf}}" opacity="{{ig.f4.op}}"></use>
+<use href="{{ig.f5.href}}" transform="{{ig.f5.tf}}" opacity="{{ig.f5.op}}"></use>
+<use href="{{ig.f6.href}}" transform="{{ig.f6.tf}}" opacity="{{ig.f6.op}}"></use>
+<use href="{{ig.f7.href}}" transform="{{ig.f7.tf}}" opacity="{{ig.f7.op}}"></use>
+<use href="{{ig.f8.href}}" transform="{{ig.f8.tf}}" opacity="{{ig.f8.op}}"></use>
+<use href="{{ig.f9.href}}" transform="{{ig.f9.tf}}" opacity="{{ig.f9.op}}"></use>
+<use href="{{ig.f10.href}}" transform="{{ig.f10.tf}}" opacity="{{ig.f10.op}}"></use>
+<use href="{{ig.f11.href}}" transform="{{ig.f11.tf}}" opacity="{{ig.f11.op}}"></use>
+</g>
+</svg></div>
+<div style="padding: 20px 0 8px; display: flex; flex-wrap: wrap; gap: 20px 48px; align-items: flex-start">
 <div style="flex: 1 1 300px; min-width: 0">
-<div style="font-size: 13px; color: #CFC7EE">La pregunta del reto</div>
-<p style="margin: 8px 0 0; font-size: 30px; line-height: 1.12; font-weight: 700; letter-spacing: -0.03em">¿Qué aporta el diseñador gráfico que la IA no puede calcular?</p>
+
+<p style="margin: 8px 0 0; font-size: 36px; line-height: 1.08; font-weight: 700; letter-spacing: -0.035em">¿Qué aporta el diseñador gráfico que la IA no puede calcular?</p>
 </div>
-<div style="flex: 1.4 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
-<p style="margin: 0; font-size: 22px; line-height: 1.3; font-weight: 600">La IA calcula lo <span style="color: #B6E07A">probable</span>. El diseñador decide qué es <span style="color: #B6E07A">honesto</span> mostrar.</p>
-<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #E7E2F7">La IA rellena, limpia y completa: elige la respuesta más parecida a millones de imágenes. El diseñador separa el documento de la interpretación, marca lo que falta en vez de inventarlo y le da a cada persona herramientas para dudar. Eso no es un cálculo: es criterio, ética y cuidado por la memoria.</p>
+<div style="flex: 1.3 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 26px; line-height: 1.25; font-weight: 600; letter-spacing: -0.02em">La IA calcula lo <span style="background: linear-gradient(transparent 58%, #D9CCFF 58%)">probable</span>. El diseñador decide qué es <span style="background: linear-gradient(transparent 58%, #C8EC8E 58%)">honesto</span> mostrar.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3F3A57">La IA rellena, limpia y completa: elige la respuesta más parecida a millones de imágenes. El diseñador separa el documento de la interpretación, marca lo que falta en vez de inventarlo y le da a cada persona herramientas para dudar. Eso no es un cálculo: es criterio, ética y cuidado por la memoria.</p>
 </div>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px">
+<div style="position: relative; margin-top: 8px">
+<svg aria-hidden="true" viewBox="0 0 1000 80" preserveAspectRatio="none" style="position: absolute; left: -68px; top: 0; width: calc(100% + 68px); height: 80px; pointer-events: none; overflow: visible">
+<path d="M0 -40 C0 30 30 62 120 62 C300 62 420 56 560 60 S 860 66 1000 60" fill="none" stroke="#5E8F7C" stroke-width="10" stroke-linecap="round" vector-effect="non-scaling-stroke" transform="translate(2 2)"></path>
+<path d="M0 -40 C0 30 30 62 120 62 C300 62 420 56 560 60 S 860 66 1000 60" fill="none" stroke="#86B59C" stroke-width="10" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+<path d="M0 -40 C0 30 30 62 120 62 C300 62 420 56 560 60 S 860 66 1000 60" fill="none" stroke="#B9DAC4" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke" transform="translate(-1 -2)"></path>
+</svg>
+<div style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px">
 <sc-for list="{{pillars}}" as="pl" hint-placeholder-count="4">
-<article class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
-<span style="width: 40px; height: 40px; border-radius: 20px; background: {{pl.bg}}; color: #161616; display: flex; align-items: center; justify-content: center; font-weight: 700">{{pl.n}}</span>
+<article style="padding: 8px 4px; display: flex; flex-direction: column; gap: 10px">
+<svg aria-hidden="true" viewBox="0 0 90 70" style="width: 90px; height: 70px; overflow: visible; margin: -6px 0 0 -10px"><g filter="url(#f-grain)"><path d="M30 60 C20 52 8 54 2 60 C10 66 22 66 30 60 Z" fill="#A2CBB2"></path><path d="M30 60 C20 60 10 60 2 60 C10 64 22 64 30 60 Z" fill="#6E9E88"></path><use href="{{pl.k}}" transform="translate(40 64) scale(0.62)"></use></g></svg>
 <h2 class="ptitle" style="margin: 0">{{pl.title}}</h2>
 <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #3F3A57">{{pl.text}}</p>
 <p style="margin: 0; font-size: 12px; line-height: 1.45; color: #7B7868">{{pl.ref}}</p>
 </article>
 </sc-for>
 </div>
+</div>
 </section>
 </sc-if>
 
 <!-- 1 · ARCHIVO -->
 <sc-if value="{{s1}}" hint-placeholder-val="{{ true }}">
-<section aria-labelledby="t1" style="display: flex; flex-direction: column; gap: 18px">
+<section id="sec-1" class="sec" aria-labelledby="t1" style="display: flex; flex-direction: column; gap: 18px">
+<svg class="mark" aria-hidden="true" viewBox="0 0 120 160">
+<g filter="url(#f-grain)">
+<path d="M60 118 C44 118 30 128 22 142 C40 146 54 136 60 118 Z" fill="#A2CBB2"></path><path d="M60 118 C46 126 34 136 22 142 C40 136 52 130 60 118 Z" fill="#6E9E88"></path>
+<path d="M60 108 C76 106 92 112 102 124 C84 130 68 122 60 108 Z" fill="#A2CBB2"></path><path d="M60 108 C72 114 88 120 102 124 C86 116 72 110 60 108 Z" fill="#6E9E88"></path>
+<use href="#fl-poppy" transform="translate(60 102) scale(0.82)"></use>
+</g>
+</svg>
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
-<div><div class="kick">Paso 1 de 6</div><h1 id="t1" class="h1">Elige una fotografía</h1></div>
+<div><h1 id="t1" class="h1">Elige una fotografía</h1></div>
 <div role="group" aria-label="Filtrar por tema" style="display: flex; gap: 6px; flex-wrap: wrap">
-<sc-for list="{{filters}}" as="f" hint-placeholder-count="4"><button class="seg {{f.cls}}" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}">{{f.label}}</button></sc-for>
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="4"><button class="seg {{f.cls}}" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}" style="border-radius: 12px">{{f.label}}</button></sc-for>
 </div>
 </div>
-<div class="card" style="overflow-x: auto; padding: 8px">
-<div style="position: relative; width: 100%; min-width: 760px; aspect-ratio: 900 / 560; border-radius: 18px; overflow: hidden; background: radial-gradient(ellipse at 50% 0%, #F1ECFB 0%, #FBF8F0 60%)">
+<div style="overflow-x: auto; padding: 8px">
+<div style="position: relative; width: 100%; min-width: 760px; aspect-ratio: 900 / 560; border-radius: 18px; overflow: hidden; background: radial-gradient(ellipse at 50% 30%, #EFE8FB 0%, rgba(247,242,230,0) 72%)">
 <svg aria-hidden="true" viewBox="0 0 900 560" style="position: absolute; inset: 0; width: 100%; height: 100%">
 <g filter="url(#f-grain)">
 <g fill="none" stroke-linecap="round">
@@ -312,16 +477,23 @@ input[type=range]{accent-color:#6FA03C}
 
 <!-- 2 · VERSIONES -->
 <sc-if value="{{s2}}" hint-placeholder-val="{{ false }}">
-<section aria-labelledby="t2" style="display: flex; flex-direction: column; gap: 18px">
+<section id="sec-2" class="sec" aria-labelledby="t2" style="display: flex; flex-direction: column; gap: 18px">
+<svg class="mark" aria-hidden="true" viewBox="0 0 120 160">
+<g filter="url(#f-grain)">
+<path d="M60 118 C44 118 30 128 22 142 C40 146 54 136 60 118 Z" fill="#A2CBB2"></path><path d="M60 118 C46 126 34 136 22 142 C40 136 52 130 60 118 Z" fill="#6E9E88"></path>
+<path d="M60 108 C76 106 92 112 102 124 C84 130 68 122 60 108 Z" fill="#A2CBB2"></path><path d="M60 108 C72 114 88 120 102 124 C86 116 72 110 60 108 Z" fill="#6E9E88"></path>
+<use href="#fl-star" transform="translate(60 102) scale(0.82)"></use>
+</g>
+</svg>
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
-<div><div class="kick">Paso 2 de 6 · {{cs.es}}</div><h1 id="t2" class="h1">Versiones de la historia</h1></div>
-<p style="margin: 0; font-size: 15px; font-weight: 500; color: #3F3A57">Abre cada versión: cada una es una raíz de la memoria.</p>
+<div><h1 id="t2" class="h1">Versiones de la historia</h1></div>
+
 </div>
-<div class="card" style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
+<div style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
 <div style="flex: 999 1 640px; min-width: 0; overflow-x: auto">
-<div style="position: relative; width: 100%; min-width: 820px; aspect-ratio: 1000 / 720; border-radius: 18px; overflow: hidden; background: #FBF8F0">
+<div style="position: relative; width: 100%; min-width: 820px; aspect-ratio: 1000 / 720; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 93%, transparent), linear-gradient(to right, transparent, #000 7%, #000 93%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to bottom, #000 93%, transparent), linear-gradient(to right, transparent, #000 7%, #000 93%, transparent); mask-composite: intersect">
 <svg aria-hidden="true" viewBox="0 0 1000 720" style="position: absolute; inset: 0; width: 100%; height: 100%">
-<path d="M0 266 C250 250 700 276 1000 258 L1000 720 L0 720 Z" fill="#F1E6CB"></path>
+<path d="M0 266 C250 250 700 276 1000 258 L1000 720 L0 720 Z" fill="#EEE2C6"></path>
 <g opacity="0.35">
 <g filter="url(#f-grain)">
 <g fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -379,10 +551,10 @@ input[type=range]{accent-color:#6FA03C}
 <path d="M500 226 C495 252 505 278 500 306" stroke="#B9DAC4" stroke-width="7" transform="translate(-6 -2)"></path>
 </g>
 <path d="{{vground.pa}}" fill="#B8A3E6"></path><path d="{{vground.pb}}" fill="#8466C4"></path><path d="{{vground.la}}" fill="#A2CBB2"></path><path d="{{vground.lb}}" fill="#6E9E88"></path>
-<use href="#fl-tulip-o" transform="translate(150 262) rotate(-8) scale(0.9)"></use>
-<use href="#fl-bud" transform="translate(92 264) rotate(-18) scale(0.75)"></use>
-<use href="#fl-peony" transform="translate(870 262) rotate(6) scale(0.85)"></use>
-<use href="#fl-bell" transform="translate(930 236) rotate(-150) scale(0.6)"></use>
+<use href="#fl-poppy" transform="translate(150 264) rotate(-8) scale(0.85)"></use>
+<use href="#fl-lavender" transform="translate(92 266) rotate(-12) scale(0.75)"></use>
+<use href="#fl-daisy" transform="translate(870 264) rotate(6) scale(0.85)"></use>
+<use href="#fl-corn" transform="translate(936 266) rotate(10) scale(0.7)"></use>
 </g>
 </svg>
 <sc-for list="{{rlabels}}" as="rl">
@@ -401,18 +573,14 @@ input[type=range]{accent-color:#6FA03C}
 <span aria-hidden="true" style="position: absolute; left: 10px; right: 10px; bottom: 6px; height: 8px; background: repeating-linear-gradient(90deg, #FBF8F0 0 9px, transparent 9px 20px); border-radius: 2px"></span>
 </div>
 </div>
-<div style="position: absolute; {{mem.badgePos}}; z-index: 3; display: flex; flex-direction: column; align-items: flex-start; gap: 4px">
-<span style="font-size: 13px; font-weight: 700; color: #3F3A57">La memoria</span>
-<span style="font-size: 28px; font-weight: 700; letter-spacing: -0.03em; color: #161616">{{mem.n}}<span style="color: #9A97A8">/{{mem.total}}</span></span>
-<span style="font-size: 12px; color: #5E5B6B">raíces conectadas</span>
-</div>
+
 <div style="position: absolute; left: 2%; bottom: 3%; z-index: 3; display: flex; gap: 6px; flex-wrap: wrap; max-width: 96%">
 <span class="pill p-doc">Documento</span><span class="pill p-int">Interpretación</span><span class="pill p-disp">En disputa</span><span class="pill p-ia">IA</span>
 </div>
 </div>
 </div>
 <aside aria-label="Versión seleccionada" style="flex: 1 1 280px; min-width: 0; padding: 18px 18px 18px 22px; display: flex; flex-direction: column; gap: 12px">
-<div class="kick">Versión abierta</div>
+
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px">
 <div class="ptitle">{{vd.who}}</div>
 <button class="ib ib-d" aria-label="{{mVer.lbl}}" aria-expanded="{{mVer.open}}" onClick="{{mVer.toggle}}">{{mVer.icon}}</button>
@@ -430,7 +598,14 @@ input[type=range]{accent-color:#6FA03C}
 
 <!-- 3 · CAPAS -->
 <sc-if value="{{s3}}" hint-placeholder-val="{{ false }}">
-<section aria-labelledby="t3" style="display: flex; flex-direction: column; gap: 18px">
+<section id="sec-3" class="sec" aria-labelledby="t3" style="display: flex; flex-direction: column; gap: 18px">
+<svg class="mark" aria-hidden="true" viewBox="0 0 120 160">
+<g filter="url(#f-grain)">
+<path d="M60 118 C44 118 30 128 22 142 C40 146 54 136 60 118 Z" fill="#A2CBB2"></path><path d="M60 118 C46 126 34 136 22 142 C40 136 52 130 60 118 Z" fill="#6E9E88"></path>
+<path d="M60 108 C76 106 92 112 102 124 C84 130 68 122 60 108 Z" fill="#A2CBB2"></path><path d="M60 108 C72 114 88 120 102 124 C86 116 72 110 60 108 Z" fill="#6E9E88"></path>
+<use href="#fl-corn" transform="translate(60 102) scale(0.82)"></use>
+</g>
+</svg>
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
 <div><div class="kick">Paso 3 de 6 · {{cs.es}}</div><h1 id="t3" class="h1">Capas de la foto</h1></div>
 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
@@ -440,8 +615,8 @@ input[type=range]{accent-color:#6FA03C}
 <input type="range" min="0" max="100" step="1" value="{{sep}}" onChange="{{onSep}}" aria-label="Separación entre capas" style="width: 170px; height: 44px; margin-left: 6px">
 </div>
 </div>
-<div class="card" style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
-<div style="flex: 999 1 520px; min-width: 0; position: relative; height: 620px; perspective: 1800px; overflow: hidden; border-radius: 18px; background: linear-gradient(160deg, #EDE6FF 0%, #F6F4EE 45%, #EEF6E2 100%)">
+<div style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
+<div style="flex: 999 1 520px; min-width: 0; position: relative; height: 620px; perspective: 1800px; overflow: hidden; background: radial-gradient(ellipse at 50% 50%, #EDE6FF 0%, rgba(247,242,230,0) 70%)">
 <div style="position: absolute; inset: 0; transform-style: preserve-3d">
 <sc-for list="{{layers}}" as="L" hint-placeholder-count="5">
 <div style="position: absolute; left: 50%; top: 50%; width: {{L.w}}px; transform: {{L.tf}}; opacity: {{L.op}}; transition: transform 0.55s ease, opacity 0.3s ease">
@@ -492,7 +667,7 @@ input[type=range]{accent-color:#6FA03C}
 </sc-if>
 </div>
 </div>
-<div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+<div style="display: flex; justify-content: flex-end; gap: 12px; flex-wrap: wrap">
 <button class="btn btn-s" onClick="{{goVersions}}">Volver a versiones</button>
 <button class="btn btn-p" onClick="{{goInvestigate}}">Buscar los cambios</button>
 </div>
@@ -510,11 +685,20 @@ input[type=range]{accent-color:#6FA03C}
 </section>
 </sc-if>
 
+
+
 <!-- 4 · INVESTIGAR -->
 <sc-if value="{{s4}}" hint-placeholder-val="{{ false }}">
-<section aria-labelledby="t4" style="display: flex; flex-direction: column; gap: 18px">
+<section id="sec-4" class="sec" aria-labelledby="t4" style="display: flex; flex-direction: column; gap: 18px">
+<svg class="mark" aria-hidden="true" viewBox="0 0 120 160">
+<g filter="url(#f-grain)">
+<path d="M60 118 C44 118 30 128 22 142 C40 146 54 136 60 118 Z" fill="#A2CBB2"></path><path d="M60 118 C46 126 34 136 22 142 C40 136 52 130 60 118 Z" fill="#6E9E88"></path>
+<path d="M60 108 C76 106 92 112 102 124 C84 130 68 122 60 108 Z" fill="#A2CBB2"></path><path d="M60 108 C72 114 88 120 102 124 C86 116 72 110 60 108 Z" fill="#6E9E88"></path>
+<use href="#fl-tulip-o" transform="translate(60 102) scale(0.82)"></use>
+</g>
+</svg>
 <div><div class="kick">Paso 4 de 6 · {{cs.es}}</div><h1 id="t4" class="h1">Busca los cambios</h1></div>
-<div class="card" style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
+<div style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
 <div style="flex: 999 1 620px; min-width: 0; padding: 10px; display: flex; flex-direction: column; gap: 14px">
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
 <sc-for list="{{panes}}" as="p" hint-placeholder-count="2">
@@ -544,7 +728,7 @@ input[type=range]{accent-color:#6FA03C}
 <sc-if value="{{mEv.openB}}">
 <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
 <sc-for list="{{foundList}}" as="e">
-<li style="display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; background: #F7F6F1; border-radius: 14px">
+<li style="display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; background: #FFFFFF; border-radius: 14px">
 <span style="display: flex; justify-content: space-between; align-items: center; gap: 10px"><span style="font-size: 14px; font-weight: 600">{{e.num}}. {{e.es}}</span><span class="pill {{e.t.cls}}">{{e.t.w}}</span></span>
 <span style="font-size: 13px; line-height: 1.45; color: #3F3A57">{{e.text}}</span>
 </li>
@@ -559,14 +743,23 @@ input[type=range]{accent-color:#6FA03C}
 </section>
 </sc-if>
 
+
+
 <!-- 5 · RECONSTRUIR -->
 <sc-if value="{{s5}}" hint-placeholder-val="{{ false }}">
-<section aria-labelledby="t5" style="display: flex; flex-direction: column; gap: 18px">
+<section id="sec-5" class="sec" aria-labelledby="t5" style="display: flex; flex-direction: column; gap: 18px">
+<svg class="mark" aria-hidden="true" viewBox="0 0 120 160">
+<g filter="url(#f-grain)">
+<path d="M60 118 C44 118 30 128 22 142 C40 146 54 136 60 118 Z" fill="#A2CBB2"></path><path d="M60 118 C46 126 34 136 22 142 C40 136 52 130 60 118 Z" fill="#6E9E88"></path>
+<path d="M60 108 C76 106 92 112 102 124 C84 130 68 122 60 108 Z" fill="#A2CBB2"></path><path d="M60 108 C72 114 88 120 102 124 C86 116 72 110 60 108 Z" fill="#6E9E88"></path>
+<use href="#fl-lavender" transform="translate(60 102) scale(0.82)"></use>
+</g>
+</svg>
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
 <div><div class="kick">Paso 5 de 6 · {{cs.es}}</div><h1 id="t5" class="h1">Reconstruye la foto</h1></div>
 <p style="margin: 0; font-size: 15px; color: #3F3A57; font-weight: 500">Toca cada punto verde y decide.</p>
 </div>
-<div class="card" style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
+<div style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
 <div style="flex: 999 1 600px; min-width: 0; padding: 4px">
 <div class="ph" style="aspect-ratio: {{cs.ratio}}; overflow: visible; border-radius: 16px">
 <div style="position: absolute; inset: 0; border-radius: 16px; overflow: hidden">
@@ -633,12 +826,19 @@ input[type=range]{accent-color:#6FA03C}
 
 <!-- 6 · COMPARAR -->
 <sc-if value="{{s6}}" hint-placeholder-val="{{ false }}">
-<section aria-labelledby="t6" style="display: flex; flex-direction: column; gap: 18px">
+<section id="sec-6" class="sec" aria-labelledby="t6" style="display: flex; flex-direction: column; gap: 18px">
+<svg class="mark" aria-hidden="true" viewBox="0 0 120 160">
+<g filter="url(#f-grain)">
+<path d="M60 118 C44 118 30 128 22 142 C40 146 54 136 60 118 Z" fill="#A2CBB2"></path><path d="M60 118 C46 126 34 136 22 142 C40 136 52 130 60 118 Z" fill="#6E9E88"></path>
+<path d="M60 108 C76 106 92 112 102 124 C84 130 68 122 60 108 Z" fill="#A2CBB2"></path><path d="M60 108 C72 114 88 120 102 124 C86 116 72 110 60 108 Z" fill="#6E9E88"></path>
+<use href="#fl-peony" transform="translate(60 102) scale(0.82)"></use>
+</g>
+</svg>
 <div><div class="kick">Paso 6 de 6 · {{cs.es}}</div><h1 id="t6" class="h1">¿Cuál es la original?</h1></div>
 <p style="margin: 0; max-width: 860px; font-size: 17px; line-height: 1.55; color: #3F3A57">{{cmp.lede}}</p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
 <sc-for list="{{cmp.cards}}" as="k" hint-placeholder-count="3">
-<article class="card" style="padding: 10px; display: flex; flex-direction: column; gap: 10px; box-shadow: {{k.ring}}; transition: box-shadow 0.3s">
+<article style="padding: 10px; border-radius: 22px; display: flex; flex-direction: column; gap: 10px; box-shadow: {{k.ring}}; transition: box-shadow 0.3s">
 <div style="padding: 6px 8px 0; display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 30px"><h2 class="ptitle" style="margin: 0">{{k.title}}</h2><sc-if value="{{k.revealed}}"><span class="pill {{k.t.cls}}">{{k.t.w}}</span></sc-if></div>
 <div class="ph" style="aspect-ratio: {{cs.ratio}}">
 <img src="{{k.base}}" alt="{{k.alt}}">
@@ -653,23 +853,9 @@ input[type=range]{accent-color:#6FA03C}
 </sc-for>
 </div>
 <sc-if value="{{cmp.done}}">
-<div class="dark fadeIn" style="padding: 24px 28px; display: flex; flex-direction: column; gap: 8px">
-<div style="font-size: 26px; font-weight: 700; letter-spacing: -0.025em">{{cmp.verdict}}</div>
-<p style="margin: 0; max-width: 900px; font-size: 16px; line-height: 1.6; color: #E7E2F7">{{cmp.feedback}}</p>
-</div>
-<div class="card" style="overflow-x: auto; padding: 6px 10px">
-<div style="padding: 14px 14px 6px"><h2 class="ptitle" style="margin: 0">Zona por zona</h2><p style="margin: 4px 0 0; font-size: 14px; line-height: 1.5; color: #5E5B6B">Cada fila es una parte de la foto. Compara lo que dicen los registros, lo que hizo la IA y lo que decidiste tú.</p></div>
-<div style="min-width: 720px">
-<div style="display: grid; grid-template-columns: 1fr 1.3fr 1.3fr 1.3fr; font-size: 13px; font-weight: 600; color: #7B7868"><span style="padding: 12px 14px">Zona</span><span style="padding: 12px 14px">Según los registros</span><span style="padding: 12px 14px">Lo que hizo la IA</span><span style="padding: 12px 14px">Lo que decidiste tú</span></div>
-<sc-for list="{{rows}}" as="r" hint-placeholder-count="3">
-<div style="display: grid; grid-template-columns: 1fr 1.3fr 1.3fr 1.3fr; border-top: 1px solid #EEECE5; font-size: 14px; align-items: center">
-<span style="padding: 14px; font-weight: 700">{{r.name}}</span>
-<span style="padding: 14px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span class="pill {{r.h.t.cls}}">{{r.h.t.w}}</span>{{r.h.txt}}</span>
-<span style="padding: 14px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span class="pill {{r.i.t.cls}}">{{r.i.t.w}}</span>{{r.i.txt}}</span>
-<span style="padding: 14px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span class="pill {{r.u.t.cls}}">{{r.u.t.w}}</span>{{r.u.txt}}</span>
-</div>
-</sc-for>
-</div>
+<div class="fadeIn" style="padding: 8px 0; display: flex; flex-direction: column; gap: 8px; max-width: 900px">
+<div style="font-size: 32px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1">{{cmp.verdict}}</div>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #3F3A57">{{cmp.feedback}}</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; justify-content: space-between">
 <blockquote style="flex: 1 1 480px; max-width: 760px; margin: 0">
@@ -685,7 +871,6 @@ input[type=range]{accent-color:#6FA03C}
 </sc-if>
 
 </main>
-</div>
 </div>
 </template>
 <script>
@@ -783,7 +968,7 @@ function folk(seed, starts, opt) {
   starts.forEach((s) => branch(s[0], s[1], s[2], s[3], s[4], s[5], s[6]));
   return o;
 }
-const KINDS = ['#fl-tulip', '#fl-peony', '#fl-bell', '#fl-tulip-o', '#fl-bud', '#fl-peony', '#fl-tulip-o', '#fl-bell'];
+const KINDS = ['#fl-tulip', '#fl-daisy', '#fl-peony', '#fl-poppy', '#fl-bell', '#fl-star', '#fl-lavender', '#fl-tulip-o', '#fl-corn', '#fl-bud'];
 function flowerSlots(o, n, scale, extra) {
   const list = (extra || []).concat(o.fl.map((f, i) => ({ x: f.x, y: f.y, rot: f.a * 180 / PI + (KINDS[i % KINDS.length] === '#fl-bell' ? -90 : 90), s: scale * (f.cls ? 0.72 : 1), k: KINDS[i % KINDS.length] })));
   const out = [];
@@ -947,11 +1132,51 @@ const ART_SOIL = artVals(folk(61, [[-10, 330, 0.25, 64, 1, 4, 0.3], [1010, 340, 
 const GROUND = (() => { let a = '', b = '', c = '', d = ''; const r = rng(5); for (let k = 0; k < 46; k++) { const x = 8 + r() * 984; if (Math.abs(x - 500) < 40) continue; const y = 266 + (r() - 0.5) * 6; const L = 22 + r() * 30; const lean = (x < 500 ? -1 : 1) * (0.15 + r() * 0.6) * (r() < 0.3 ? -1 : 1); const lp = leafPair(x, y, -PI / 2 + lean, L, L * 0.34, lean * 0.4); if (r() < 0.2) { c += lp[0]; d += lp[1]; } else { a += lp[0]; b += lp[1]; } } return { la: a, lb: b, pa: c, pb: d }; })();
 const PERMS = [[1, 2, 0], [2, 0, 1], [0, 2, 1], [1, 0, 2], [2, 1, 0], [0, 1, 2]];
 const PILLARS = [
-  { n: 1, bg: '#C8EC8E', title: 'La foto es una imagen técnica', text: 'Toda fotografía sale de un aparato que sigue un programa. La IA es un aparato todavía más opaco: aquí lo abrimos capa por capa para ver qué decide por nosotros.', ref: 'Vilém Flusser · Hacia una filosofía de la fotografía' },
-  { n: 2, bg: '#D9CCFF', title: 'Hacer visible lo invisible', text: 'Un buen diseño muestra el estado del sistema. Raíces, colores y etiquetas dejan ver qué es documento, qué es interpretación y qué inventó la IA.', ref: 'Don Norman · El diseño de los objetos cotidianos' },
-  { n: 3, bg: '#FFD39A', title: 'La experiencia construye el sentido', text: 'No te contamos la historia: la investigas. Comparar, dudar y decidir hace que el significado sea tuyo y no del algoritmo.', ref: 'Nathan Shedroff · Experience Design' },
-  { n: 4, bg: '#BFDDFF', title: 'Diseñar anticipando', text: 'En 2050 el pasado podrá generarse en segundos. Diseñamos hoy las herramientas para que la memoria siga siendo verificable mañana.', ref: 'R. Buckminster Fuller · diseño integral anticipatorio' }
+  { n: 1, k: '#fl-daisy', bg: '#C8EC8E', title: 'La foto es una imagen técnica', text: 'Toda fotografía sale de un aparato que sigue un programa. La IA es un aparato todavía más opaco: aquí lo abrimos capa por capa para ver qué decide por nosotros.', ref: 'Vilém Flusser · Hacia una filosofía de la fotografía' },
+  { n: 2, k: '#fl-poppy', bg: '#D9CCFF', title: 'Hacer visible lo invisible', text: 'Un buen diseño muestra el estado del sistema. Raíces, colores y etiquetas dejan ver qué es documento, qué es interpretación y qué inventó la IA.', ref: 'Don Norman · El diseño de los objetos cotidianos' },
+  { n: 3, k: '#fl-star', bg: '#FFD39A', title: 'La experiencia construye el sentido', text: 'No te contamos la historia: la investigas. Comparar, dudar y decidir hace que el significado sea tuyo y no del algoritmo.', ref: 'Nathan Shedroff · Experience Design' },
+  { n: 4, k: '#fl-corn', bg: '#BFDDFF', title: 'Diseñar anticipando', text: 'En 2050 el pasado podrá generarse en segundos. Diseñamos hoy las herramientas para que la memoria siga siendo verificable mañana.', ref: 'R. Buckminster Fuller · diseño integral anticipatorio' }
 ];
+function garland(seed, endX, H) {
+  const r = rng(seed);
+  const o = { s: ['', '', ''], la: '', lb: '', pa: '', pb: '', be: '', bh: '', fl: [] };
+  const y0 = H / 2, ph = r() * 6;
+  const pts = [[60, 0], [70, y0 - 10]];
+  for (let x = 140; x <= endX; x += 82) pts.push([x, y0 + Math.sin(x / 120 + ph) * 20]);
+  let d = 'M' + f1(pts[0][0]) + ' ' + f1(pts[0][1]);
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(pts.length - 1, i + 2)];
+    d += 'C' + f1(p1[0] + (p2[0] - p0[0]) / 6) + ' ' + f1(p1[1] + (p2[1] - p0[1]) / 6) + ' ' + f1(p2[0] - (p3[0] - p1[0]) / 6) + ' ' + f1(p2[1] - (p3[1] - p1[1]) / 6) + ' ' + f1(p2[0]) + ' ' + f1(p2[1]);
+  }
+  o.s[0] = d;
+  const leaf = (x, y, t, L) => { const p = leafPair(x, y, t, L, L * 0.36, (r() - 0.5) * 0.3); if (r() < 0.22) { o.pa += p[0]; o.pb += p[1]; } else { o.la += p[0]; o.lb += p[1]; } };
+  const kinds = ['#fl-daisy', '#fl-bell', '#fl-poppy', '#fl-star', '#fl-corn', '#fl-tulip', '#fl-lavender', '#fl-peony'];
+  let kk = Math.floor(r() * 8);
+  for (let i = 2; i < pts.length - 1; i++) {
+    const p = pts[i], q = pts[i + 1];
+    const tg = Math.atan2(q[1] - p[1], q[0] - p[0]);
+    const up = i % 2 === 0 ? -1 : 1;
+    leaf(p[0] + 30, p[1], tg - up * (0.85 + r() * 0.3), 34 + r() * 14);
+    if (r() < 0.55) leaf(p[0] + 12, p[1], tg + up * (0.9 + r() * 0.3), 24 + r() * 10);
+    if (r() < 0.85) {
+      const a = tg + up * (1.05 + r() * 0.35), L = 28 + r() * 12;
+      const ex = p[0] + Math.cos(a) * L, ey = p[1] + Math.sin(a) * L;
+      o.s[1] += 'M' + f1(p[0]) + ' ' + f1(p[1]) + 'Q' + f1(p[0] + Math.cos(a - up * 0.5) * L * 0.6) + ' ' + f1(p[1] + Math.sin(a - up * 0.5) * L * 0.6) + ' ' + f1(ex) + ' ' + f1(ey);
+      if (r() < 0.7) { const k = kinds[kk++ % kinds.length]; o.fl.push({ x: ex, y: ey, rot: a * 180 / PI + (k === '#fl-bell' ? -90 : 90), k: k }); }
+      else { for (let j = 0; j < 3; j++) { const ta = a + (j - 1) * 0.7, rr = 4.5 + r() * 2; const bx = ex + Math.cos(ta) * 12, by = ey + Math.sin(ta) * 12; o.s[2] += 'M' + f1(ex) + ' ' + f1(ey) + 'L' + f1(bx) + ' ' + f1(by); o.be += circ(bx, by, rr); o.bh += circ(bx + rr * 0.22, by + rr * 0.22, rr * 0.68); } }
+    }
+  }
+  const e = pts[pts.length - 1], e2 = pts[pts.length - 2];
+  o.fl.push({ x: e[0], y: e[1], rot: Math.atan2(e[1] - e2[1], e[0] - e2[0]) * 180 / PI + 90, k: ['#fl-peony', '#fl-poppy', '#fl-daisy', '#fl-star'][seed % 4], big: true });
+  return o;
+}
+function garlandSlots(o, n, s) {
+  const out = [];
+  for (let i = 0; i < n; i++) { const f = o.fl[i]; out.push(f ? { href: f.k, tf: 'translate(' + f1(f.x) + ' ' + f1(f.y) + ') rotate(' + f1(f.rot) + ') scale(' + (f.big ? s * 1.25 : s).toFixed(2) + ')', op: 1 } : { href: '#fl-bud', tf: 'translate(-99 -99)', op: 0 }); }
+  return out;
+}
+const INTRO_G = (() => { const o = garland(58, 1040, 170); return artVals(o, garlandSlots(o, 12, 0.55)); })();
+function garlandVals(seed, endX) { const o = garland(seed, endX, 230); return artVals(o, garlandSlots(o, 12, 0.6)); }
 function clipOf(b) { return 'inset(' + b[1] + '% ' + (100 - b[0] - b[2]).toFixed(2) + '% ' + (100 - b[1] - b[3]).toFixed(2) + '% ' + b[0] + '%)'; }
 
 class Component extends DCLogic {
@@ -961,7 +1186,7 @@ class Component extends DCLogic {
     ch: {}, pop: null, note: '', archived: {}, seen: {}, vsel: 0, mini: {}, focus: null, fk: 0, fclose: false, guess: {}
   };
 
-  go(n) { this.setState({ stage: n, doc: null, pop: null, focus: null, fclose: false }); }
+  go(n) { this.setState({ stage: n, doc: null, pop: null, focus: null, fclose: false }); setTimeout(() => { const el = typeof document !== 'undefined' ? document.getElementById('sec-' + n) : null; if (el && el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 40); }
   pickCase(id) { this.setState({ caseSel: id, found: {}, ch: {}, seen: {}, vsel: 0, solo: -1, hidden: [false, false, false, false, false], cmpA: 0, cmpB: 1, hint: false, note: '', msg: 'Toca una zona de la imagen para examinarla.' }); }
   mini(key, title) {
     const closed = !!this.state.mini[key];
@@ -1003,8 +1228,7 @@ class Component extends DCLogic {
 
     const navClosed = !!s.mini.nav;
     const badges = { 0: '', 1: '', 2: seenN ? seenN + '/' + c.versions.length : '', 3: '', 4: foundN ? foundN + '/' + ANOM.length : '', 5: chosenN ? chosenN + '/3' : '', 6: s.archived[c.id] ? '✓' : '' };
-    const stages = STAGES.map((x) => ({ es: x.es, icon: x.icon, badge: badges[x.n], aria: s.stage === x.n ? 'step' : 'false',
-      style: (s.stage === x.n ? 'color: #FFFFFF; background: #3F3A57;' : '') + (navClosed ? ' justify-content: center; padding: 0' : ''), go: () => this.go(x.n) }));
+    const stages = STAGES.map((x) => ({ es: x.es, badge: badges[x.n], hasBadge: !!badges[x.n], aria: s.stage === x.n ? 'step' : 'false', cls: s.stage === x.n ? 'tab tab-on' : 'tab', go: () => this.go(x.n) }));
 
     // 1
     const filters = FIL.map((f) => ({ label: f.label, pressed: s.filter === f.id ? 'true' : 'false', cls: s.filter === f.id ? 'seg-on' : '', pick: () => this.setState({ filter: f.id }) }));
@@ -1046,7 +1270,7 @@ class Component extends DCLogic {
       const nA = tg - PI / 2, nB = tg + PI / 2;
       const nrm = Math.sin(nA) < Math.sin(nB) ? nA : nB;
       vr.push({ d: d, off: seen ? 0 : 1, col: ROOT_COL[ver.st], dark: ROOT_DARK[ver.st], hi: ROOT_HI[ver.st], w: w, wh: sel ? 5 : 4, la: lv.la, lb: lv.lb, fop: seen ? 1 : 0,
-        ftf: 'translate(' + bp[0].toFixed(1) + ' ' + bp[1].toFixed(1) + ') rotate(' + (nrm * 180 / PI + 90).toFixed(1) + ') scale(0.72)', fk: ['#fl-tulip', '#fl-peony', '#fl-tulip-o', '#fl-bell', '#fl-peony'][i], fs: seen ? 1 : 0 });
+        ftf: 'translate(' + bp[0].toFixed(1) + ' ' + bp[1].toFixed(1) + ') rotate(' + (nrm * 180 / PI + 90).toFixed(1) + ') scale(0.72)', fk: ['#fl-daisy', '#fl-poppy', '#fl-star', '#fl-corn', '#fl-tulip-o'][i], fs: seen ? 1 : 0 });
       if (seen) rlabels.push({ txt: ST[ver.st].w, pos: 'left: ' + (mx / 10).toFixed(1) + '%; top: ' + (my / 7.2).toFixed(1) + '%', bg: NODE_BG[ver.st], fg: '#161616', bd: NODE_BD[ver.st] });
       vnodes.push({ who: ver.who, year: seen ? ver.year : 'Toca para abrir', pressed: sel ? 'true' : 'false',
         aria: ver.who + (seen ? ', ' + ST[ver.st].w : ', versión sin abrir'),
@@ -1166,13 +1390,13 @@ class Component extends DCLogic {
       Object.assign({}, rc, { base: rc.base, name: 'Tu reconstrucción', t: ST.int, note: chosenN < 3 ? 'Todavía te faltan decisiones en Reconstruir.' : 'Muestra lo que decidiste: ' + chosen.map((o) => o.label.toLowerCase()).join(' · ') + '.' })
     ];
     const LET = ['A', 'B', 'C'];
-    const DEF_SH = '0 1px 0 rgba(22,22,22,0.04), 0 12px 30px rgba(63,58,87,0.06)';
+    const DEF_SH = '0 0 0 0 transparent';
     const cmp = {
       done: done,
       lede: done ? 'Así se ven las tres versiones con sus etiquetas.' : 'Aquí están tres versiones de la misma foto, sin etiquetas: la original de ' + c.date + ', la que reconstruyó una IA en 2050 y la tuya. Mira el grano, el color, las esquinas y la fecha de cada una. ¿Cuál crees que es la foto original?',
       cards: perm.map((it, p) => { const I = ITEMS[it]; const mine = g === it;
         return Object.assign({}, I, { title: done ? LET[p] + ' · ' + I.name : 'Versión ' + LET[p], alt: done ? I.name : 'Versión ' + LET[p], revealed: done, pickOn: !done, pickTxt: 'La original es la ' + LET[p],
-          ring: mine ? (it === 0 ? '0 0 0 4px #B6E07A, ' : '0 0 0 4px #F08A80, ') + DEF_SH : DEF_SH,
+          ring: mine ? (it === 0 ? '0 0 0 4px #B6E07A' : '0 0 0 4px #F08A80') : DEF_SH,
           pick: () => { const gs = Object.assign({}, this.state.guess); gs[c.id] = it; this.setState({ guess: gs }); } }); }),
       verdict: g === 0 ? '¡Acertaste! Esa es la original.' : (g === 1 ? 'Elegiste la versión de la IA.' : 'Elegiste tu reconstrucción.'),
       feedback: g === 0 ? 'La original no es la más bonita: es la que tiene grano, imperfecciones y una fecha que coincide con los registros. La IA la dejó más nítida y más limpia, y por eso parece más «real». Ese es el riesgo en 2050: lo verosímil le gana a lo verdadero.'
@@ -1181,7 +1405,7 @@ class Component extends DCLogic {
     };
 
     return {
-      s0: s.stage === 0, s1: s.stage === 1, s2: s.stage === 2, s3: s.stage === 3, s4: s.stage === 4, s5: s.stage === 5, s6: s.stage === 6,
+      ig: INTRO_G, s0: s.stage === 0, s1: s.stage === 1, s2: s.stage === 2, s3: s.stage === 3, s4: s.stage === 4, s5: s.stage === 5, s6: s.stage === 6,
       cs, stages, bg: ART_BG, map: ART_MAP, intro: ART_INTRO, pillars: PILLARS, startGame: () => this.go(1), cmp,
       navFlex: navClosed ? '0 0 64px' : '1 1 210px', navOpen: navClosed ? 'false' : 'true', navOpenB: !navClosed,
       navToggleIcon: navClosed ? '»' : '«', navToggleLbl: navClosed ? 'Mostrar el menú' : 'Minimizar el menú',
@@ -1196,7 +1420,7 @@ class Component extends DCLogic {
       showAll: () => this.setState({ solo: -1, hidden: [false, false, false, false, false] }),
       layers, strataRows, docOpen: !!s.doc, dd, closeDoc: () => this.setState({ doc: null }),
       focusOn: s.focus != null, fv, closeFocus: () => { if (this.state.fclose) return; this.setState({ fclose: true }); setTimeout(() => this.setState({ focus: null, fclose: false }), 400); },
-      goInvestigate: () => this.go(4), goRebuild: () => this.setState({ stage: 5, pop: chosenN < 3 ? (ZD.find((z) => !s.ch[z.id]) || ZD[0]).id : null }), goCompare: () => this.go(6),
+      goInvestigate: () => this.go(4), goRebuild: () => { this.go(5); this.setState({ pop: chosenN < 3 ? (ZD.find((z) => !s.ch[z.id]) || ZD[0]).id : null }); }, goCompare: () => this.go(6),
       panes: [mkPane(0), mkPane(1)], msg: s.msg, foundN, foundList, anomTotal: ANOM.length,
       showHint: s.hint && !!nextUnfound, hintTxt: nextUnfound ? nextUnfound.hint : '', askHint: () => this.setState({ hint: true }),
       rc, zoneBtns, popOn: !!s.pop, pop, closePop: () => this.setState({ pop: null }), decList, chosenN,
