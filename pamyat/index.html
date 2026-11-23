@@ -320,15 +320,48 @@ input[type=range]{accent-color:#6FA03C}
 </div>
 </div>
 
+<div class="garl" aria-hidden="true" style="height: 170px; margin-top: -20px; margin-bottom: -40px; overflow: visible"><svg viewBox="0 0 1200 170" style="height: 170px; overflow: visible">
+<g filter="url(#f-grain)">
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="{{ig.s0}}" stroke="#5E8F7C" stroke-width="12" transform="translate(2.5 2.5)"></path>
+<path d="{{ig.s1}}" stroke="#5E8F7C" stroke-width="6" transform="translate(2 2)"></path>
+<path d="{{ig.s0}}" stroke="#86B59C" stroke-width="12"></path>
+<path d="{{ig.s1}}" stroke="#86B59C" stroke-width="6"></path>
+<path d="{{ig.s2}}" stroke="#7AAA91" stroke-width="3.2"></path>
+<path d="{{ig.s0}}" stroke="#B9DAC4" stroke-width="3.2" transform="translate(-2 -2)"></path>
+<path d="{{ig.s1}}" stroke="#B9DAC4" stroke-width="2" transform="translate(-1.5 -1.5)"></path>
+</g>
+<path d="{{ig.la}}" fill="#A2CBB2"></path><path d="{{ig.lb}}" fill="#6E9E88"></path>
+<path d="{{ig.pa}}" fill="#B8A3E6"></path><path d="{{ig.pb}}" fill="#8466C4"></path>
+<path d="{{ig.be}}" fill="#8A67C9"></path><path d="{{ig.bh}}" fill="#F29A55" opacity="0.75"></path>
+<use href="{{ig.f0.href}}" transform="{{ig.f0.tf}}" opacity="{{ig.f0.op}}"></use>
+<use href="{{ig.f1.href}}" transform="{{ig.f1.tf}}" opacity="{{ig.f1.op}}"></use>
+<use href="{{ig.f2.href}}" transform="{{ig.f2.tf}}" opacity="{{ig.f2.op}}"></use>
+<use href="{{ig.f3.href}}" transform="{{ig.f3.tf}}" opacity="{{ig.f3.op}}"></use>
+<use href="{{ig.f4.href}}" transform="{{ig.f4.tf}}" opacity="{{ig.f4.op}}"></use>
+<use href="{{ig.f5.href}}" transform="{{ig.f5.tf}}" opacity="{{ig.f5.op}}"></use>
+<use href="{{ig.f6.href}}" transform="{{ig.f6.tf}}" opacity="{{ig.f6.op}}"></use>
+<use href="{{ig.f7.href}}" transform="{{ig.f7.tf}}" opacity="{{ig.f7.op}}"></use>
+<use href="{{ig.f8.href}}" transform="{{ig.f8.tf}}" opacity="{{ig.f8.op}}"></use>
+<use href="{{ig.f9.href}}" transform="{{ig.f9.tf}}" opacity="{{ig.f9.op}}"></use>
+<use href="{{ig.f10.href}}" transform="{{ig.f10.tf}}" opacity="{{ig.f10.op}}"></use>
+<use href="{{ig.f11.href}}" transform="{{ig.f11.tf}}" opacity="{{ig.f11.op}}"></use>
+</g>
+</svg></div>
 <div style="padding: 28px 0 4px; display: flex; flex-wrap: wrap; gap: 16px 48px; align-items: flex-end">
 <h2 style="flex: 1 1 300px; margin: 0; font-size: 44px; line-height: 1.05; font-weight: 700; letter-spacing: -0.035em">Memories are roots.</h2>
 <p style="flex: 1.4 1 380px; margin: 0; font-size: 18px; line-height: 1.6; color: #3F3A57">No story grows from a single seed. Our history is held up by many roots: the big events everyone remembers and, under them, thousands of smaller ones. Every little story and every version that someone lived is a thinner root. We all come from the same earth, connected underground even when we can’t see it.</p>
 </div>
-<div style="position: relative; margin-top: 8px">
+<div style="position: relative; margin-top: 16px">
+<svg aria-hidden="true" viewBox="0 0 1000 80" preserveAspectRatio="none" style="position: absolute; left: -68px; top: 0; width: calc(100% + 68px); height: 80px; pointer-events: none; overflow: visible">
+<path d="M0 -60 C0 30 30 62 120 62 C300 62 420 56 560 60 S 860 66 1000 60" fill="none" stroke="#5E8F7C" stroke-width="10" stroke-linecap="round" vector-effect="non-scaling-stroke" transform="translate(2 2)"></path>
+<path d="M0 -60 C0 30 30 62 120 62 C300 62 420 56 560 60 S 860 66 1000 60" fill="none" stroke="#86B59C" stroke-width="10" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+<path d="M0 -60 C0 30 30 62 120 62 C300 62 420 56 560 60 S 860 66 1000 60" fill="none" stroke="#B9DAC4" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke" transform="translate(-1 -2)"></path>
+</svg>
 <div style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px">
 <sc-for list="{{pillars}}" as="pl" hint-placeholder-count="4">
 <article style="padding: 8px 4px; display: flex; flex-direction: column; gap: 10px">
-<span aria-hidden="true" style="display: block; height: 3px; border-radius: 2px; background: {{pl.line}}"></span>
+<svg aria-hidden="true" viewBox="0 0 90 70" style="width: 90px; height: 70px; overflow: visible; margin: -6px 0 0 -10px"><g filter="url(#f-grain)"><path d="M30 60 C20 52 8 54 2 60 C10 66 22 66 30 60 Z" fill="#A2CBB2"></path><path d="M30 60 C20 60 10 60 2 60 C10 64 22 64 30 60 Z" fill="#6E9E88"></path><use href="{{pl.k}}" transform="translate(40 64) scale(0.62)"></use></g></svg>
 <h2 class="ptitle" style="margin: 0">{{pl.title}}</h2>
 <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #3F3A57">{{pl.text}}</p>
 </article>
