@@ -12,6 +12,6 @@ Archivo digital interactivo sobre la memoria histórica y la IA. Seis fotografí
 6. **Reconstruir**: decidir qué mostrar en cada zona.
 7. **Comparar**: adivinar cuál es la original y ver qué hizo la IA.
 
-Abrir `index.html` en el navegador. No necesita instalación.
+Abrir `index.html` en el navegador (la página está en inglés). No necesita instalación.
 
 Nota: las versiones editada, dañada, IA y esquema son manipulaciones creadas para el juego; las afirmaciones en disputa se marcan como tales.
