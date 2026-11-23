@@ -1,0 +1,1310 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ПАМЯТЬ · PAMYAT — Archivo de la memoria · Moscú 2050</title>
+<meta name="description" content="Archivo digital interactivo sobre la memoria histórica y la IA. Reto final · Moscú 2050.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;background:#F3F2EC}
+.pm{font-family:'IBM Plex Mono',monospace}
+.gs{font-family:'General Sans','IBM Plex Sans',sans-serif}
+.btn{font:600 14px/1.2 'General Sans','IBM Plex Sans',sans-serif;min-height:44px;padding:0 22px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn-p{background:#161616;color:#FFFFFF;border:1px solid #161616}
+.btn-p:hover{background:#3F3A57;border-color:#3F3A57}
+.btn-g{background:#B6E07A;color:#161616;border:1px solid #B6E07A}
+.btn-g:hover{background:#A3D45F}
+.btn-s{background:#FFFFFF;color:#161616;border:1px solid #D9D6CC}
+.btn-s:hover{border-color:#161616}
+.btn-dark{background:#161616;color:#FFFFFF;border:1px solid #161616}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.ib{width:44px;height:44px;border-radius:22px;border:1px solid #D9D6CC;background:#FFFFFF;color:#161616;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0;flex:none;font:600 18px/1 'General Sans','IBM Plex Sans',sans-serif}
+.ib:hover{border-color:#161616}
+.ib[aria-pressed="true"]{background:#161616;color:#FFFFFF;border-color:#161616}
+.ib-d{background:transparent;border-color:transparent;color:#3F3A57;font-size:22px}
+.ib-d:hover{border-color:transparent;color:#6E5BD0}
+.ib-d[aria-pressed="true"]{background:transparent;border-color:transparent;color:#B9B6C6}
+.dark .ib-d{color:#FFFFFF}
+.dark .ib-d:hover{color:#B6E07A}
+.btn:focus-visible,.ib:focus-visible,.hs:focus-visible,.dbtn:focus-visible,.cnode:focus-visible,.seg:focus-visible,.opt:focus-visible,.step:focus-visible,.tdot:focus-visible,.vnode:focus-visible,.zm:focus-visible{outline:2px solid #6E5BD0;outline-offset:3px}
+.pill{font:600 12px/1 'General Sans','IBM Plex Sans',sans-serif;padding:6px 11px;border-radius:999px;display:inline-flex;gap:6px;align-items:center;white-space:nowrap;border:1px solid}
+.p-doc{border-color:#C7A974;color:#7A5F33;background:#F5EEDD}
+.p-int{border-color:#6FA03C;color:#3E6B17;background:#EEF6E2}
+.p-unk{border-color:#9A97A8;color:#5E5B6B;border-style:dashed;background:#FFFFFF}
+.p-ia{border-color:#8E7CC3;color:#4B3D86;background:linear-gradient(90deg,#EDE6FF,#E2F0FF)}
+.p-alt{border-color:#E2574C;color:#B8352A;background:#FDECEA}
+.p-disp{border-color:#E3A33B;color:#7A4E00;background:#FFF4DF}
+.card{background:#FFFFFF;border-radius:24px;box-shadow:0 1px 0 rgba(22,22,22,.04),0 12px 30px rgba(63,58,87,.06)}
+.dark{background:#3F3A57;color:#FFFFFF;border-radius:24px}
+.kick{font:500 13px/1.3 'General Sans','IBM Plex Sans',sans-serif;color:#7B7868}
+.h1{margin:4px 0 0;font:700 56px/0.98 'General Sans','IBM Plex Sans',sans-serif;letter-spacing:-0.045em;color:#161616}
+.ptitle{font:700 20px/1.2 'General Sans','IBM Plex Sans',sans-serif;letter-spacing:-0.02em}
+.hs{position:absolute;background:transparent;border:0;padding:0;margin:0;cursor:crosshair}
+.hs:hover{outline:2px dashed rgba(110,91,208,.7)}
+.cnode{position:absolute;width:104px;height:70px;padding:0;margin:0;border:3px solid #FFFFFF;border-radius:14px;background:#FFFFFF;cursor:pointer;transform:translate(-50%,-50%);transition:transform .25s ease,box-shadow .25s ease,opacity .25s;line-height:0;overflow:hidden}
+.cnode img{width:100%;height:100%;object-fit:cover;display:block}
+.seg{min-width:44px;height:44px;background:#FFFFFF;border:1px solid #D9D6CC;color:#161616;font:600 13px 'General Sans','IBM Plex Sans',sans-serif;cursor:pointer;border-radius:22px;padding:0 14px}
+.seg:hover{border-color:#161616}
+.seg-on{background:#161616;color:#FFFFFF;border-color:#161616}
+.opt{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:48px;padding:10px 14px;background:#F7F6F1;border:1.5px solid transparent;color:#161616;font:500 14px 'General Sans','IBM Plex Sans',sans-serif;text-align:left;cursor:pointer;border-radius:14px}
+.opt:hover{border-color:#D9D6CC}
+.opt-on{border-color:#6FA03C;background:#F1F8E7}
+.dbtn{min-height:40px;border-radius:999px;font:600 12px 'General Sans','IBM Plex Sans',sans-serif;cursor:pointer;padding:0 14px}
+.step{width:100%;display:flex;gap:12px;align-items:center;background:transparent;border:0;padding:0 14px;color:#5E5B6B;font:600 15px 'General Sans','IBM Plex Sans',sans-serif;text-align:left;cursor:pointer;border-radius:999px;min-height:48px}
+.step:hover{background:#F3F2EC;color:#161616}
+.tdot{width:44px;height:44px;border:0;background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;position:relative;z-index:1}
+.ph{position:relative;width:100%;border-radius:14px;overflow:hidden;background:#E9E7DF}
+.ph img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.zm{position:absolute;transform:translate(-50%,-50%);min-width:44px;height:44px;border-radius:22px;border:3px solid #FFFFFF;font:700 13px 'General Sans','IBM Plex Sans',sans-serif;cursor:pointer;box-shadow:0 8px 20px rgba(22,22,22,.35);z-index:4;padding:0 10px}
+.vnode{position:absolute;transform:translate(-50%,0);width:176px;min-height:72px;padding:12px 14px;border-radius:18px;text-align:left;cursor:pointer;font:600 14px/1.25 'General Sans','IBM Plex Sans',sans-serif;transition:box-shadow .25s,transform .25s;z-index:2}
+.vnode:hover{transform:translate(-50%,-3px)}
+textarea{font:400 14px/1.5 'General Sans','IBM Plex Sans',sans-serif}
+input[type=range]{accent-color:#6FA03C}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(182,224,122,.8)}100%{box-shadow:0 0 0 14px rgba(182,224,122,0)}}
+.pulse{animation:pulse 1.6s ease-out infinite}
+.grow{transition:stroke-dashoffset 1.4s ease}
+@keyframes flyA{0%{transform:perspective(1400px) translate3d(0,120px,-420px) rotateX(58deg) rotateZ(-20deg) scale(.5);opacity:0;filter:blur(4px)}45%{opacity:1;filter:blur(0)}72%{transform:perspective(1400px) translate3d(0,-16px,60px) rotateX(-7deg) rotateZ(2deg) scale(1.05)}88%{transform:perspective(1400px) translate3d(0,4px,0) rotateX(2deg) rotateZ(-.5deg) scale(.99)}100%{transform:none;opacity:1}}
+@keyframes flyB{0%{transform:perspective(1400px) translate3d(0,120px,-420px) rotateX(58deg) rotateZ(-20deg) scale(.5);opacity:0;filter:blur(4px)}45%{opacity:1;filter:blur(0)}72%{transform:perspective(1400px) translate3d(0,-16px,60px) rotateX(-7deg) rotateZ(2deg) scale(1.05)}88%{transform:perspective(1400px) translate3d(0,4px,0) rotateX(2deg) rotateZ(-.5deg) scale(.99)}100%{transform:none;opacity:1}}
+@keyframes flyBack{0%{transform:none;opacity:1}100%{transform:perspective(1400px) translate3d(0,140px,-480px) rotateX(58deg) rotateZ(-20deg) scale(.45);opacity:0;filter:blur(3px)}}
+@keyframes shine{0%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeOut{from{opacity:1}to{opacity:0}}
+.flyA{animation:flyA .8s cubic-bezier(.2,.8,.25,1) both;transform-origin:50% 60%}
+.flyB{animation:flyB .8s cubic-bezier(.2,.8,.25,1) both;transform-origin:50% 60%}
+.flyBack{animation:flyBack .42s cubic-bezier(.5,0,.75,.4) both;transform-origin:50% 60%}
+.shine{position:absolute;inset:8px;border-radius:10px;overflow:hidden;pointer-events:none}
+.shine::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.6) 50%,transparent 70%);transform:translateX(-130%);animation:shine 1s .5s ease both}
+.fadeIn{animation:fadeIn .35s ease both}
+.fadeOut{animation:fadeOut .42s ease both}
+.bloom{transition:transform .8s cubic-bezier(.3,1.6,.5,1) 1.1s}
+@media (max-width: 640px){.h1{font-size:40px!important;letter-spacing:-0.035em!important}}
+@media (prefers-reduced-motion: reduce){.flyA,.flyB,.flyBack,.fadeIn,.fadeOut,.shine::before{animation:none}.bloom,.grow{transition:none}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="pamyat-tpl">
+<div class="gs" style="position: relative; min-height: 1000px; background-color: #F3F2EC; background-image: linear-gradient(#E9E7DF 1px, transparent 1px), linear-gradient(90deg, #E9E7DF 1px, transparent 1px); background-size: 96px 96px; color: #161616; display: flex; flex-direction: column; overflow: hidden">
+
+<svg aria-hidden="true" viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMin slice" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+<defs>
+<linearGradient id="g-lilac" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEEAFD"></stop><stop offset="1" stop-color="#B3A3EA"></stop></linearGradient>
+<linearGradient id="g-violet" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7A65A"></stop><stop offset="0.45" stop-color="#A985DC"></stop><stop offset="1" stop-color="#6E52B5"></stop></linearGradient>
+<linearGradient id="g-violet2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#CFC3F6"></stop><stop offset="0.6" stop-color="#9C80DA"></stop><stop offset="1" stop-color="#F29A55"></stop></linearGradient>
+<linearGradient id="g-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEF1FC"></stop><stop offset="1" stop-color="#A2ABE2"></stop></linearGradient>
+<linearGradient id="g-orange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFC64F"></stop><stop offset="1" stop-color="#F0782A"></stop></linearGradient>
+<filter id="f-grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="4" result="n"></feTurbulence>
+<feColorMatrix in="n" type="matrix" values="0 0 0 0 0.24  0 0 0 0 0.2  0 0 0 0 0.38  3 0 0 0 -1.78" result="sp"></feColorMatrix>
+<feComposite in="sp" in2="SourceGraphic" operator="in" result="sp2"></feComposite>
+<feMerge><feMergeNode in="SourceGraphic"></feMergeNode><feMergeNode in="sp2"></feMergeNode></feMerge>
+</filter>
+<g id="fl-tulip">
+<path d="M0 -38 L-15 -84 M0 -40 L0 -92 M0 -38 L15 -84" stroke="#6E52B5" stroke-width="2" fill="none" stroke-linecap="round"></path>
+<circle cx="-15" cy="-86" r="5" fill="#F39A52"></circle><circle cx="0" cy="-94" r="5" fill="#F39A52"></circle><circle cx="15" cy="-86" r="5" fill="#F39A52"></circle>
+<path d="M0 -4 C-30 -8 -40 -44 -26 -72 C-14 -60 -6 -46 0 -34 Z" fill="url(#g-lilac)"></path>
+<path d="M0 -4 C30 -8 40 -44 26 -72 C14 -60 6 -46 0 -34 Z" fill="url(#g-violet)"></path>
+<path d="M0 0 C-24 -4 -28 -40 -12 -66 C-6 -56 6 -56 12 -66 C28 -40 24 -4 0 0 Z" fill="url(#g-violet2)"></path>
+<path d="M-9 -14 C-15 -26 -13 -40 -7 -50" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="3" fill="none" stroke-linecap="round"></path>
+</g>
+<g id="fl-bell">
+<path d="M-4 40 L-11 70 M4 40 L9 66" stroke="#6E52B5" stroke-width="2" fill="none" stroke-linecap="round"></path>
+<circle cx="-11" cy="72" r="4.5" fill="#9C80DA"></circle><circle cx="9" cy="68" r="4.5" fill="#9C80DA"></circle>
+<path d="M0 0 C-20 2 -27 26 -27 47 C-18 40 -10 51 0 44 C10 51 18 40 27 47 C27 26 20 2 0 0 Z" fill="url(#g-sky)"></path>
+<path d="M-6 44 C-4 30 4 30 6 44 C2 41 -2 41 -6 44 Z" fill="url(#g-orange)"></path>
+<path d="M-14 12 C-18 22 -19 32 -19 38" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="3" fill="none" stroke-linecap="round"></path>
+</g>
+<g id="fl-peony">
+<circle cx="0" cy="-40" r="31" fill="url(#g-violet2)"></circle>
+<circle cx="-22" cy="-54" r="12" fill="#CBC0F2"></circle><circle cx="-8" cy="-62" r="12" fill="#CBC0F2"></circle><circle cx="8" cy="-62" r="12" fill="#CBC0F2"></circle><circle cx="22" cy="-54" r="12" fill="#CBC0F2"></circle>
+<circle cx="-15" cy="-40" r="13" fill="#DCD5F8"></circle><circle cx="0" cy="-45" r="13" fill="#DCD5F8"></circle><circle cx="15" cy="-40" r="13" fill="#DCD5F8"></circle>
+<circle cx="-8" cy="-28" r="13" fill="#EEEAFD"></circle><circle cx="8" cy="-28" r="13" fill="#EEEAFD"></circle>
+<path d="M-31 -28 C-27 -2 27 -2 31 -28 C20 -19 -20 -19 -31 -28 Z" fill="url(#g-violet)"></path>
+<path d="M-9 0 C-7 -7 7 -7 9 0 Z" fill="#6E9E88"></path>
+</g>
+<g id="fl-bud">
+<path d="M0 0 C-13 -6 -15 -28 0 -44 C15 -28 13 -6 0 0 Z" fill="url(#g-violet)"></path>
+<path d="M0 -2 C-10 -4 -16 -14 -15 -22 C-8 -18 -3 -12 0 -2 Z M0 -2 C10 -4 16 -14 15 -22 C8 -18 3 -12 0 -2 Z" fill="#6E9E88"></path>
+</g>
+<g id="fl-tulip-o">
+<path d="M0 -38 L-15 -84 M0 -40 L0 -92 M0 -38 L15 -84" stroke="#6E52B5" stroke-width="2" fill="none" stroke-linecap="round"></path>
+<circle cx="-15" cy="-86" r="5" fill="#9C80DA"></circle><circle cx="0" cy="-94" r="5" fill="#9C80DA"></circle><circle cx="15" cy="-86" r="5" fill="#9C80DA"></circle>
+<path d="M0 -4 C-30 -8 -40 -44 -26 -72 C-14 -60 -6 -46 0 -34 Z" fill="url(#g-violet)"></path>
+<path d="M0 -4 C30 -8 40 -44 26 -72 C14 -60 6 -46 0 -34 Z" fill="url(#g-violet)"></path>
+<path d="M0 0 C-24 -4 -28 -40 -12 -66 C-6 -56 6 -56 12 -66 C28 -40 24 -4 0 0 Z" fill="url(#g-orange)"></path>
+<path d="M-9 -14 C-15 -26 -13 -40 -7 -50" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="3" fill="none" stroke-linecap="round"></path>
+</g>
+</defs>
+<g opacity="0.3">
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="{{bg.s0}}" stroke="#5E8F7C" stroke-width="17" transform="translate(2.5 2.5)"></path>
+<path d="{{bg.s1}}" stroke="#5E8F7C" stroke-width="10" transform="translate(2 2)"></path>
+<path d="{{bg.s0}}" stroke="#86B59C" stroke-width="17"></path>
+<path d="{{bg.s1}}" stroke="#86B59C" stroke-width="10"></path>
+<path d="{{bg.s2}}" stroke="#7AAA91" stroke-width="3.2"></path>
+<path d="{{bg.s0}}" stroke="#B9DAC4" stroke-width="4.5" transform="translate(-2.5 -2.5)"></path>
+<path d="{{bg.s1}}" stroke="#B9DAC4" stroke-width="2" transform="translate(-1.5 -1.5)"></path>
+</g>
+<path d="{{bg.la}}" fill="#A2CBB2"></path><path d="{{bg.lb}}" fill="#6E9E88"></path>
+<path d="{{bg.pa}}" fill="#B8A3E6"></path><path d="{{bg.pb}}" fill="#8466C4"></path>
+<path d="{{bg.be}}" fill="#8A67C9"></path><path d="{{bg.bh}}" fill="#F29A55" opacity="0.75"></path>
+</g>
+</svg>
+
+<header style="position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding: 20px 32px">
+<div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap">
+<span style="font-size: 34px; font-weight: 700; letter-spacing: -0.02em; line-height: 1">ПАМЯТЬ</span>
+<span style="font-size: 14px; color: #5E5B6B">Archivo de la memoria · Moscú 2050</span>
+</div>
+<span style="font-size: 14px; font-weight: 600; color: #3F3A57">{{cs.es}} · {{cs.date}}</span>
+</header>
+
+<div style="position: relative; display: flex; flex-wrap: wrap; flex: 1; align-items: flex-start; gap: 20px; padding: 0 24px 28px">
+
+<nav aria-label="Recorrido" class="card" style="flex: {{navFlex}}; max-width: 100%; padding: 10px; display: flex; flex-direction: column; gap: 6px; overflow: hidden">
+<div style="display: flex; justify-content: flex-end">
+<button class="ib" aria-label="{{navToggleLbl}}" aria-expanded="{{navOpen}}" onClick="{{navToggle}}" style="border: 0">{{navToggleIcon}}</button>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px">
+<sc-for list="{{stages}}" as="st" hint-placeholder-count="6">
+<li>
+<button class="step" aria-current="{{st.aria}}" aria-label="{{st.es}}" onClick="{{st.go}}" style="{{st.style}}">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="{{st.icon}}"></path></svg>
+<sc-if value="{{navOpenB}}"><span style="flex: 1">{{st.es}}</span><span class="pm" style="font-size: 11px; opacity: 0.75">{{st.badge}}</span></sc-if>
+</button>
+</li>
+</sc-for>
+</ol>
+</nav>
+
+<main style="flex: 999 1 680px; min-width: 0; position: relative">
+
+<!-- 0 · INICIO -->
+<sc-if value="{{s0}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="t0" style="display: flex; flex-direction: column; gap: 18px">
+<div class="card" style="overflow: hidden; display: flex; flex-wrap: wrap; align-items: center">
+<div style="flex: 999 1 440px; min-width: 0; padding: 40px 8px 40px 40px; display: flex; flex-direction: column; gap: 16px">
+<div class="kick">Antes de empezar · Moscú, 2050</div>
+<h1 id="t0" class="h1" style="font-size: 64px">La memoria no es un archivo. Es una raíz.</h1>
+<p style="margin: 0; max-width: 600px; font-size: 18px; line-height: 1.55; color: #3F3A57">Recordamos para entender quiénes somos. Cuando una foto se borra, se retoca o se «restaura» sin decir cómo, no cambia solo una imagen: cambia lo que una sociedad cree que pasó. En la Unión Soviética se borraba a personas de las fotografías. En 2050, una IA puede reconstruir el pasado en segundos, con colores perfectos y fechas equivocadas.</p>
+<p style="margin: 0; max-width: 600px; font-size: 18px; line-height: 1.55; color: #3F3A57">En PAMYAT investigas seis fotografías reales de la historia rusa: comparas sus versiones, encuentras lo que cambió y decides qué merece ser recordado.</p>
+<div style="margin-top: 6px"><button class="btn btn-p" onClick="{{startGame}}">Empezar la investigación</button></div>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; min-height: 420px; align-self: stretch; position: relative; background: radial-gradient(ellipse at 70% 30%, #F1ECFB 0%, #FBF8F0 65%)">
+<svg role="img" aria-label="Ilustración: raíces con flores" viewBox="40 0 560 460" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; display: block; width: 100%; height: 100%">
+<g filter="url(#f-grain)">
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="{{intro.s0}}" stroke="#5E8F7C" stroke-width="17" transform="translate(2.5 2.5)"></path>
+<path d="{{intro.s1}}" stroke="#5E8F7C" stroke-width="10" transform="translate(2 2)"></path>
+<path d="{{intro.s0}}" stroke="#86B59C" stroke-width="17"></path>
+<path d="{{intro.s1}}" stroke="#86B59C" stroke-width="10"></path>
+<path d="{{intro.s2}}" stroke="#7AAA91" stroke-width="3.2"></path>
+<path d="{{intro.s0}}" stroke="#B9DAC4" stroke-width="4.5" transform="translate(-2.5 -2.5)"></path>
+<path d="{{intro.s1}}" stroke="#B9DAC4" stroke-width="2" transform="translate(-1.5 -1.5)"></path>
+</g>
+<path d="{{intro.la}}" fill="#A2CBB2"></path><path d="{{intro.lb}}" fill="#6E9E88"></path>
+<path d="{{intro.pa}}" fill="#B8A3E6"></path><path d="{{intro.pb}}" fill="#8466C4"></path>
+<path d="{{intro.be}}" fill="#8A67C9"></path><path d="{{intro.bh}}" fill="#F29A55" opacity="0.75"></path>
+<use href="{{intro.f0.href}}" transform="{{intro.f0.tf}}" opacity="{{intro.f0.op}}"></use>
+<use href="{{intro.f1.href}}" transform="{{intro.f1.tf}}" opacity="{{intro.f1.op}}"></use>
+<use href="{{intro.f2.href}}" transform="{{intro.f2.tf}}" opacity="{{intro.f2.op}}"></use>
+<use href="{{intro.f3.href}}" transform="{{intro.f3.tf}}" opacity="{{intro.f3.op}}"></use>
+<use href="{{intro.f4.href}}" transform="{{intro.f4.tf}}" opacity="{{intro.f4.op}}"></use>
+<use href="{{intro.f5.href}}" transform="{{intro.f5.tf}}" opacity="{{intro.f5.op}}"></use>
+<use href="{{intro.f6.href}}" transform="{{intro.f6.tf}}" opacity="{{intro.f6.op}}"></use>
+<use href="{{intro.f7.href}}" transform="{{intro.f7.tf}}" opacity="{{intro.f7.op}}"></use>
+<use href="{{intro.f8.href}}" transform="{{intro.f8.tf}}" opacity="{{intro.f8.op}}"></use>
+<use href="{{intro.f9.href}}" transform="{{intro.f9.tf}}" opacity="{{intro.f9.op}}"></use>
+<use href="{{intro.f10.href}}" transform="{{intro.f10.tf}}" opacity="{{intro.f10.op}}"></use>
+<use href="{{intro.f11.href}}" transform="{{intro.f11.tf}}" opacity="{{intro.f11.op}}"></use>
+</g>
+</svg>
+</div>
+</div>
+<div class="dark" style="padding: 32px 36px; display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: flex-start">
+<div style="flex: 1 1 300px; min-width: 0">
+<div style="font-size: 13px; color: #CFC7EE">La pregunta del reto</div>
+<p style="margin: 8px 0 0; font-size: 30px; line-height: 1.12; font-weight: 700; letter-spacing: -0.03em">¿Qué aporta el diseñador gráfico que la IA no puede calcular?</p>
+</div>
+<div style="flex: 1.4 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 22px; line-height: 1.3; font-weight: 600">La IA calcula lo <span style="color: #B6E07A">probable</span>. El diseñador decide qué es <span style="color: #B6E07A">honesto</span> mostrar.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #E7E2F7">La IA rellena, limpia y completa: elige la respuesta más parecida a millones de imágenes. El diseñador separa el documento de la interpretación, marca lo que falta en vez de inventarlo y le da a cada persona herramientas para dudar. Eso no es un cálculo: es criterio, ética y cuidado por la memoria.</p>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px">
+<sc-for list="{{pillars}}" as="pl" hint-placeholder-count="4">
+<article class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
+<span style="width: 40px; height: 40px; border-radius: 20px; background: {{pl.bg}}; color: #161616; display: flex; align-items: center; justify-content: center; font-weight: 700">{{pl.n}}</span>
+<h2 class="ptitle" style="margin: 0">{{pl.title}}</h2>
+<p style="margin: 0; font-size: 14px; line-height: 1.55; color: #3F3A57">{{pl.text}}</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.45; color: #7B7868">{{pl.ref}}</p>
+</article>
+</sc-for>
+</div>
+</section>
+</sc-if>
+
+<!-- 1 · ARCHIVO -->
+<sc-if value="{{s1}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="t1" style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
+<div><div class="kick">Paso 1 de 6</div><h1 id="t1" class="h1">Elige una fotografía</h1></div>
+<div role="group" aria-label="Filtrar por tema" style="display: flex; gap: 6px; flex-wrap: wrap">
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="4"><button class="seg {{f.cls}}" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}">{{f.label}}</button></sc-for>
+</div>
+</div>
+<div class="card" style="overflow-x: auto; padding: 8px">
+<div style="position: relative; width: 100%; min-width: 760px; aspect-ratio: 900 / 560; border-radius: 18px; overflow: hidden; background: radial-gradient(ellipse at 50% 0%, #F1ECFB 0%, #FBF8F0 60%)">
+<svg aria-hidden="true" viewBox="0 0 900 560" style="position: absolute; inset: 0; width: 100%; height: 100%">
+<g filter="url(#f-grain)">
+<g fill="none" stroke-linecap="round">
+<path d="{{caseRootsD}}" stroke="#5E8F7C" stroke-width="9" transform="translate(2 2)"></path>
+<path d="{{caseRootsD}}" stroke="#86B59C" stroke-width="9"></path>
+<path d="{{caseRootsD}}" stroke="#B9DAC4" stroke-width="2.5" transform="translate(-1.5 -1.5)"></path>
+<path d="{{caseRootsSel}}" stroke="#6E52B5" stroke-width="11" transform="translate(2 2)"></path>
+<path d="{{caseRootsSel}}" stroke="#9C80DA" stroke-width="11"></path>
+<path d="{{caseRootsSel}}" stroke="#D8CEF7" stroke-width="3" transform="translate(-1.5 -1.5)"></path>
+</g>
+<path d="{{caseLeaves.la}}" fill="#A2CBB2"></path><path d="{{caseLeaves.lb}}" fill="#6E9E88"></path>
+</g>
+<g filter="url(#f-grain)">
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="{{map.s0}}" stroke="#5E8F7C" stroke-width="17" transform="translate(2.5 2.5)"></path>
+<path d="{{map.s1}}" stroke="#5E8F7C" stroke-width="10" transform="translate(2 2)"></path>
+<path d="{{map.s0}}" stroke="#86B59C" stroke-width="17"></path>
+<path d="{{map.s1}}" stroke="#86B59C" stroke-width="10"></path>
+<path d="{{map.s2}}" stroke="#7AAA91" stroke-width="3.2"></path>
+<path d="{{map.s0}}" stroke="#B9DAC4" stroke-width="4.5" transform="translate(-2.5 -2.5)"></path>
+<path d="{{map.s1}}" stroke="#B9DAC4" stroke-width="2" transform="translate(-1.5 -1.5)"></path>
+</g>
+<path d="{{map.la}}" fill="#A2CBB2"></path><path d="{{map.lb}}" fill="#6E9E88"></path>
+<path d="{{map.pa}}" fill="#B8A3E6"></path><path d="{{map.pb}}" fill="#8466C4"></path>
+<path d="{{map.be}}" fill="#8A67C9"></path><path d="{{map.bh}}" fill="#F29A55" opacity="0.75"></path>
+<use href="{{map.f0.href}}" transform="{{map.f0.tf}}" opacity="{{map.f0.op}}"></use>
+<use href="{{map.f1.href}}" transform="{{map.f1.tf}}" opacity="{{map.f1.op}}"></use>
+<use href="{{map.f2.href}}" transform="{{map.f2.tf}}" opacity="{{map.f2.op}}"></use>
+<use href="{{map.f3.href}}" transform="{{map.f3.tf}}" opacity="{{map.f3.op}}"></use>
+<use href="{{map.f4.href}}" transform="{{map.f4.tf}}" opacity="{{map.f4.op}}"></use>
+<use href="{{map.f5.href}}" transform="{{map.f5.tf}}" opacity="{{map.f5.op}}"></use>
+<use href="{{map.f6.href}}" transform="{{map.f6.tf}}" opacity="{{map.f6.op}}"></use>
+<use href="{{map.f7.href}}" transform="{{map.f7.tf}}" opacity="{{map.f7.op}}"></use>
+</g>
+</svg>
+<sc-for list="{{caseCards}}" as="c" hint-placeholder-count="6">
+<button class="cnode" style="{{c.pos}}" aria-pressed="{{c.pressed}}" aria-label="{{c.aria}}" onClick="{{c.pick}}"><img src="{{c.thumb}}" alt=""></button>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; padding: 14px 10px 6px">
+<img src="{{cs.v1}}" alt="" style="width: 96px; height: 64px; object-fit: cover; border-radius: 10px; flex: none">
+<div style="flex: 1 1 320px; min-width: 0">
+<div style="font-size: 13px; color: #7B7868">{{cs.place}}</div>
+<div style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15">{{cs.es}}</div>
+<div style="font-size: 14px; line-height: 1.45; color: #3F3A57; margin-top: 2px">{{cs.short}}</div>
+</div>
+<button class="btn btn-g" onClick="{{openCase}}">Explorar esta foto</button>
+</div>
+</div>
+</section>
+</sc-if>
+
+<!-- 2 · VERSIONES -->
+<sc-if value="{{s2}}" hint-placeholder-val="{{ false }}">
+<section aria-labelledby="t2" style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
+<div><div class="kick">Paso 2 de 6 · {{cs.es}}</div><h1 id="t2" class="h1">Versiones de la historia</h1></div>
+<p style="margin: 0; font-size: 15px; font-weight: 500; color: #3F3A57">Abre cada versión: cada una es una raíz de la memoria.</p>
+</div>
+<div class="card" style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
+<div style="flex: 999 1 640px; min-width: 0; overflow-x: auto">
+<div style="position: relative; width: 100%; min-width: 820px; aspect-ratio: 1000 / 720; border-radius: 18px; overflow: hidden; background: #FBF8F0">
+<svg aria-hidden="true" viewBox="0 0 1000 720" style="position: absolute; inset: 0; width: 100%; height: 100%">
+<path d="M0 266 C250 250 700 276 1000 258 L1000 720 L0 720 Z" fill="#F1E6CB"></path>
+<g opacity="0.35">
+<g filter="url(#f-grain)">
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="{{vsoil.s0}}" stroke="#5E8F7C" stroke-width="17" transform="translate(2.5 2.5)"></path>
+<path d="{{vsoil.s1}}" stroke="#5E8F7C" stroke-width="10" transform="translate(2 2)"></path>
+<path d="{{vsoil.s0}}" stroke="#86B59C" stroke-width="17"></path>
+<path d="{{vsoil.s1}}" stroke="#86B59C" stroke-width="10"></path>
+<path d="{{vsoil.s2}}" stroke="#7AAA91" stroke-width="3.2"></path>
+<path d="{{vsoil.s0}}" stroke="#B9DAC4" stroke-width="4.5" transform="translate(-2.5 -2.5)"></path>
+<path d="{{vsoil.s1}}" stroke="#B9DAC4" stroke-width="2" transform="translate(-1.5 -1.5)"></path>
+</g>
+<path d="{{vsoil.la}}" fill="#A2CBB2"></path><path d="{{vsoil.lb}}" fill="#6E9E88"></path>
+<path d="{{vsoil.pa}}" fill="#B8A3E6"></path><path d="{{vsoil.pb}}" fill="#8466C4"></path>
+<path d="{{vsoil.be}}" fill="#8A67C9"></path><path d="{{vsoil.bh}}" fill="#F29A55" opacity="0.75"></path>
+</g>
+</g>
+<g fill="none" stroke-linecap="round">
+<path d="{{vr0.d}}" stroke="#D8C9A3" stroke-width="3" stroke-dasharray="3 9"></path>
+<path d="{{vr1.d}}" stroke="#D8C9A3" stroke-width="3" stroke-dasharray="3 9"></path>
+<path d="{{vr2.d}}" stroke="#D8C9A3" stroke-width="3" stroke-dasharray="3 9"></path>
+<path d="{{vr3.d}}" stroke="#D8C9A3" stroke-width="3" stroke-dasharray="3 9"></path>
+<path d="{{vr4.d}}" stroke="#D8C9A3" stroke-width="3" stroke-dasharray="3 9"></path>
+</g>
+<g filter="url(#f-grain)">
+<g fill="none" stroke-linecap="round">
+<path class="grow" d="{{vr0.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr0.off}}" stroke="{{vr0.dark}}" stroke-width="{{vr0.w}}" transform="translate(2.5 2.5)"></path>
+<path class="grow" d="{{vr0.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr0.off}}" stroke="{{vr0.col}}" stroke-width="{{vr0.w}}"></path>
+<path class="grow" d="{{vr0.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr0.off}}" stroke="{{vr0.hi}}" stroke-width="{{vr0.wh}}" transform="translate(-2 -2)"></path>
+<path class="grow" d="{{vr1.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr1.off}}" stroke="{{vr1.dark}}" stroke-width="{{vr1.w}}" transform="translate(2.5 2.5)"></path>
+<path class="grow" d="{{vr1.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr1.off}}" stroke="{{vr1.col}}" stroke-width="{{vr1.w}}"></path>
+<path class="grow" d="{{vr1.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr1.off}}" stroke="{{vr1.hi}}" stroke-width="{{vr1.wh}}" transform="translate(-2 -2)"></path>
+<path class="grow" d="{{vr2.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr2.off}}" stroke="{{vr2.dark}}" stroke-width="{{vr2.w}}" transform="translate(2.5 2.5)"></path>
+<path class="grow" d="{{vr2.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr2.off}}" stroke="{{vr2.col}}" stroke-width="{{vr2.w}}"></path>
+<path class="grow" d="{{vr2.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr2.off}}" stroke="{{vr2.hi}}" stroke-width="{{vr2.wh}}" transform="translate(-2 -2)"></path>
+<path class="grow" d="{{vr3.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr3.off}}" stroke="{{vr3.dark}}" stroke-width="{{vr3.w}}" transform="translate(2.5 2.5)"></path>
+<path class="grow" d="{{vr3.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr3.off}}" stroke="{{vr3.col}}" stroke-width="{{vr3.w}}"></path>
+<path class="grow" d="{{vr3.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr3.off}}" stroke="{{vr3.hi}}" stroke-width="{{vr3.wh}}" transform="translate(-2 -2)"></path>
+<path class="grow" d="{{vr4.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr4.off}}" stroke="{{vr4.dark}}" stroke-width="{{vr4.w}}" transform="translate(2.5 2.5)"></path>
+<path class="grow" d="{{vr4.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr4.off}}" stroke="{{vr4.col}}" stroke-width="{{vr4.w}}"></path>
+<path class="grow" d="{{vr4.d}}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{vr4.off}}" stroke="{{vr4.hi}}" stroke-width="{{vr4.wh}}" transform="translate(-2 -2)"></path>
+</g>
+<g opacity="{{vr0.fop}}" style="transition: opacity 0.8s 0.9s"><path d="{{vr0.la}}" fill="#A2CBB2"></path><path d="{{vr0.lb}}" fill="#6E9E88"></path></g>
+<g transform="{{vr0.ftf}}"><g class="bloom" style="transform: scale({{vr0.fs}})"><use href="{{vr0.fk}}"></use></g></g>
+<g opacity="{{vr1.fop}}" style="transition: opacity 0.8s 0.9s"><path d="{{vr1.la}}" fill="#A2CBB2"></path><path d="{{vr1.lb}}" fill="#6E9E88"></path></g>
+<g transform="{{vr1.ftf}}"><g class="bloom" style="transform: scale({{vr1.fs}})"><use href="{{vr1.fk}}"></use></g></g>
+<g opacity="{{vr2.fop}}" style="transition: opacity 0.8s 0.9s"><path d="{{vr2.la}}" fill="#A2CBB2"></path><path d="{{vr2.lb}}" fill="#6E9E88"></path></g>
+<g transform="{{vr2.ftf}}"><g class="bloom" style="transform: scale({{vr2.fs}})"><use href="{{vr2.fk}}"></use></g></g>
+<g opacity="{{vr3.fop}}" style="transition: opacity 0.8s 0.9s"><path d="{{vr3.la}}" fill="#A2CBB2"></path><path d="{{vr3.lb}}" fill="#6E9E88"></path></g>
+<g transform="{{vr3.ftf}}"><g class="bloom" style="transform: scale({{vr3.fs}})"><use href="{{vr3.fk}}"></use></g></g>
+<g opacity="{{vr4.fop}}" style="transition: opacity 0.8s 0.9s"><path d="{{vr4.la}}" fill="#A2CBB2"></path><path d="{{vr4.lb}}" fill="#6E9E88"></path></g>
+<g transform="{{vr4.ftf}}"><g class="bloom" style="transform: scale({{vr4.fs}})"><use href="{{vr4.fk}}"></use></g></g>
+<g fill="none" stroke-linecap="round">
+<path d="M500 226 C495 252 505 278 500 306" stroke="#5E8F7C" stroke-width="30" transform="translate(3 3)"></path>
+<path d="M500 226 C495 252 505 278 500 306" stroke="#86B59C" stroke-width="30"></path>
+<path d="M500 226 C495 252 505 278 500 306" stroke="#B9DAC4" stroke-width="7" transform="translate(-6 -2)"></path>
+</g>
+<path d="{{vground.pa}}" fill="#B8A3E6"></path><path d="{{vground.pb}}" fill="#8466C4"></path><path d="{{vground.la}}" fill="#A2CBB2"></path><path d="{{vground.lb}}" fill="#6E9E88"></path>
+<use href="#fl-tulip-o" transform="translate(150 262) rotate(-8) scale(0.9)"></use>
+<use href="#fl-bud" transform="translate(92 264) rotate(-18) scale(0.75)"></use>
+<use href="#fl-peony" transform="translate(870 262) rotate(6) scale(0.85)"></use>
+<use href="#fl-bell" transform="translate(930 236) rotate(-150) scale(0.6)"></use>
+</g>
+</svg>
+<sc-for list="{{rlabels}}" as="rl">
+<span style="position: absolute; {{rl.pos}}; transform: translate(-50%, -50%); z-index: 2; pointer-events: none; font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: {{rl.bg}}; color: {{rl.fg}}; border: 1.5px solid {{rl.bd}}">{{rl.txt}}</span>
+</sc-for>
+<sc-for list="{{vnodes}}" as="vn" hint-placeholder-count="5">
+<button class="vnode" style="{{vn.style}}" aria-pressed="{{vn.pressed}}" aria-label="{{vn.aria}}" onClick="{{vn.pick}}">
+<span style="display: block; font-size: 12px; font-weight: 500; opacity: 0.75">{{vn.year}}</span>
+<span style="display: block; margin-top: 2px">{{vn.who}}</span>
+</button>
+</sc-for>
+<div style="position: absolute; {{mem.pos}}; transform: translateX(-50%); z-index: 2">
+<div style="position: relative; padding: 20px 10px; background: #1F1C18; border-radius: 6px; box-shadow: {{mem.glow}}; transition: box-shadow 0.8s ease">
+<span aria-hidden="true" style="position: absolute; left: 10px; right: 10px; top: 6px; height: 8px; background: repeating-linear-gradient(90deg, #FBF8F0 0 9px, transparent 9px 20px); border-radius: 2px"></span>
+<div class="ph" style="aspect-ratio: {{cs.ratio}}; border-radius: 2px"><img src="{{cs.v1}}" alt="Fotografía: {{cs.es}}"></div>
+<span aria-hidden="true" style="position: absolute; left: 10px; right: 10px; bottom: 6px; height: 8px; background: repeating-linear-gradient(90deg, #FBF8F0 0 9px, transparent 9px 20px); border-radius: 2px"></span>
+</div>
+</div>
+<div style="position: absolute; {{mem.badgePos}}; z-index: 3; display: flex; flex-direction: column; align-items: flex-start; gap: 4px">
+<span style="font-size: 13px; font-weight: 700; color: #3F3A57">La memoria</span>
+<span style="font-size: 28px; font-weight: 700; letter-spacing: -0.03em; color: #161616">{{mem.n}}<span style="color: #9A97A8">/{{mem.total}}</span></span>
+<span style="font-size: 12px; color: #5E5B6B">raíces conectadas</span>
+</div>
+<div style="position: absolute; left: 2%; bottom: 3%; z-index: 3; display: flex; gap: 6px; flex-wrap: wrap; max-width: 96%">
+<span class="pill p-doc">Documento</span><span class="pill p-int">Interpretación</span><span class="pill p-disp">En disputa</span><span class="pill p-ia">IA</span>
+</div>
+</div>
+</div>
+<aside aria-label="Versión seleccionada" style="flex: 1 1 280px; min-width: 0; padding: 18px 18px 18px 22px; display: flex; flex-direction: column; gap: 12px">
+<div class="kick">Versión abierta</div>
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px">
+<div class="ptitle">{{vd.who}}</div>
+<button class="ib ib-d" aria-label="{{mVer.lbl}}" aria-expanded="{{mVer.open}}" onClick="{{mVer.toggle}}">{{mVer.icon}}</button>
+</div>
+<sc-if value="{{mVer.openB}}">
+<div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span style="font-size: 13px; color: #7B7868">{{vd.year}}</span><span class="pill {{vd.t.cls}}">{{vd.t.sym}} {{vd.t.w}}</span></div>
+<p style="margin: 0; font-size: 15px; line-height: 1.6">{{vd.text}}</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.5; color: #7B7868">{{vd.src}}</p>
+</sc-if>
+<button class="btn btn-g" onClick="{{goLayers}}">Ver las capas de la foto</button>
+</aside>
+</div>
+</section>
+</sc-if>
+
+<!-- 3 · CAPAS -->
+<sc-if value="{{s3}}" hint-placeholder-val="{{ false }}">
+<section aria-labelledby="t3" style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
+<div><div class="kick">Paso 3 de 6 · {{cs.es}}</div><h1 id="t3" class="h1">Capas de la foto</h1></div>
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+<button class="ib" aria-label="Apilar capas" aria-pressed="{{isStacked}}" onClick="{{stack}}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6 L21 10 L12 14 L3 10 Z M3 13 L12 17 L21 13"></path></svg></button>
+<button class="ib" aria-label="Separar capas" aria-pressed="{{isExploded}}" onClick="{{explode}}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L21 6 L12 10 L3 6 Z M3 12 L12 16 L21 12 M3 18 L12 22 L21 18"></path></svg></button>
+<button class="ib" aria-label="Mostrar todas las capas" onClick="{{showAll}}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12 C5 6 19 6 22 12 C19 18 5 18 2 12 Z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+<input type="range" min="0" max="100" step="1" value="{{sep}}" onChange="{{onSep}}" aria-label="Separación entre capas" style="width: 170px; height: 44px; margin-left: 6px">
+</div>
+</div>
+<div class="card" style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
+<div style="flex: 999 1 520px; min-width: 0; position: relative; height: 620px; perspective: 1800px; overflow: hidden; border-radius: 18px; background: linear-gradient(160deg, #EDE6FF 0%, #F6F4EE 45%, #EEF6E2 100%)">
+<div style="position: absolute; inset: 0; transform-style: preserve-3d">
+<sc-for list="{{layers}}" as="L" hint-placeholder-count="5">
+<div style="position: absolute; left: 50%; top: 50%; width: {{L.w}}px; transform: {{L.tf}}; opacity: {{L.op}}; transition: transform 0.55s ease, opacity 0.3s ease">
+<button aria-label="Ver de frente: {{L.title}}" onClick="{{L.focus}}" style="display: block; width: 100%; position: relative; padding: 8px; margin: 0; cursor: zoom-in; border-radius: 14px; border: 1.5px solid {{L.bd}}; background: rgba(255,255,255,0.45); box-shadow: 0 28px 50px rgba(63,58,87,0.22)">
+<img src="{{L.img}}" alt="" style="display: block; width: 100%; height: auto; border-radius: 8px">
+<span class="pill" style="position: absolute; right: 10px; top: -30px; background: #FFFFFF; border-color: #FFFFFF; color: #161616">{{L.title}}</span>
+</button>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{focusOn}}">
+<div role="dialog" aria-label="{{fv.title}}" class="{{fv.bgCls}}" style="position: absolute; inset: 0; z-index: 10; background: rgba(243,242,236,0.88); backdrop-filter: blur(6px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 24px; box-sizing: border-box">
+<div style="width: 100%; max-width: {{fv.maxw}}; display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<span class="ptitle">{{fv.title}}</span>
+<button class="btn btn-p" onClick="{{closeFocus}}">Volver a la pila</button>
+</div>
+<div class="{{fv.cls}}" style="position: relative; width: 100%; max-width: {{fv.maxw}}; padding: 8px; background: #FFFFFF; border-radius: 16px; box-shadow: 0 30px 60px rgba(63,58,87,0.3)">
+<img src="{{fv.img}}" alt="{{fv.title}}" style="display: block; width: 100%; height: auto; border-radius: 10px">
+<span class="shine" aria-hidden="true"></span>
+</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap; justify-content: center">
+<sc-for list="{{fv.nav}}" as="fn"><button class="seg {{fn.cls}}" aria-pressed="{{fn.pressed}}" onClick="{{fn.pick}}">{{fn.n}}</button></sc-for>
+</div>
+</div>
+</sc-if>
+</div>
+<div style="flex: 1 1 280px; min-width: 0; padding: 18px 14px 18px 12px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; padding-left: 10px">
+<span class="ptitle">Capas</span>
+<button class="ib ib-d" aria-label="{{mStr.lbl}}" aria-expanded="{{mStr.open}}" onClick="{{mStr.toggle}}">{{mStr.icon}}</button>
+</div>
+<sc-if value="{{mStr.openB}}">
+<ol style="list-style: none; margin: 8px 0 0; padding: 0; position: relative">
+<span aria-hidden="true" style="position: absolute; left: 21px; top: 22px; bottom: 22px; width: 2px; border-radius: 1px; background: linear-gradient(#CFC7EE, #7FB24A)"></span>
+<sc-for list="{{strataRows}}" as="r" hint-placeholder-count="5">
+<li style="display: flex; gap: 10px; align-items: flex-start; padding: 6px 0">
+<button class="tdot" aria-label="Aislar: {{r.title}}" aria-pressed="{{r.soloPressed}}" onClick="{{r.soloF}}"><span style="width: 16px; height: 16px; border-radius: 8px; box-sizing: border-box; {{r.dot}}"></span></button>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px; padding-top: 10px">
+<span style="font-size: 16px; font-weight: 600; color: {{r.txt}}">{{r.title}}</span>
+<div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap">
+<button class="dbtn" onClick="{{r.open}}" style="{{r.dstyle}}">{{r.dlabel}}</button>
+<button class="ib ib-d" aria-label="{{r.visLabel}}: {{r.title}}" aria-pressed="{{r.hidPressed}}" onClick="{{r.toggle}}"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="{{r.eye}}"></path></svg></button>
+</div>
+</div>
+</li>
+</sc-for>
+</ol>
+</sc-if>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+<button class="btn btn-s" onClick="{{goVersions}}">Volver a versiones</button>
+<button class="btn btn-p" onClick="{{goInvestigate}}">Buscar los cambios</button>
+</div>
+<sc-if value="{{docOpen}}">
+<aside role="dialog" aria-label="{{dd.es}}" style="position: absolute; right: 16px; top: 120px; width: 380px; max-width: calc(100% - 32px); z-index: 5; background-color: #F5EEDD; background-image: repeating-linear-gradient(0deg, rgba(122,95,51,0.10) 0 1px, transparent 1px 26px); color: #161616; padding: 24px; border-radius: 20px; box-shadow: 0 30px 60px rgba(63,58,87,0.3); display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px">
+<h3 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1">{{dd.es}}</h3>
+<button class="ib" aria-label="Cerrar" onClick="{{closeDoc}}">✕</button>
+</div>
+<span class="pill {{dd.t.cls}}" style="align-self: flex-start">{{dd.t.sym}} {{dd.t.w}}</span>
+<p style="margin: 0; font-size: 15px; line-height: 1.6">{{dd.text}}</p>
+<p style="margin: 0; font-size: 12px; color: #7A5F33">{{dd.note}}</p>
+</aside>
+</sc-if>
+</section>
+</sc-if>
+
+<!-- 4 · INVESTIGAR -->
+<sc-if value="{{s4}}" hint-placeholder-val="{{ false }}">
+<section aria-labelledby="t4" style="display: flex; flex-direction: column; gap: 18px">
+<div><div class="kick">Paso 4 de 6 · {{cs.es}}</div><h1 id="t4" class="h1">Busca los cambios</h1></div>
+<div class="card" style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
+<div style="flex: 999 1 620px; min-width: 0; padding: 10px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
+<sc-for list="{{panes}}" as="p" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div role="group" aria-label="{{p.groupLabel}}" style="display: flex; gap: 4px; flex-wrap: wrap">
+<sc-for list="{{p.opts}}" as="o" hint-placeholder-count="5"><button class="seg {{o.cls}}" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}">{{o.n}}</button></sc-for>
+</div>
+<div class="ph" style="aspect-ratio: {{cs.ratio}}">
+<img src="{{p.img}}" alt="{{p.title}}">
+<button class="hs" style="left: 0; top: 0; width: 100%; height: 100%" aria-label="Examinar otra parte de la imagen" onClick="{{p.miss}}"></button>
+<sc-for list="{{p.spots}}" as="h" hint-placeholder-count="3"><button class="hs" style="left: {{h.l}}%; top: {{h.t}}%; width: {{h.w}}%; height: {{h.h}}%" aria-label="{{h.aria}}" onClick="{{h.pick}}"></button></sc-for>
+<sc-for list="{{p.marks}}" as="m">
+<span aria-hidden="true" style="position: absolute; {{m.box}}; border: 2.5px dashed {{m.col}}; border-radius: 10px; box-sizing: border-box; pointer-events: none"></span>
+<span aria-hidden="true" style="position: absolute; {{m.dot}}; transform: translate(-50%, 0); background: {{m.col}}; color: #FFFFFF; font-weight: 700; font-size: 12px; padding: 4px 9px; border-radius: 999px; pointer-events: none">{{m.num}}</span>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+<p role="status" aria-live="polite" style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F3A57; font-weight: 500">{{msg}}</p>
+</div>
+<aside aria-label="Cambios encontrados" style="flex: 1 1 280px; min-width: 0; padding: 18px 18px 18px 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
+<span class="ptitle">Cambios encontrados <span style="color: #3E6B17">{{foundN}}/{{anomTotal}}</span></span>
+<button class="ib ib-d" aria-label="{{mEv.lbl}}" aria-expanded="{{mEv.open}}" onClick="{{mEv.toggle}}">{{mEv.icon}}</button>
+</div>
+<sc-if value="{{mEv.openB}}">
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{foundList}}" as="e">
+<li style="display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; background: #F7F6F1; border-radius: 14px">
+<span style="display: flex; justify-content: space-between; align-items: center; gap: 10px"><span style="font-size: 14px; font-weight: 600">{{e.num}}. {{e.es}}</span><span class="pill {{e.t.cls}}">{{e.t.w}}</span></span>
+<span style="font-size: 13px; line-height: 1.45; color: #3F3A57">{{e.text}}</span>
+</li>
+</sc-for>
+</ol>
+<sc-if value="{{showHint}}"><p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3F3A57">{{hintTxt}}</p></sc-if>
+<button class="btn btn-s" onClick="{{askHint}}">Pedir una pista</button>
+</sc-if>
+<button class="btn btn-g" onClick="{{goRebuild}}">Reconstruir la foto</button>
+</aside>
+</div>
+</section>
+</sc-if>
+
+<!-- 5 · RECONSTRUIR -->
+<sc-if value="{{s5}}" hint-placeholder-val="{{ false }}">
+<section aria-labelledby="t5" style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
+<div><div class="kick">Paso 5 de 6 · {{cs.es}}</div><h1 id="t5" class="h1">Reconstruye la foto</h1></div>
+<p style="margin: 0; font-size: 15px; color: #3F3A57; font-weight: 500">Toca cada punto verde y decide.</p>
+</div>
+<div class="card" style="display: flex; flex-wrap: wrap; align-items: stretch; padding: 8px">
+<div style="flex: 999 1 600px; min-width: 0; padding: 4px">
+<div class="ph" style="aspect-ratio: {{cs.ratio}}; overflow: visible; border-radius: 16px">
+<div style="position: absolute; inset: 0; border-radius: 16px; overflow: hidden">
+<img src="{{rc.base}}" alt="Tu reconstrucción">
+<sc-if value="{{rc.cornerOn}}"><img src="{{rc.cornerImg}}" alt="" style="clip-path: {{rc.cornerClip}}"></sc-if>
+<sc-if value="{{rc.dateOn}}"><img src="{{rc.dateImg}}" alt="" style="clip-path: {{rc.dateClip}}"></sc-if>
+<sc-if value="{{rc.realOn}}"><span class="pm" style="position: absolute; right: 2%; bottom: 3%; background: #F5EEDD; color: #7A5F33; border: 1.5px solid #C7A974; border-radius: 8px; padding: 6px 10px; font-size: 13px; font-weight: 600">{{rc.realTxt}}</span></sc-if>
+<sc-if value="{{rc.hatchOn}}"><sc-for list="{{rc.hatches}}" as="hb"><span aria-hidden="true" style="position: absolute; {{hb.box}}; background: repeating-linear-gradient(45deg, rgba(110,91,208,0.65) 0 3px, transparent 3px 9px); border: 2px dashed #6E5BD0; border-radius: 8px"></span></sc-for></sc-if>
+</div>
+<sc-for list="{{zoneBtns}}" as="zb" hint-placeholder-count="3">
+<button class="zm {{zb.pulse}}" style="{{zb.pos}}; background: {{zb.bg}}; color: {{zb.fg}}" aria-label="{{zb.aria}}" aria-expanded="{{zb.open}}" onClick="{{zb.toggle}}">{{zb.n}}</button>
+</sc-for>
+<sc-if value="{{popOn}}">
+<div role="dialog" aria-label="{{pop.title}}" style="position: absolute; {{pop.pos}}; width: 300px; z-index: 6; background: #FFFFFF; border-radius: 20px; padding: 16px; box-shadow: 0 24px 60px rgba(22,22,22,0.35); display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
+<span class="ptitle">{{pop.title}}</span>
+<button class="ib" aria-label="Cerrar" onClick="{{closePop}}">✕</button>
+</div>
+<p style="margin: 0 0 4px; font-size: 13px; line-height: 1.45; color: #5E5B6B">{{pop.q}}</p>
+<sc-for list="{{pop.opts}}" as="o" hint-placeholder-count="3">
+<button class="opt {{o.cls}}" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}"><span>{{o.label}}</span></button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+<div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="padding: 14px 14px 14px 20px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
+<span class="ptitle">Tus decisiones <span style="color: #3E6B17">{{chosenN}}/3</span></span>
+<button class="ib ib-d" aria-label="{{mDec.lbl}}" aria-expanded="{{mDec.open}}" onClick="{{mDec.toggle}}">{{mDec.icon}}</button>
+</div>
+<sc-if value="{{mDec.openB}}">
+<sc-for list="{{decList}}" as="dl" hint-placeholder-count="3">
+<button class="opt" onClick="{{dl.open}}"><span>{{dl.txt}}</span><span class="pill {{dl.cls}}">{{dl.w}}</span></button>
+</sc-for>
+<svg role="img" aria-label="Raíces que unen cada zona con su fuente" viewBox="0 0 360 210" style="display: block; width: 100%; height: auto; background: #FFFFFF; border-radius: 16px; margin-top: 6px">
+<g font-family="General Sans, IBM Plex Sans, sans-serif" font-size="13" font-weight="600" fill="#161616">
+<text x="98" y="34" text-anchor="end">Original</text>
+<text x="98" y="84" text-anchor="end">Editada</text>
+<text x="98" y="134" text-anchor="end">IA</text>
+<text x="98" y="184" text-anchor="end">Sin fuente</text>
+<text x="284" y="54">{{zn1}}</text><text x="284" y="109">{{zn2}}</text><text x="284" y="164">{{zn3}}</text>
+</g>
+<path d="{{rp1.d}}" fill="none" stroke="{{rp1.stroke}}" stroke-width="{{rp1.w}}" stroke-dasharray="{{rp1.dash}}" opacity="{{rp1.op}}" stroke-linecap="round"></path>
+<path d="{{rp2.d}}" fill="none" stroke="{{rp2.stroke}}" stroke-width="{{rp2.w}}" stroke-dasharray="{{rp2.dash}}" opacity="{{rp2.op}}" stroke-linecap="round"></path>
+<path d="{{rp3.d}}" fill="none" stroke="{{rp3.stroke}}" stroke-width="{{rp3.w}}" stroke-dasharray="{{rp3.dash}}" opacity="{{rp3.op}}" stroke-linecap="round"></path>
+<circle cx="110" cy="30" r="7" fill="#C7A974"></circle>
+<circle cx="110" cy="80" r="7" fill="#E2574C"></circle>
+<circle cx="110" cy="130" r="7" fill="#8E7CC3"></circle>
+<circle cx="110" cy="180" r="7" fill="#FFFFFF" stroke="#9A97A8" stroke-width="2" stroke-dasharray="3 2"></circle>
+<circle cx="270" cy="50" r="7" fill="#FFFFFF" stroke="#161616" stroke-width="2"></circle>
+<circle cx="270" cy="105" r="7" fill="#FFFFFF" stroke="#161616" stroke-width="2"></circle>
+<circle cx="270" cy="160" r="7" fill="#FFFFFF" stroke="#161616" stroke-width="2"></circle>
+</svg>
+<textarea rows="2" value="{{note}}" onChange="{{onNote}}" aria-label="Nota del investigador" placeholder="Nota del investigador…" style="background: #FFFFFF; color: #161616; border: 1px solid #D9D6CC; border-radius: 14px; padding: 12px 14px; resize: vertical"></textarea>
+</sc-if>
+<button class="btn btn-g" disabled="{{notReady}}" onClick="{{goCompare}}">Comparar versiones</button>
+</div>
+</div>
+</div>
+</section>
+</sc-if>
+
+<!-- 6 · COMPARAR -->
+<sc-if value="{{s6}}" hint-placeholder-val="{{ false }}">
+<section aria-labelledby="t6" style="display: flex; flex-direction: column; gap: 18px">
+<div><div class="kick">Paso 6 de 6 · {{cs.es}}</div><h1 id="t6" class="h1">¿Cuál es la original?</h1></div>
+<p style="margin: 0; max-width: 860px; font-size: 17px; line-height: 1.55; color: #3F3A57">{{cmp.lede}}</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+<sc-for list="{{cmp.cards}}" as="k" hint-placeholder-count="3">
+<article class="card" style="padding: 10px; display: flex; flex-direction: column; gap: 10px; box-shadow: {{k.ring}}; transition: box-shadow 0.3s">
+<div style="padding: 6px 8px 0; display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 30px"><h2 class="ptitle" style="margin: 0">{{k.title}}</h2><sc-if value="{{k.revealed}}"><span class="pill {{k.t.cls}}">{{k.t.w}}</span></sc-if></div>
+<div class="ph" style="aspect-ratio: {{cs.ratio}}">
+<img src="{{k.base}}" alt="{{k.alt}}">
+<sc-if value="{{k.cornerOn}}"><img src="{{k.cornerImg}}" alt="" style="clip-path: {{k.cornerClip}}"></sc-if>
+<sc-if value="{{k.dateOn}}"><img src="{{k.dateImg}}" alt="" style="clip-path: {{k.dateClip}}"></sc-if>
+<sc-if value="{{k.realOn}}"><span class="pm" style="position: absolute; right: 2%; bottom: 3%; background: #F5EEDD; color: #7A5F33; border-radius: 6px; padding: 3px 6px; font-size: 11px; font-weight: 600">{{k.realTxt}}</span></sc-if>
+<sc-if value="{{k.hatchOn}}"><sc-for list="{{k.hatches}}" as="hb"><span aria-hidden="true" style="position: absolute; {{hb.box}}; background: repeating-linear-gradient(45deg, rgba(110,91,208,0.65) 0 3px, transparent 3px 9px)"></span></sc-for></sc-if>
+</div>
+<sc-if value="{{k.pickOn}}"><button class="btn btn-s" onClick="{{k.pick}}">{{k.pickTxt}}</button></sc-if>
+<sc-if value="{{k.revealed}}"><p style="margin: 0; padding: 0 8px 8px; font-size: 14px; line-height: 1.5; color: #3F3A57">{{k.note}}</p></sc-if>
+</article>
+</sc-for>
+</div>
+<sc-if value="{{cmp.done}}">
+<div class="dark fadeIn" style="padding: 24px 28px; display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 26px; font-weight: 700; letter-spacing: -0.025em">{{cmp.verdict}}</div>
+<p style="margin: 0; max-width: 900px; font-size: 16px; line-height: 1.6; color: #E7E2F7">{{cmp.feedback}}</p>
+</div>
+<div class="card" style="overflow-x: auto; padding: 6px 10px">
+<div style="padding: 14px 14px 6px"><h2 class="ptitle" style="margin: 0">Zona por zona</h2><p style="margin: 4px 0 0; font-size: 14px; line-height: 1.5; color: #5E5B6B">Cada fila es una parte de la foto. Compara lo que dicen los registros, lo que hizo la IA y lo que decidiste tú.</p></div>
+<div style="min-width: 720px">
+<div style="display: grid; grid-template-columns: 1fr 1.3fr 1.3fr 1.3fr; font-size: 13px; font-weight: 600; color: #7B7868"><span style="padding: 12px 14px">Zona</span><span style="padding: 12px 14px">Según los registros</span><span style="padding: 12px 14px">Lo que hizo la IA</span><span style="padding: 12px 14px">Lo que decidiste tú</span></div>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="3">
+<div style="display: grid; grid-template-columns: 1fr 1.3fr 1.3fr 1.3fr; border-top: 1px solid #EEECE5; font-size: 14px; align-items: center">
+<span style="padding: 14px; font-weight: 700">{{r.name}}</span>
+<span style="padding: 14px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span class="pill {{r.h.t.cls}}">{{r.h.t.w}}</span>{{r.h.txt}}</span>
+<span style="padding: 14px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span class="pill {{r.i.t.cls}}">{{r.i.t.w}}</span>{{r.i.txt}}</span>
+<span style="padding: 14px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span class="pill {{r.u.t.cls}}">{{r.u.t.w}}</span>{{r.u.txt}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; justify-content: space-between">
+<blockquote style="flex: 1 1 480px; max-width: 760px; margin: 0">
+<p style="margin: 0; font-size: 34px; line-height: 1.08; font-weight: 700; letter-spacing: -0.035em">La memoria no debería depender solo de <span style="background: linear-gradient(transparent 58%, #D9CCFF 58%)">lo que un algoritmo puede reconstruir</span>, sino de <span style="background: linear-gradient(transparent 58%, #C8EC8E 58%)">lo que las personas pueden recordar, cuestionar y preservar</span>.</p>
+</blockquote>
+<div style="display: flex; gap: 10px; flex-wrap: wrap">
+<button class="btn btn-s" onClick="{{toArchive}}">Elegir otra foto</button>
+<button class="btn btn-g" disabled="{{archivedCur}}" onClick="{{archive}}">{{archiveLabel}}</button>
+</div>
+</div>
+</sc-if>
+</section>
+</sc-if>
+
+</main>
+</div>
+</div>
+</template>
+<script>
+class DCLogic {
+  constructor() { this.state = {}; }
+  setState(p) { Object.assign(this.state, typeof p === 'function' ? p(this.state) : p); if (window.__pamyatSchedule) window.__pamyatSchedule(); }
+}
+
+const ST = {
+  doc: { w: 'Documento', sym: '■', cls: 'p-doc' },
+  int: { w: 'Interpretación', sym: '◆', cls: 'p-int' },
+  unk: { w: 'Desconocido', sym: '?', cls: 'p-unk' },
+  ia: { w: 'IA', sym: '⬡', cls: 'p-ia' },
+  alt: { w: 'Alterado', sym: '✕', cls: 'p-alt' },
+  disp: { w: 'En disputa', sym: '≠', cls: 'p-disp' }
+};
+const B = 'img/';
+const ROOT_COL = { doc: '#F2A65A', int: '#86B59C', ia: '#B7A6EC', disp: '#F5C451', alt: '#F08A80', unk: '#C9C7D3' };
+const ROOT_DARK = { doc: '#C66A22', int: '#5E8F7C', ia: '#7E66C9', disp: '#C9901A', alt: '#C0544A', unk: '#8E8B9E' };
+const ROOT_HI = { doc: '#FFD39A', int: '#B9DAC4', ia: '#DDD4FA', disp: '#FFE39E', alt: '#FFC6BF', unk: '#ECEBF1' };
+const NODE_BG = { doc: '#F5EEDD', int: '#EEF6E2', ia: '#EDE6FF', disp: '#FFF4DF', alt: '#FDECEA', unk: '#FFFFFF' };
+const NODE_BD = { doc: '#C7A974', int: '#6FA03C', ia: '#8E7CC3', disp: '#E3A33B', alt: '#E2574C', unk: '#9A97A8' };
+
+function rng(seed) { let s = seed % 2147483647; if (s <= 0) s += 2147483646; return function () { s = s * 16807 % 2147483647; return (s - 1) / 2147483646; }; }
+function grow(r, x, y, a, len, w, depth, out) {
+  if (depth <= 0 || len < 3) return;
+  const bend = (r() - 0.5) * 0.9;
+  const nx = x + Math.cos(a + bend * 0.5) * len, ny = y + Math.sin(a + bend * 0.5) * len;
+  const cx = x + Math.cos(a + bend) * len * 0.55, cy = y + Math.sin(a + bend) * len * 0.55;
+  const b = w > 2.2 ? 0 : (w > 1.1 ? 1 : 2);
+  out[b] += 'M' + x.toFixed(1) + ' ' + y.toFixed(1) + 'Q' + cx.toFixed(1) + ' ' + cy.toFixed(1) + ' ' + nx.toFixed(1) + ' ' + ny.toFixed(1);
+  const na = a + bend * 0.6 + (Math.PI / 2 - a) * 0.05;
+  grow(r, nx, ny, na, len * 0.9, w * 0.8, depth - 1, out);
+  if (r() < 0.52) grow(r, nx, ny, a + (r() < 0.5 ? -1 : 1) * (0.5 + r() * 0.7), len * 0.72, w * 0.6, depth - 1, out);
+}
+function roots(seed, starts) { const r = rng(seed); const out = ['', '', '']; starts.forEach((s) => grow(r, s[0], s[1], s[2], s[3], s[4], s[5], out)); return { thick: out[0], mid: out[1], fine: out[2] }; }
+const PI = Math.PI;
+// ---- folk botanical illustration generator (stems, leaves, berries, curls, flower slots)
+const f1 = (n) => n.toFixed(1);
+const circ = (x, y, r) => 'M' + f1(x - r) + ' ' + f1(y) + 'a' + f1(r) + ' ' + f1(r) + ' 0 1 0 ' + f1(2 * r) + ' 0a' + f1(r) + ' ' + f1(r) + ' 0 1 0 ' + f1(-2 * r) + ' 0Z';
+function leafPair(x, y, t, L, W, bend) {
+  const tt = t + bend;
+  const tx = x + Math.cos(tt) * L, ty = y + Math.sin(tt) * L;
+  const nx = -Math.sin(t), ny = Math.cos(t);
+  const a1x = x + Math.cos(t) * L * 0.3, a1y = y + Math.sin(t) * L * 0.3;
+  const a2x = x + Math.cos(t) * L * 0.72, a2y = y + Math.sin(t) * L * 0.72;
+  const side = (s) => 'M' + f1(x) + ' ' + f1(y) + 'C' + f1(a1x + nx * W * s) + ' ' + f1(a1y + ny * W * s) + ' ' + f1(a2x + nx * W * 0.85 * s) + ' ' + f1(a2y + ny * W * 0.85 * s) + ' ' + f1(tx) + ' ' + f1(ty) + 'Z';
+  return [side(1), side(-1)];
+}
+function folk(seed, starts, opt) {
+  opt = opt || {};
+  const r = rng(seed);
+  const o = { s: ['', '', ''], la: '', lb: '', pa: '', pb: '', be: '', bh: '', fl: [] };
+  const LEAF = [46, 32, 17];
+  const leaf = (x, y, t, L) => {
+    const p = leafPair(x, y, t, L, L * 0.36, (r() - 0.5) * 0.4);
+    if (r() < (opt.purple || 0.22)) { o.pa += p[0]; o.pb += p[1]; } else { o.la += p[0]; o.lb += p[1]; }
+  };
+  function tip(x, y, a, cls) {
+    if (cls < 2 && opt.flowers !== false) { o.fl.push({ x: x, y: y, a: a, cls: cls }); return; }
+    if (r() < 0.55) {
+      for (let j = 0; j < 3; j++) {
+        const ta = a + (j - 1) * 0.7, L = 12 + r() * 6, rr = 4.5 + r() * 2.5;
+        const bx = x + Math.cos(ta) * L, by = y + Math.sin(ta) * L;
+        o.s[2] += 'M' + f1(x) + ' ' + f1(y) + 'Q' + f1(x + Math.cos(a) * L * 0.6) + ' ' + f1(y + Math.sin(a) * L * 0.6) + ' ' + f1(bx) + ' ' + f1(by);
+        o.be += circ(bx, by, rr); o.bh += circ(bx + rr * 0.22, by + rr * 0.22, rr * 0.68);
+      }
+    } else {
+      const dir = r() < 0.5 ? 1 : -1, R = 9 + r() * 5;
+      const cx = x + Math.cos(a + dir * PI / 2) * R, cy = y + Math.sin(a + dir * PI / 2) * R;
+      const th0 = a - dir * PI / 2;
+      let d = 'M' + f1(x) + ' ' + f1(y);
+      for (let k = 1; k <= 22; k++) {
+        const th = th0 + dir * k * 0.36, rad = R * (1 - k / 30);
+        d += 'L' + f1(cx + Math.cos(th) * rad) + ' ' + f1(cy + Math.sin(th) * rad);
+      }
+      o.s[2] += d;
+    }
+  }
+  function branch(x, y, a, len, cls, depth, pull) {
+    let ang = a, d = 'M' + f1(x) + ' ' + f1(y);
+    for (let k = 0; k < depth; k++) {
+      const turn = (r() - 0.5) * 1.25 + (pull != null ? (pull - ang) * 0.35 : 0);
+      const a2 = ang + turn, L = len * (0.85 + r() * 0.3);
+      const ex = x + Math.cos(ang + turn * 0.5) * L, ey = y + Math.sin(ang + turn * 0.5) * L;
+      d += 'C' + f1(x + Math.cos(ang) * L * 0.42) + ' ' + f1(y + Math.sin(ang) * L * 0.42) + ' ' + f1(ex - Math.cos(a2) * L * 0.42) + ' ' + f1(ey - Math.sin(a2) * L * 0.42) + ' ' + f1(ex) + ' ' + f1(ey);
+      const side = r() < 0.5 ? -1 : 1;
+      if (r() < (opt.leaf == null ? 0.75 : opt.leaf)) leaf(ex, ey, a2 + side * (0.75 + r() * 0.45), LEAF[cls] * (0.8 + r() * 0.45) * (opt.scale || 1));
+      if (cls < 2 && k < depth - 1 && r() < 0.5) branch(ex, ey, a2 - side * (0.7 + r() * 0.5), len * 0.72, cls + 1, Math.max(2, depth - k - 1), pull == null ? null : pull - side * 0.6);
+      ang = a2; x = ex; y = ey; len *= 0.93;
+    }
+    o.s[cls] += d;
+    tip(x, y, ang, cls);
+  }
+  starts.forEach((s) => branch(s[0], s[1], s[2], s[3], s[4], s[5], s[6]));
+  return o;
+}
+const KINDS = ['#fl-tulip', '#fl-peony', '#fl-bell', '#fl-tulip-o', '#fl-bud', '#fl-peony', '#fl-tulip-o', '#fl-bell'];
+function flowerSlots(o, n, scale, extra) {
+  const list = (extra || []).concat(o.fl.map((f, i) => ({ x: f.x, y: f.y, rot: f.a * 180 / PI + (KINDS[i % KINDS.length] === '#fl-bell' ? -90 : 90), s: scale * (f.cls ? 0.72 : 1), k: KINDS[i % KINDS.length] })));
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const f = list[i];
+    out.push(f ? { href: f.k, tf: 'translate(' + f1(f.x) + ' ' + f1(f.y) + ') rotate(' + f1(f.rot) + ') scale(' + f.s.toFixed(2) + ')', op: 1 } : { href: '#fl-bud', tf: 'translate(-99 -99)', op: 0 });
+  }
+  return out;
+}
+function bez(d, t) { const n = d.match(/-?[0-9.]+/g).map(Number); const u = 1 - t;
+  return [u * u * u * n[0] + 3 * u * u * t * n[2] + 3 * u * t * t * n[4] + t * t * t * n[6], u * u * u * n[1] + 3 * u * u * t * n[3] + 3 * u * t * t * n[5] + t * t * t * n[7]]; }
+function stemLeaves(ds, ts, L) { let a = '', b = '';
+  ds.forEach((d, i) => ts.forEach((t, j) => { const p = bez(d, t), q = bez(d, t + 0.02); const ang = Math.atan2(q[1] - p[1], q[0] - p[0]); const sd = (i + j) % 2 ? 1 : -1;
+    const lp = leafPair(p[0], p[1], ang + sd * 0.85, L * (j % 2 ? 0.8 : 1), L * 0.36, sd * 0.12); a += lp[0]; b += lp[1]; }));
+  return { la: a, lb: b }; }
+
+function artVals(o, slots) { const v = { s0: o.s[0], s1: o.s[1], s2: o.s[2], la: o.la, lb: o.lb, pa: o.pa, pb: o.pb, be: o.be, bh: o.bh }; slots.forEach((f, i) => { v['f' + i] = f; }); return v; }
+
+const CORNER = { tr: [74, 0, 26, 30], tl: [0, 0, 26, 30], bl: [0, 70, 26, 30], br: [74, 58, 26, 30] };
+const LABEL = [70, 88, 30, 12];
+
+const CASES = [
+  { id: 'e1', x: 150, y: 250, tags: ['revolucion'], ratio: '800 / 536', w: 420,
+    imgs: ['7a9ad67a18ac950847417b26ac0d8bf1', '74f152ff74b5063b1545ceb78b6882d5', '2dde0c943cc538d6d97a300f16f031d1', 'c9cd58a456617805fc8c80b15591ea48', '9c2000f1ea65cf0700f8448f4a55c089'],
+    place: 'Petrogrado, ¿1917?', es: 'Caballería en la nieve', date: '1917', aiDate: '1918',
+    short: 'Jinetes armados en una plaza nevada. Se atribuye a la Revolución de Febrero, en Petrogrado.',
+    corner: 'tl', edits: [
+      { es: 'Jinete borrado', box: [48, 50.4, 7.2, 27.2], txt: 'Se borró a uno de los jinetes; el hueco se rellenó copiando el fondo de al lado.', hint: 'Compara Original y Editada: cuenta los jinetes del centro.' },
+      { es: 'Tejado retocado', box: [87.5, 24, 12.5, 10], txt: 'Se borraron las chimeneas del edificio de la derecha.', hint: 'Mira el tejado del edificio de la derecha.' }],
+    versions: [
+      { who: 'Informe de la policía', year: 'Febrero de 1917', st: 'doc', text: 'Según un informe policial citado por la historiografía soviética, en la isla Vasílievski una patrulla de cosacos se negó a ayudar a un inspector rodeado por la multitud, y en la plaza Známenskaya los cosacos se mantuvieron al margen mientras la gente expulsaba a la policía montada.', src: 'Historia de la Guerra Civil en la URSS, vol. 1 (cita el informe policial).' },
+      { who: 'León Trotski', year: 'Relato de 1930', st: 'int', text: 'En su Historia de la Revolución Rusa, Trotski cuenta que la multitud gritaba «¡Abajo la policía!» y, cada vez más, «¡Hurra!» a los cosacos. Para él, era la señal de que la tropa empezaba a cambiar de lado.', src: 'L. Trotski, Historia de la Revolución Rusa, cap. 7.' },
+      { who: 'Gobernador A. P. Balk', year: '27 de febrero de 1917', st: 'doc', text: 'Ese día, unidades de la guarnición se negaron a salir de los cuarteles para reprimir las protestas y se unieron a los rebeldes. «Hemos perdido el poder», escribió el gobernador de Petrogrado.', src: 'Memorias de A. P. Balk, Russkoe proshloe, 1991.' },
+      { who: 'Cifras de víctimas', year: 'Fuentes posteriores', st: 'disp', text: 'Las cifras de muertos no coinciden: una enciclopedia de San Petersburgo habla de más de 300 personas; otras fuentes cifran en 1.443 los muertos en Petrogrado.', src: 'Enciclopedia de San Petersburgo · Wikipedia (Revolución de Febrero).' },
+      { who: 'Modelo IA', year: '2050 · ficción del escenario', st: 'ia', text: 'Clasificación automática: «Cosacos cargan contra manifestantes, 1918». La IA no sabe quiénes son los jinetes ni contra quién iban; el relato de los testigos dice lo contrario.', src: 'Informe ficticio del escenario Moscú 2050.' }
+    ] },
+  { id: 'e2', x: 290, y: 430, tags: ['revolucion'], ratio: '1200 / 794', w: 430,
+    imgs: ['e6a838d5ab219fa20131192268d3b392', 'e207e319bd7b438abbc7f39d0a132a09', '8f7c6d3676a48c310a8d99bc791efe88', '49ebec1600ff9e8c208514c21a36063c', '52ce172e453f0da277ca7df4521c62cb'],
+    place: 'Petrogrado, julio de 1920', es: 'Asamblea en la fábrica Putílov', date: '1920', aiDate: '1917',
+    short: 'Suele publicarse como de 1917, pero el estandarte delata que es de 1920.',
+    corner: 'bl', edits: [
+      { es: 'Lema borrado', box: [7, 28, 13, 10], txt: 'Se borró «III Интернационал» del estandarte copiando la tela de abajo. Sin esa pista, la foto puede pasar por una de 1917.', hint: 'Compara Original y Editada: lee el estandarte de la izquierda.' },
+      { es: 'Estandarte en blanco', box: [74.6, 14.2, 12.5, 14.2], txt: 'Se borró el nombre de la fábrica del estandarte de la derecha.', hint: 'Lee el estandarte de la derecha.' }],
+    versions: [
+      { who: 'Nota al dorso', year: 'Julio de 1920', st: 'doc', text: '«Nuevas elecciones al sóviet de Petrogrado en la fábrica Putílov, tras el informe del camarada Glebov-Putilovski, julio de 1920.»', src: 'Graduate Institute Geneva, colección «Soviet Russia Photos».' },
+      { who: 'Historiadores de Ginebra', year: 'Estudio de 2021', st: 'int', text: 'La foto muestra la política de Petrogrado alrededor del II Congreso de la Internacional Comunista, en julio de 1920 o poco antes.', src: 'J.-L. Maurer, OpenEdition Books, 2021.' },
+      { who: 'Banco de imágenes', year: 'Pie de foto comercial', st: 'disp', text: 'Algunos bancos de imágenes la venden como una votación obrera «celebrada en 1917» en la fábrica Putílov. El estandarte de la III Internacional, fundada en 1919, lo desmiente.', src: 'Mediastorehouse / Mary Evans Picture Library.' },
+      { who: 'La huelga de 1917', year: 'Contexto', st: 'doc', text: 'La confusión tiene una causa: la huelga de la fábrica Putílov, iniciada el 18 de febrero de 1917, se considera la chispa de la Revolución de Febrero.', src: 'Wikipedia, «Putilov strike of 1917».' },
+      { who: 'Modelo IA', year: '2050 · ficción del escenario', st: 'ia', text: 'Fecha estimada: 1917, por correlación con otras imágenes de la fábrica. El modelo trabajó sobre la copia sin el estandarte completo.', src: 'Informe ficticio del escenario Moscú 2050.' }
+    ] },
+  { id: 'e6', x: 450, y: 300, tags: ['poder'], ratio: '1200 / 803', w: 430,
+    imgs: ['9d6cb9fe5bfeb421bbf494101d76009f', 'aeddfa1ac5e996a5deddbd0c134bfd52', 'fcd7226eff16b99f8dfc8afd9b4bd815', '16322e21dfe83270a0404e578e75b4a0', '77c6e5eb8b93ad843f4083d05e76d21f'],
+    place: 'Moscú, 19 de agosto de 1991', es: 'Tanques frente a la Casa Blanca', date: '1991', aiDate: '1993',
+    short: 'Golpe de agosto: civiles rodean un tanque ante el parlamento ruso.',
+    corner: 'br', edits: [
+      { es: 'Bandera borrada', box: [19, 0, 9, 13], txt: 'Se borró la bandera tricolor rusa del techo del edificio.', hint: 'Compara Original y Editada: mira lo más alto del edificio.' },
+      { es: 'Coche de otro color', box: [0, 75.6, 21, 22.2], txt: 'El coche azul de la izquierda ahora es marrón.', hint: 'Fíjate en los colores de la esquina inferior izquierda.' },
+      { es: 'Farola borrada', box: [90, 1, 10, 10], txt: 'Se borró la farola de la esquina superior derecha.', hint: 'Mira la esquina superior derecha.' }],
+    versions: [
+      { who: 'Comunicado del GKChP', year: '19 de agosto de 1991', st: 'doc', text: 'La agencia TASS anunció que Gorbachov no podía ejercer sus funciones «por motivos de salud» y que el vicepresidente Yanáyev asumía la presidencia.', src: 'UPI, 19-08-1991 (texto del comunicado).' },
+      { who: 'Diario de Cherniáyev', year: 'Foros, agosto de 1991', st: 'doc', text: 'El asesor de Gorbachov cuenta que el presidente estaba retenido en su dacha de Crimea, incomunicado, y que se negó a colaborar con los golpistas.', src: 'National Security Archive, diario de A. Cherniáyev.' },
+      { who: 'La televisión', year: 'Mañana del 19 de agosto', st: 'doc', text: 'La televisión estatal sustituyó su programación por «El lago de los cisnes», intercalado con los comunicados del comité de emergencia.', src: 'The Moscow Times · NPR.' },
+      { who: 'Los defensores', year: 'Testimonios', st: 'int', text: 'Miles de moscovitas formaron un escudo humano alrededor de la Casa Blanca. Ese día Yeltsin leyó su llamamiento subido a un tanque, la imagen que pasó a la historia.', src: 'The Moscow Times, 2016.' },
+      { who: 'Modelo IA', year: '2050 · ficción del escenario', st: 'ia', text: 'Clasificación automática: «Tanques ante la Casa Blanca, octubre de 1993». Confunde los dos episodios porque ocurren en el mismo edificio.', src: 'Informe ficticio del escenario Moscú 2050.' }
+    ] },
+  { id: 'e4', x: 610, y: 440, tags: ['poder'], ratio: '1 / 1', w: 360,
+    imgs: ['309e8a386fa6ad91e8b71d504e0f5bc2', 'b56cb9a5b92860d5457cd0e1d1d0fcef', '4d0699a8ed3158bff1487daf148afb40', '31e7fa236fc12297cc2dc2169849d321', 'abfe4b928fcecb594a869c4390a514bb'],
+    place: 'Moscú, 4 de octubre de 1993', es: 'La Casa Blanca en llamas', date: '1993', aiDate: '1991',
+    short: 'El mismo edificio de 1991, dos años después, bombardeado por tanques.',
+    corner: 'br', edits: [
+      { es: 'Incendio borrado', box: [23.8, 12.5, 37.9, 22.5], txt: 'Se borraron las llamas y el humo: la fachada se rellenó copiando ventanas intactas.', hint: 'Compara Original y Editada: mira las ventanas de los pisos altos.' },
+      { es: 'Número cambiado', box: [38.5, 73.5, 8, 11], txt: 'El número del blindado pasó de 027 a 022.', hint: 'Lee el número pintado en el blindado.' },
+      { es: 'Bandera borrada', box: [89, 30, 10, 10], txt: 'Se borró una de las banderas de la fachada.', hint: 'Cuenta las banderas de la derecha.' }],
+    versions: [
+      { who: 'Decreto presidencial', year: '21 de septiembre de 1993', st: 'doc', text: 'Yeltsin firmó el decreto n.º 1400 «Sobre la reforma constitucional por etapas», que disolvía el parlamento y convocaba elecciones y un referéndum constitucional.', src: 'Meduza, 2023.' },
+      { who: 'El parlamento', year: '23 de septiembre de 1993', st: 'doc', text: 'El parlamento, encabezado por Jasbulátov, destituyó a Yeltsin, proclamó presidente interino a Rutskói y se atrincheró en la Casa Blanca.', src: 'Wikipedia, «1993 Russian constitutional crisis».' },
+      { who: 'Cifra oficial', year: 'Gobierno ruso', st: 'disp', text: 'Según las fuentes oficiales, entre el 3 y el 4 de octubre murieron 147 personas y 372 resultaron heridas.', src: 'Carnegie Endowment, L. Shevtsova, 2013.' },
+      { who: 'Rutskói y testigos', year: 'Años después', st: 'disp', text: 'Rutskói y otros sostienen que murieron cientos de personas más; algunos testigos hablan de cientos y hasta miles de víctimas. La cifra real sigue sin conocerse.', src: 'The Irish Times, 2003 · Carnegie Endowment, 2013.' },
+      { who: 'Modelo IA', year: '2050 · ficción del escenario', st: 'ia', text: 'Fecha estimada: 1991. El modelo reconoce el edificio y la presencia de blindados, y lo asocia con el golpe de agosto.', src: 'Informe ficticio del escenario Moscú 2050.' }
+    ] },
+  { id: 'e5', x: 720, y: 230, tags: ['ciudad'], ratio: '800 / 536', w: 420,
+    imgs: ['370c16bf09ced8f7918a7c12aa73b7b2', '4f94eaac8b85416dc7c1eda0ae7f2909', '151eec4d23b7be0839e98cc14d4ec8bf', '019d50ea4988ca139d27ceebaf56bdc1', '247561cc4f03bfb98b578ed7c2dab071'],
+    place: 'Moscú, septiembre de 1997', es: '850 años de Moscú', date: '1997', aiDate: '1987',
+    short: 'La gran fiesta del alcalde Luzhkov en la Plaza Roja.',
+    corner: 'bl', edits: [
+      { es: 'Fuego duplicado', box: [45, 5.6, 18.1, 42.9], txt: 'Se duplicó un fuego artificial para que la celebración pareciera más grande.', hint: 'Compara Original y Editada: cuenta los fuegos artificiales.' },
+      { es: 'Estrella borrada', box: [75, 3, 8, 9], txt: 'Se borró la estrella roja de la punta de la torre Spásskaya.', hint: 'Mira la punta de la torre de la derecha.' },
+      { es: 'Cruz borrada', box: [37.5, 32, 7.5, 12], txt: 'Se borró la cruz que colgaba sobre la cúpula del escenario.', hint: 'Mira encima de la cúpula dorada.' }],
+    versions: [
+      { who: 'Ayuntamiento de Moscú', year: '5–7 de septiembre de 1997', st: 'doc', text: 'La celebración duró tres días. Antes del 1 de septiembre se restauraron más de 400 edificios y espacios, entre ellos la plaza del Manège y salas del Kremlin.', src: 'Vechérniaya Moskvá (archivo).' },
+      { who: 'Prensa crítica', year: 'Septiembre de 1997', st: 'int', text: 'Un análisis de la época se preguntaba si la fiesta era «una luz al final del túnel o un banquete en medio de la hambruna», en plena crisis económica.', src: 'Jamestown Foundation, Prism, 1997.' },
+      { who: 'Concierto de Jean-Michel Jarre', year: '6 de septiembre de 1997', st: 'disp', text: 'Según la prensa de la época, unas 500.000 personas asistieron al concierto frente a la Universidad de Moscú. La cifra procede de estimaciones de prensa, no de un recuento.', src: 'Guinness World Records (según la prensa).' },
+      { who: 'Modelo IA', year: '2050 · ficción del escenario', st: 'ia', text: 'Fecha estimada: 1987, año del 840 aniversario. El modelo confunde dos celebraciones parecidas en la misma plaza.', src: 'Informe ficticio del escenario Moscú 2050.' }
+    ] },
+  { id: 'e3', x: 790, y: 440, tags: ['ciudad'], ratio: '1000 / 667', w: 420,
+    imgs: ['d7603dc5134e1ed574021d25092c3fd0', '37cc9b3bcd3b7172e2fa382ebceb1fe5', '2c7cb579b999a866985e5bb2acfa84e1', '1bed9169074fa14a8f95b06e0476e2df', 'fc59fe24c8dc981c6e1347bc0649b110'],
+    place: 'Moscú, 9 de septiembre de 1999', es: 'Calle Guriánova, 19', date: '1999', aiDate: '2000',
+    short: 'Equipos de rescate tras la explosión de un edificio de viviendas.',
+    corner: 'bl', edits: [
+      { es: 'Poste borrado', box: [66.5, 40, 5, 28], txt: 'Se borró un poste de luz que asomaba entre el humo.', hint: 'Compara Original y Editada: mira entre el humo y la grúa.' },
+      { es: 'Máquina de otro color', box: [31.5, 70.5, 25, 26.2], txt: 'La excavadora amarilla del centro ahora es verde.', hint: 'Fíjate en el color de la máquina del centro.' }],
+    versions: [
+      { who: 'Versión oficial', year: 'Investigación, 2002', st: 'doc', text: 'Las autoridades atribuyeron los atentados a militantes vinculados al norte del Cáucaso. Señalaron como organizador a Achemez Gochiyáyev, que nunca fue detenido. Las investigaciones de Moscú y Volgodonsk se cerraron en 2002.', src: 'Wikipedia, «1999 Russian apartment bombings».' },
+      { who: 'El incidente de Riazán', year: '22–24 de septiembre de 1999', st: 'disp', text: 'La policía local detuvo a tres agentes del FSB que habían colocado sacos en el sótano de un edificio. El director del FSB, Pátrushev, dijo que era un simulacro y que los sacos solo tenían azúcar.', src: 'VOA · Meduza.' },
+      { who: 'El anuncio de Selezniov', year: '13 de septiembre de 1999', st: 'disp', text: 'El presidente de la Duma anunció en el parlamento una explosión en Volgodonsk que todavía no había ocurrido; el atentado llegó tres días después.', src: 'Yahoo News · TheCollector.' },
+      { who: 'Investigación académica', year: 'Debate posterior', st: 'int', text: 'Algunos investigadores defienden que la teoría de la participación del FSB no se sostiene y que en Riazán no había una bomba real. El debate sigue abierto.', src: 'Higher School of Economics (artículo académico).' },
+      { who: 'Modelo IA', year: '2050 · ficción del escenario', st: 'ia', text: 'Fecha estimada: 2000. La reconstrucción limpia el humo y el polvo, pero no detecta que la excavadora cambió de color ni que falta un poste.', src: 'Informe ficticio del escenario Moscú 2050.' }
+    ] }
+];
+CASES.forEach((c) => { c.imgs = c.imgs.map((h, k) => c.id + '_v' + (k + 1) + '.jpg'); });
+const FIL = [{ id: 'all', label: 'Todas' }, { id: 'revolucion', label: 'Revolución' }, { id: 'poder', label: 'Poder' }, { id: 'ciudad', label: 'Ciudad' }];
+const STAGES = [
+  { n: 0, es: 'Inicio', icon: 'M4 11 L12 4 L20 11 V20 H4 Z' },
+  { n: 1, es: 'Archivo', icon: 'M4 5 H20 V9 H4 Z M5 9 V19 H19 V9 M10 13 H14' },
+  { n: 2, es: 'Versiones', icon: 'M12 3 V10 M12 10 C12 14 7 15 5 21 M12 10 C12 14 17 15 19 21 M12 10 V21' },
+  { n: 3, es: 'Capas', icon: 'M12 3 L21 8 L12 13 L3 8 Z M3 12 L12 17 L21 12 M3 16 L12 21 L21 16' },
+  { n: 4, es: 'Buscar cambios', icon: 'M16 10 A6 6 0 1 1 4 10 A6 6 0 1 1 16 10 Z M14.5 14.5 L20 20' },
+  { n: 5, es: 'Reconstruir', icon: 'M12 21 V12 M12 12 C12 7 16 5 20 5 C20 9 17 12 12 12 M12 15 C12 11 9 9 5 9 C5 12 7 15 12 15' },
+  { n: 6, es: 'Comparar', icon: 'M3 5 H10 V19 H3 Z M14 5 H21 V19 H14 Z' }
+];
+const LAYER_SHORT = ['Original', 'Editada', 'Dañada', 'IA', 'Falta'];
+const LAYER_ST = ['doc', 'alt', 'doc', 'ia', 'unk'];
+const STATUS_COL = { doc: '#C7A974', alt: '#E2574C', ia: '#8E7CC3', unk: '#9A97A8', int: '#6FA03C' };
+const STY = { doc: ['#C7A974', 'none', 3], alt: ['#E2574C', '7 5', 2.5], ia: ['#8E7CC3', '9 5 2 5', 2.5], unk: ['#9A97A8', '2 6', 2.5] };
+const EYE_ON = 'M2 12 C5 6 19 6 22 12 C19 18 5 18 2 12 Z M12 9 A3 3 0 1 1 11.99 9 Z';
+const EYE_OFF = 'M2 12 C5 6 19 6 22 12 C19 18 5 18 2 12 Z M4 4 L20 20';
+const SRC_I = { r01: 0, r02: 1, r04: 2, none: 3 };
+const SY = [30, 80, 130, 180];
+const ZY = [50, 105, 160];
+function caseById(id) { return CASES.find((c) => c.id === id) || CASES[0]; }
+function layerTitle(c, i) { return ['Foto original · ' + c.date, 'Versión editada', 'Copia dañada', 'Versión de la IA · 2050', 'Lo que falta'][i]; }
+function anomsFor(c) {
+  return c.edits.map((e, k) => ({ id: 'e' + k, es: e.es, st: 'alt', s1: [0], s2: [1, 2], box: e.box, hint: e.hint, text: e.txt })).concat([
+    { id: 'a2', es: 'Esquina perdida', st: 'unk', s1: [0, 1], s2: [2], box: CORNER[c.corner], hint: 'Compara Editada y Dañada: una esquina se perdió con el tiempo.', text: 'La copia que llegó al archivo está rota: esa parte de la imagen ya no existe en ella.' },
+    { id: 'a3', es: 'Relleno inventado', st: 'ia', s1: [2], s2: [3], box: CORNER[c.corner], hint: 'Compara Dañada e IA en la esquina rota.', text: 'La IA rellenó la esquina perdida con algo que parece real, pero no tiene fuente.' },
+    { id: 'a4', es: 'Fecha cambiada', st: 'ia', s1: [0, 1, 2], s2: [3], box: LABEL, hint: 'Lee la etiqueta de la esquina inferior de la versión IA.', text: 'La IA fecha la foto en ' + c.aiDate + '; los registros dicen ' + c.date + '.' }
+  ]);
+}
+function zonesFor(c) {
+  return [
+    { id: 'z1', n: 'Z1', es: 'Retoques', q: 'Esta foto tiene ' + c.edits.length + ' retoques: ' + c.edits.map((e) => e.es.toLowerCase()).join(', ') + '.', box: c.edits[0].box, opts: [
+      { id: 'restore', label: 'Volver al original', st: 'doc', src: 'r01' },
+      { id: 'keep', label: 'Dejar la versión editada', st: 'alt', src: 'r02' },
+      { id: 'unk', label: 'Marcar como no verificable', st: 'unk', src: 'none' }] },
+    { id: 'z2', n: 'Z2', es: 'Esquina', q: 'La copia perdió esta esquina y la IA la completó por su cuenta.', box: CORNER[c.corner], opts: [
+      { id: 'orig', label: 'Recuperar desde el original', st: 'doc', src: 'r01' },
+      { id: 'ia', label: 'Aceptar el relleno de la IA', st: 'ia', src: 'r04' },
+      { id: 'lost', label: 'Dejar la pérdida a la vista', st: 'unk', src: 'none' }] },
+    { id: 'z3', n: 'Z3', es: 'Fecha', q: 'Los registros dicen ' + c.date + '; la IA propone ' + c.aiDate + '.', box: LABEL, opts: [
+      { id: 'real', label: c.date + ', según los registros', st: 'doc', src: 'r01' },
+      { id: 'ai', label: c.aiDate + ', según la IA', st: 'ia', src: 'r04' }] }
+  ];
+}
+const caseRootD = (k) => 'M450 118 C' + (450 + (k.x - 450) * 0.15).toFixed(0) + ' ' + (118 + (k.y - 118) * 0.6).toFixed(0) + ' ' + (k.x - (k.x - 450) * 0.35).toFixed(0) + ' ' + (k.y - (k.y - 118) * 0.55).toFixed(0) + ' ' + k.x + ' ' + k.y;
+const ART_BG = artVals(folk(31, [[1450, 840, PI * 1.15, 70, 0, 6, PI * 1.2], [1450, 160, PI * 0.92, 60, 1, 5, PI * 0.95], [-10, 990, -PI * 0.3, 66, 0, 5, -PI * 0.35]], { flowers: false }), []);
+const ART_INTRO = (() => { const o = folk(23, [[620, 470, -2.3, 66, 0, 5], [420, 480, -1.6, 60, 0, 5], [600, 120, 3.0, 54, 1, 4], [130, 480, -1.25, 60, 0, 5, -1.2], [330, -10, 1.9, 50, 1, 4, 1.9]], {}); return artVals(o, flowerSlots(o, 12, 1.2)); })();
+const ART_MAP = (() => { const o = folk(7, [[-10, 560, -0.9, 50, 1, 4, -0.7], [905, 575, -1.85, 50, 1, 4, -1.9], [-10, 20, 0.55, 44, 1, 3, 0.35], [910, 20, PI - 0.55, 44, 1, 3, PI - 0.35], [450, 575, -PI / 2, 44, 1, 2, -PI / 2]], {}); return artVals(o, flowerSlots(o, 8, 0.75, [{ x: 450, y: 118, rot: 0, s: 1.3, k: '#fl-peony' }])); })();
+const CASE_D = CASES.map(caseRootD);
+const CASE_LEAVES = stemLeaves(CASE_D, [0.3, 0.55, 0.8], 32);
+const ART_SOIL = artVals(folk(61, [[-10, 330, 0.25, 64, 1, 4, 0.3], [1010, 340, PI - 0.25, 64, 1, 4, PI - 0.3], [230, 730, -1.3, 52, 1, 3, -1.4], [780, 730, -1.8, 52, 1, 3, -1.7]], { flowers: false }), []);
+const GROUND = (() => { let a = '', b = '', c = '', d = ''; const r = rng(5); for (let k = 0; k < 46; k++) { const x = 8 + r() * 984; if (Math.abs(x - 500) < 40) continue; const y = 266 + (r() - 0.5) * 6; const L = 22 + r() * 30; const lean = (x < 500 ? -1 : 1) * (0.15 + r() * 0.6) * (r() < 0.3 ? -1 : 1); const lp = leafPair(x, y, -PI / 2 + lean, L, L * 0.34, lean * 0.4); if (r() < 0.2) { c += lp[0]; d += lp[1]; } else { a += lp[0]; b += lp[1]; } } return { la: a, lb: b, pa: c, pb: d }; })();
+const PERMS = [[1, 2, 0], [2, 0, 1], [0, 2, 1], [1, 0, 2], [2, 1, 0], [0, 1, 2]];
+const PILLARS = [
+  { n: 1, bg: '#C8EC8E', title: 'La foto es una imagen técnica', text: 'Toda fotografía sale de un aparato que sigue un programa. La IA es un aparato todavía más opaco: aquí lo abrimos capa por capa para ver qué decide por nosotros.', ref: 'Vilém Flusser · Hacia una filosofía de la fotografía' },
+  { n: 2, bg: '#D9CCFF', title: 'Hacer visible lo invisible', text: 'Un buen diseño muestra el estado del sistema. Raíces, colores y etiquetas dejan ver qué es documento, qué es interpretación y qué inventó la IA.', ref: 'Don Norman · El diseño de los objetos cotidianos' },
+  { n: 3, bg: '#FFD39A', title: 'La experiencia construye el sentido', text: 'No te contamos la historia: la investigas. Comparar, dudar y decidir hace que el significado sea tuyo y no del algoritmo.', ref: 'Nathan Shedroff · Experience Design' },
+  { n: 4, bg: '#BFDDFF', title: 'Diseñar anticipando', text: 'En 2050 el pasado podrá generarse en segundos. Diseñamos hoy las herramientas para que la memoria siga siendo verificable mañana.', ref: 'R. Buckminster Fuller · diseño integral anticipatorio' }
+];
+function clipOf(b) { return 'inset(' + b[1] + '% ' + (100 - b[0] - b[2]).toFixed(2) + '% ' + (100 - b[1] - b[3]).toFixed(2) + '% ' + b[0] + '%)'; }
+
+class Component extends DCLogic {
+  state = {
+    stage: 0, caseSel: 'e2', filter: 'all', sep: 60, solo: -1, hidden: [false, false, false, false, false], doc: null,
+    cmpA: 0, cmpB: 1, found: {}, msg: 'Toca una zona de la imagen para examinarla.', hint: false,
+    ch: {}, pop: null, note: '', archived: {}, seen: {}, vsel: 0, mini: {}, focus: null, fk: 0, fclose: false, guess: {}
+  };
+
+  go(n) { this.setState({ stage: n, doc: null, pop: null, focus: null, fclose: false }); }
+  pickCase(id) { this.setState({ caseSel: id, found: {}, ch: {}, seen: {}, vsel: 0, solo: -1, hidden: [false, false, false, false, false], cmpA: 0, cmpB: 1, hint: false, note: '', msg: 'Toca una zona de la imagen para examinarla.' }); }
+  mini(key, title) {
+    const closed = !!this.state.mini[key];
+    return { open: closed ? 'false' : 'true', openB: !closed, icon: closed ? '+' : '–', lbl: (closed ? 'Mostrar ' : 'Minimizar ') + title,
+      toggle: () => { const m = Object.assign({}, this.state.mini); m[key] = !closed; this.setState({ mini: m }); } };
+  }
+
+  hit(pane, list) {
+    const s = this.state;
+    const L = pane === 0 ? s.cmpA : s.cmpB;
+    const O = pane === 0 ? s.cmpB : s.cmpA;
+    let msg = 'No hay cambios verificables aquí.';
+    for (let k = 0; k < list.length; k++) {
+      const a = list[k];
+      if (s.found[a.id]) { msg = 'Ya lo encontraste: ' + a.es + '.'; continue; }
+      const in1 = a.s1.indexOf(L) > -1, in2 = a.s2.indexOf(L) > -1;
+      if (!in1 && !in2) continue;
+      const ok = in1 ? a.s2.indexOf(O) > -1 : a.s1.indexOf(O) > -1;
+      if (!ok) { msg = 'Algo cambia aquí. Compáralo con otra capa.'; continue; }
+      const f = Object.assign({}, s.found);
+      f[a.id] = Object.keys(f).length + 1;
+      this.setState({ found: f, hint: false, msg: '¡Encontrado! ' + a.text });
+      return;
+    }
+    this.setState({ msg: msg });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const c = caseById(s.caseSel);
+    const v = c.imgs.map((h) => B + h);
+    const ANOM = anomsFor(c);
+    const ZD = zonesFor(c);
+    const foundN = Object.keys(s.found).length;
+    const chosen = ZD.map((z) => z.opts.find((o) => o.id === s.ch[z.id]) || null);
+    const chosenN = chosen.filter(Boolean).length;
+    const seenN = Object.keys(s.seen).length;
+    const cs = Object.assign({}, c, { v1: v[0], v4: v[3] });
+
+    const navClosed = !!s.mini.nav;
+    const badges = { 0: '', 1: '', 2: seenN ? seenN + '/' + c.versions.length : '', 3: '', 4: foundN ? foundN + '/' + ANOM.length : '', 5: chosenN ? chosenN + '/3' : '', 6: s.archived[c.id] ? '✓' : '' };
+    const stages = STAGES.map((x) => ({ es: x.es, icon: x.icon, badge: badges[x.n], aria: s.stage === x.n ? 'step' : 'false',
+      style: (s.stage === x.n ? 'color: #FFFFFF; background: #3F3A57;' : '') + (navClosed ? ' justify-content: center; padding: 0' : ''), go: () => this.go(x.n) }));
+
+    // 1
+    const filters = FIL.map((f) => ({ label: f.label, pressed: s.filter === f.id ? 'true' : 'false', cls: s.filter === f.id ? 'seg-on' : '', pick: () => this.setState({ filter: f.id }) }));
+    const pct = (x, y) => 'left: ' + (x / 9).toFixed(2) + '%; top: ' + (y / 5.6).toFixed(2) + '%';
+    const caseCards = CASES.map((k) => {
+      const on = s.filter === 'all' || k.tags.indexOf(s.filter) > -1;
+      const sel = k.id === s.caseSel;
+      return { thumb: B + k.imgs[0], pressed: sel ? 'true' : 'false', aria: k.es + ', ' + k.place,
+        pos: pct(k.x, k.y) + '; opacity: ' + (on ? 1 : 0.3) + '; transform: translate(-50%, -50%) scale(' + (sel ? 1.35 : 1) + '); z-index: ' + (sel ? 2 : 1) + '; box-shadow: ' + (sel ? '0 0 0 4px #D9CCFF, 0 18px 36px rgba(110,91,208,0.35)' : '0 10px 22px rgba(63,58,87,0.18)') + (s.archived[k.id] ? '; border-color: #B6E07A' : ''),
+        pick: () => this.pickCase(k.id) };
+    });
+
+    // 2 · versions
+    const N = c.versions.length;
+    const vtotal = N;
+    const PW = c.ratio === '1 / 1' ? 190 : 290;
+    const PH = c.ratio === '1 / 1' ? 190 : 290 / 1.5;
+    const memTop = 250 - PH - 42;
+    const DEPTH = [70, 210, 120, 240, 90];
+    const vnodes = [];
+    const vr = [];
+    const rlabels = [];
+    for (let i = 0; i < 5; i++) {
+      if (i >= N) { vr.push({ d: 'M0 0', off: 1, col: 'none', dark: 'none', hi: 'none', w: 0, wh: 0, la: '', lb: '', fop: 0, ftf: 'translate(-99 -99)', fk: '#fl-bud', fs: 0 }); continue; }
+      const ver = c.versions[i];
+      const t = N === 1 ? 0.5 : i / (N - 1);
+      const x = 110 + t * 780;
+      const y = 300 + DEPTH[i];
+      const seen = !!s.seen[i];
+      const sel = s.vsel === i && seen;
+      const sx = 500 + (t - 0.5) * 36, sy = 298;
+      const p1x = sx + (x - sx) * 0.1, p1y = 380, p2x = x + (sx - x) * 0.25, p2y = y - 110;
+      const d = 'M' + sx.toFixed(0) + ' ' + sy + ' C' + p1x.toFixed(0) + ' ' + p1y + ' ' + p2x.toFixed(0) + ' ' + p2y.toFixed(0) + ' ' + x.toFixed(0) + ' ' + y.toFixed(0);
+      const mx = (sx + 3 * p1x + 3 * p2x + x) / 8, my = (sy + 3 * p1y + 3 * p2y + y) / 8;
+      const w = sel ? 18 : 15;
+      const lv = stemLeaves([d], [0.3, 0.55], 36);
+      const bp = bez(d, 0.8), bq = bez(d, 0.82);
+      const tg = Math.atan2(bq[1] - bp[1], bq[0] - bp[0]);
+      const nA = tg - PI / 2, nB = tg + PI / 2;
+      const nrm = Math.sin(nA) < Math.sin(nB) ? nA : nB;
+      vr.push({ d: d, off: seen ? 0 : 1, col: ROOT_COL[ver.st], dark: ROOT_DARK[ver.st], hi: ROOT_HI[ver.st], w: w, wh: sel ? 5 : 4, la: lv.la, lb: lv.lb, fop: seen ? 1 : 0,
+        ftf: 'translate(' + bp[0].toFixed(1) + ' ' + bp[1].toFixed(1) + ') rotate(' + (nrm * 180 / PI + 90).toFixed(1) + ') scale(0.72)', fk: ['#fl-tulip', '#fl-peony', '#fl-tulip-o', '#fl-bell', '#fl-peony'][i], fs: seen ? 1 : 0 });
+      if (seen) rlabels.push({ txt: ST[ver.st].w, pos: 'left: ' + (mx / 10).toFixed(1) + '%; top: ' + (my / 7.2).toFixed(1) + '%', bg: NODE_BG[ver.st], fg: '#161616', bd: NODE_BD[ver.st] });
+      vnodes.push({ who: ver.who, year: seen ? ver.year : 'Toca para abrir', pressed: sel ? 'true' : 'false',
+        aria: ver.who + (seen ? ', ' + ST[ver.st].w : ', versión sin abrir'),
+        style: 'left: ' + (x / 10).toFixed(1) + '%; top: ' + (y / 7.2).toFixed(1) + '%; background: ' + (seen ? NODE_BG[ver.st] : '#FFFFFF') + '; border: ' + (seen ? '2px solid ' + ROOT_DARK[ver.st] : '2px dashed #C9B88F') + '; color: #161616; box-shadow: ' + (seen ? (sel ? '6px 6px 0 ' : '4px 4px 0 ') + ROOT_DARK[ver.st] : 'none'),
+        pick: () => { const sn = Object.assign({}, this.state.seen); sn[i] = true; this.setState({ seen: sn, vsel: i }); } });
+    }
+    const vcur = c.versions[Math.min(s.vsel, N - 1)];
+    const vd = s.seen[s.vsel] ? { who: vcur.who, year: vcur.year, t: ST[vcur.st], text: vcur.text, src: 'Fuente: ' + vcur.src } : { who: 'Abre una versión', year: '', t: ST.unk, text: 'Cada versión cuenta la historia de esta foto de una manera distinta. Al abrirla, su raíz crece desde la tierra hasta la memoria.', src: '' };
+    const mem = { n: seenN, total: vtotal, pos: 'left: 50%; top: ' + (memTop / 7.2).toFixed(1) + '%; width: ' + (PW / 10).toFixed(1) + '%',
+      shadowRx: PW * 0.62, badgePos: 'left: ' + ((500 + PW / 2 + 40) / 10).toFixed(1) + '%; top: ' + ((memTop + 20) / 7.2).toFixed(1) + '%',
+      glow: '0 0 0 ' + (seenN * 4) + 'px #C8EC8E' };
+
+    // 3 · layers
+    const sep = s.sep;
+    const layers = [0, 1, 2, 3, 4].map((i) => {
+      const z = (i - 2) * sep * 1.25;
+      const op = s.hidden[i] ? 0 : (s.solo > -1 && s.solo !== i ? 0.06 : (i === 4 ? 0.85 : 1));
+      return { title: LAYER_SHORT[i] + (i === 0 ? ' · ' + c.date : (i === 3 ? ' · 2050' : '')), img: v[i], w: c.w, focus: () => this.setState({ focus: i, fk: this.state.fk + 1, fclose: false }),
+        tf: 'translate(-50%, -50%) rotateX(' + (sep * 0.55).toFixed(1) + 'deg) rotateZ(' + (-sep * 0.32).toFixed(1) + 'deg) translateZ(' + z.toFixed(0) + 'px)',
+        op: op, bd: s.solo === i ? '#6E5BD0' : 'rgba(255,255,255,0.95)' };
+    });
+    const DOCS = [
+      { es: 'Historia de la foto', st: 'doc', text: c.versions[0].text, note: 'Fuente: ' + c.versions[0].src },
+      { es: 'Qué se editó', st: 'alt', text: c.edits.map((e) => e.txt).join(' '), note: 'Manipulaciones creadas para el juego.' },
+      { es: 'Estado de la copia', st: 'doc', text: 'La copia que llegó al archivo es la versión editada, no el original. Llega con grano, rayas, manchas y una esquina rota.', note: 'Deterioro simulado para el juego.' },
+      { es: 'Informe de la IA', st: 'ia', text: 'Entrada: la copia dañada. Ruido eliminado, nitidez aumentada, esquina completada por inferencia. Fecha estimada: ' + c.aiDate + '. La foto original no fue consultada.', note: 'Informe ficticio del escenario Moscú 2050.' },
+      { es: 'Lo que no sabemos', st: 'unk', text: 'Autor de la fotografía, paradero del negativo y circunstancias exactas de la toma: sin verificar en este archivo.', note: '' }
+    ];
+    const dbtnStyle = {
+      doc: 'background: #F5EEDD; color: #7A5F33; border: 1px solid #F5EEDD',
+      ia: 'background: #EDE6FF; color: #4B3D86; border: 1px solid #EDE6FF',
+      unk: 'background: #FFFFFF; color: #5E5B6B; border: 1px dashed #9A97A8',
+      alt: 'background: #FDECEA; color: #B8352A; border: 1px solid #FDECEA'
+    };
+    const dotCol = { doc: '#C7A974', alt: '#E2574C', ia: '#8E7CC3', unk: '#9A97A8' };
+    const strataRows = [3, 2, 1, 0, 4].map((i) => {
+      const st = LAYER_ST[i]; const col = dotCol[st]; const solo = s.solo === i;
+      return { title: layerTitle(c, i), txt: s.hidden[i] ? '#B9B6C6' : '#161616',
+        dot: solo ? 'background: #6FA03C; box-shadow: 0 0 0 5px rgba(111,160,60,0.25)' : (st === 'unk' ? 'border: 2px dashed ' + col + '; background: #FFFFFF' : 'background: ' + col),
+        dlabel: DOCS[i].es, dstyle: dbtnStyle[DOCS[i].st], open: () => this.setState({ doc: String(i) }),
+        visLabel: s.hidden[i] ? 'Mostrar' : 'Ocultar', hidPressed: s.hidden[i] ? 'true' : 'false', eye: s.hidden[i] ? EYE_OFF : EYE_ON,
+        toggle: () => { const h = this.state.hidden.slice(); h[i] = !h[i]; this.setState({ hidden: h }); },
+        soloPressed: solo ? 'true' : 'false', soloF: () => this.setState({ solo: this.state.solo === i ? -1 : i }) };
+    });
+    const fi = s.focus == null ? 0 : s.focus;
+    const fv = { title: layerTitle(c, fi), img: v[fi], maxw: c.ratio === '1 / 1' ? '480px' : '620px', cls: s.fclose ? 'flyBack' : (s.fk % 2 ? 'flyA' : 'flyB'), bgCls: s.fclose ? 'fadeOut' : 'fadeIn',
+      nav: [0, 1, 2, 3, 4].map((j) => ({ n: LAYER_SHORT[j], cls: j === fi ? 'seg-on' : '', pressed: j === fi ? 'true' : 'false', pick: () => { if (j !== this.state.focus) this.setState({ focus: j, fk: this.state.fk + 1 }); } })) };
+    const D = DOCS[s.doc ? +s.doc : 0];
+    const dd = { es: D.es, text: D.text, note: D.note, t: ST[D.st] };
+
+    // 4 · investigate
+    const nE = c.edits.length;
+    const spotsDef = [{ list: [ANOM[nE], ANOM[nE + 1]], box: ANOM[nE].box }, { list: [ANOM[nE + 2]], box: ANOM[nE + 2].box }].concat(c.edits.map((e, k) => ({ list: [ANOM[k]], box: ANOM[k].box })));
+    const mkPane = (pane) => {
+      const Li = pane === 0 ? s.cmpA : s.cmpB;
+      return {
+        groupLabel: 'Capa ' + (pane === 0 ? 'izquierda' : 'derecha'), img: v[Li], title: layerTitle(c, Li),
+        opts: [0, 1, 2, 3, 4].map((j) => ({ n: LAYER_SHORT[j], pressed: j === Li ? 'true' : 'false', cls: j === Li ? 'seg-on' : '', pick: () => this.setState(pane === 0 ? { cmpA: j } : { cmpB: j }) })),
+        miss: () => this.setState({ msg: 'No hay cambios verificables aquí.' }),
+        spots: spotsDef.map((sp, k) => ({ l: sp.box[0], t: sp.box[1], w: sp.box[2], h: sp.box[3], aria: 'Zona de análisis ' + (k + 1), pick: () => this.hit(pane, sp.list) })),
+        marks: ANOM.filter((an) => s.found[an.id] && an.s1.concat(an.s2).indexOf(Li) > -1).map((an) => ({
+          num: s.found[an.id], col: an.st === 'alt' ? '#E2574C' : (an.st === 'ia' ? '#6E5BD0' : '#5E5B6B'),
+          box: 'left: ' + an.box[0] + '%; top: ' + an.box[1] + '%; width: ' + an.box[2] + '%; height: ' + an.box[3] + '%',
+          dot: 'left: ' + (an.box[0] + an.box[2] / 2).toFixed(1) + '%; top: calc(' + an.box[1] + '% + 6px)' }))
+      };
+    };
+    const nextUnfound = ANOM.find((a) => !s.found[a.id]);
+    const foundList = ANOM.filter((a) => s.found[a.id]).sort((x, y) => s.found[x.id] - s.found[y.id]).map((a) => ({ num: s.found[a.id], es: a.es, text: a.text, t: ST[a.st] }));
+
+    // 5 · rebuild
+    const c1 = s.ch.z1, c2 = s.ch.z2, c3 = s.ch.z3;
+    const rc = {
+      base: c1 === 'restore' ? v[0] : v[1],
+      cornerOn: c2 !== 'orig', cornerImg: c2 === 'ia' ? v[3] : v[2], cornerClip: clipOf(CORNER[c.corner]),
+      dateOn: c3 === 'ai', dateImg: v[3], dateClip: clipOf(LABEL),
+      realOn: c3 === 'real', realTxt: c.date,
+      hatchOn: c1 === 'unk', hatches: c.edits.map((e) => ({ box: 'left: ' + e.box[0] + '%; top: ' + e.box[1] + '%; width: ' + e.box[2] + '%; height: ' + e.box[3] + '%' }))
+    };
+    const zoneBtns = ZD.map((z, k) => {
+      const o = chosen[k]; const open = s.pop === z.id;
+      const cx = Math.min(94, Math.max(6, z.box[0] + z.box[2] / 2)), cy = Math.min(92, Math.max(8, z.box[1] + z.box[3] / 2));
+      return { n: o ? '✓' : String(k + 1), pos: 'left: ' + cx.toFixed(1) + '%; top: ' + cy.toFixed(1) + '%',
+        bg: open ? '#161616' : (o ? STATUS_COL[o.st] : '#B6E07A'), fg: open || (o && o.st !== 'doc') ? '#FFFFFF' : '#161616',
+        pulse: o || open ? '' : 'pulse', open: open ? 'true' : 'false', aria: z.es + (o ? ', elegido: ' + o.label : ', sin decidir'),
+        toggle: () => this.setState({ pop: this.state.pop === z.id ? null : z.id }) };
+    });
+    const zi = ZD.findIndex((z) => z.id === s.pop);
+    const pz = ZD[zi >= 0 ? zi : 0];
+    const pcx = pz.box[0] + pz.box[2] / 2, pcy = pz.box[1] + pz.box[3] / 2;
+    const pop = {
+      title: pz.es, q: pz.q,
+      pos: (pcx > 50 ? 'right: calc(' + (100 - pcx).toFixed(1) + '% + 30px)' : 'left: calc(' + pcx.toFixed(1) + '% + 30px)') + '; ' + (pcy > 50 ? 'bottom: calc(' + (100 - pcy).toFixed(1) + '% - 40px)' : 'top: calc(' + pcy.toFixed(1) + '% - 40px)'),
+      opts: pz.opts.map((op) => ({ label: op.label, t: ST[op.st], pressed: s.ch[pz.id] === op.id ? 'true' : 'false', cls: s.ch[pz.id] === op.id ? 'opt-on' : '',
+        pick: () => { const ch = Object.assign({}, this.state.ch); ch[pz.id] = op.id; const nxt = ZD.find((z) => !ch[z.id]); this.setState({ ch: ch, pop: nxt ? nxt.id : null }); } }))
+    };
+    const decList = ZD.map((z, k) => { const o = chosen[k]; return { txt: z.es + ': ' + (o ? o.label : 'sin decidir'), w: o ? ST[o.st].w : '—', cls: o ? ST[o.st].cls : 'p-unk', open: () => this.setState({ pop: z.id }) }; });
+    const rp = ZD.map((z, k) => {
+      const o = chosen[k];
+      if (!o) return { d: 'M0 0', op: 0, stroke: 'none', dash: 'none', w: 0 };
+      const sy = SY[SRC_I[o.src]], zy = ZY[k];
+      return { d: 'M117 ' + sy + ' C 190 ' + sy + ', 190 ' + zy + ', 263 ' + zy, op: 1, stroke: STY[o.st][0], dash: STY[o.st][1], w: STY[o.st][2] };
+    });
+
+    // 6 · compare
+    const HIST = [{ txt: 'Como en el original', st: 'doc' }, { txt: 'Intacta', st: 'doc' }, { txt: c.date, st: 'doc' }];
+    const AIV = [{ txt: 'Hereda la edición', st: 'alt' }, { txt: 'Relleno inventado', st: 'ia' }, { txt: c.aiDate, st: 'ia' }];
+    const rows = ZD.map((z, k) => { const o = chosen[k]; const u = o ? { txt: o.label, st: o.st } : { txt: '—', st: 'unk' };
+      return { name: z.es, h: { txt: HIST[k].txt, t: ST[HIST[k].st] }, i: { txt: AIV[k].txt, t: ST[AIV[k].st] }, u: { txt: u.txt, t: ST[u.st] } }; });
+
+    const perm = PERMS[(+c.id.slice(1) - 1) % 6];
+    const g = s.guess[c.id];
+    const done = g != null;
+    const plain = { cornerOn: false, cornerImg: '', cornerClip: '', dateOn: false, dateImg: '', dateClip: '', realOn: false, realTxt: '', hatchOn: false, hatches: [] };
+    const ITEMS = [
+      Object.assign({}, plain, { base: v[0], name: 'Foto original · ' + c.date, t: ST.doc, note: 'Tiene grano, rayones y la fecha que confirman los registros: ' + c.date + '. Es la fuente.' }),
+      Object.assign({}, plain, { base: v[3], name: 'Versión de la IA · 2050', t: ST.ia, note: 'Más nítida y limpia, pero inventó la esquina perdida y fechó la foto en ' + c.aiDate + '.' }),
+      Object.assign({}, rc, { base: rc.base, name: 'Tu reconstrucción', t: ST.int, note: chosenN < 3 ? 'Todavía te faltan decisiones en Reconstruir.' : 'Muestra lo que decidiste: ' + chosen.map((o) => o.label.toLowerCase()).join(' · ') + '.' })
+    ];
+    const LET = ['A', 'B', 'C'];
+    const DEF_SH = '0 1px 0 rgba(22,22,22,0.04), 0 12px 30px rgba(63,58,87,0.06)';
+    const cmp = {
+      done: done,
+      lede: done ? 'Así se ven las tres versiones con sus etiquetas.' : 'Aquí están tres versiones de la misma foto, sin etiquetas: la original de ' + c.date + ', la que reconstruyó una IA en 2050 y la tuya. Mira el grano, el color, las esquinas y la fecha de cada una. ¿Cuál crees que es la foto original?',
+      cards: perm.map((it, p) => { const I = ITEMS[it]; const mine = g === it;
+        return Object.assign({}, I, { title: done ? LET[p] + ' · ' + I.name : 'Versión ' + LET[p], alt: done ? I.name : 'Versión ' + LET[p], revealed: done, pickOn: !done, pickTxt: 'La original es la ' + LET[p],
+          ring: mine ? (it === 0 ? '0 0 0 4px #B6E07A, ' : '0 0 0 4px #F08A80, ') + DEF_SH : DEF_SH,
+          pick: () => { const gs = Object.assign({}, this.state.guess); gs[c.id] = it; this.setState({ guess: gs }); } }); }),
+      verdict: g === 0 ? '¡Acertaste! Esa es la original.' : (g === 1 ? 'Elegiste la versión de la IA.' : 'Elegiste tu reconstrucción.'),
+      feedback: g === 0 ? 'La original no es la más bonita: es la que tiene grano, imperfecciones y una fecha que coincide con los registros. La IA la dejó más nítida y más limpia, y por eso parece más «real». Ese es el riesgo en 2050: lo verosímil le gana a lo verdadero.'
+        : (g === 1 ? 'Es la que parece más real: nítida, limpia y sin daños. Justamente por eso engaña. La IA no recuperó el pasado, lo calculó: completó la esquina perdida con algo que nunca existió y fechó la foto en ' + c.aiDate + ', aunque los registros dicen ' + c.date + '.'
+        : 'Se parece a la original en lo que decidiste restaurar. La diferencia es que tus decisiones quedan a la vista: lo que no se sabe aparece como un vacío marcado, no como una invención.')
+    };
+
+    return {
+      s0: s.stage === 0, s1: s.stage === 1, s2: s.stage === 2, s3: s.stage === 3, s4: s.stage === 4, s5: s.stage === 5, s6: s.stage === 6,
+      cs, stages, bg: ART_BG, map: ART_MAP, intro: ART_INTRO, pillars: PILLARS, startGame: () => this.go(1), cmp,
+      navFlex: navClosed ? '0 0 64px' : '1 1 210px', navOpen: navClosed ? 'false' : 'true', navOpenB: !navClosed,
+      navToggleIcon: navClosed ? '»' : '«', navToggleLbl: navClosed ? 'Mostrar el menú' : 'Minimizar el menú',
+      navToggle: () => { const m = Object.assign({}, this.state.mini); m.nav = !navClosed; this.setState({ mini: m }); },
+      mVer: this.mini('ver', 'versión'), mStr: this.mini('str', 'capas'), mEv: this.mini('ev', 'cambios encontrados'), mDec: this.mini('dec', 'decisiones'),
+      filters, caseCards, caseRootsD: CASE_D.join(' '), caseRootsSel: caseRootD(c), caseLeaves: CASE_LEAVES, openCase: () => this.go(2),
+      vsoil: ART_SOIL, vground: GROUND, vnodes, rlabels, vr0: vr[0], vr1: vr[1], vr2: vr[2], vr3: vr[3], vr4: vr[4], vd, mem,
+      goVersions: () => this.go(2), goLayers: () => this.go(3),
+      sep, onSep: (e) => this.setState({ sep: +e.target.value }),
+      isStacked: sep === 0 ? 'true' : 'false', isExploded: sep >= 60 ? 'true' : 'false',
+      stack: () => this.setState({ sep: 0 }), explode: () => this.setState({ sep: 70 }),
+      showAll: () => this.setState({ solo: -1, hidden: [false, false, false, false, false] }),
+      layers, strataRows, docOpen: !!s.doc, dd, closeDoc: () => this.setState({ doc: null }),
+      focusOn: s.focus != null, fv, closeFocus: () => { if (this.state.fclose) return; this.setState({ fclose: true }); setTimeout(() => this.setState({ focus: null, fclose: false }), 400); },
+      goInvestigate: () => this.go(4), goRebuild: () => this.setState({ stage: 5, pop: chosenN < 3 ? (ZD.find((z) => !s.ch[z.id]) || ZD[0]).id : null }), goCompare: () => this.go(6),
+      panes: [mkPane(0), mkPane(1)], msg: s.msg, foundN, foundList, anomTotal: ANOM.length,
+      showHint: s.hint && !!nextUnfound, hintTxt: nextUnfound ? nextUnfound.hint : '', askHint: () => this.setState({ hint: true }),
+      rc, zoneBtns, popOn: !!s.pop, pop, closePop: () => this.setState({ pop: null }), decList, chosenN,
+      zn1: ZD[0].es, zn2: ZD[1].es, zn3: ZD[2].es,
+      rp1: rp[0], rp2: rp[1], rp3: rp[2],
+      note: s.note, onNote: (e) => this.setState({ note: e.target.value }), notReady: chosenN < 3,
+      rows, archivedCur: !!s.archived[c.id], archiveLabel: s.archived[c.id] ? '✓ Guardada en el archivo' : 'Guardar mi versión',
+      archive: () => { const a = Object.assign({}, this.state.archived); a[c.id] = true; this.setState({ archived: a }); },
+      toArchive: () => this.go(1)
+    };
+  }
+}
+
+
+(function () {
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  const tpl = document.getElementById('pamyat-tpl');
+  const app = document.getElementById('app');
+  function get(scope, path) {
+    path = path.trim();
+    if (path === 'true') return true; if (path === 'false') return false;
+    let o = scope; const parts = path.split('.');
+    for (let i = 0; i < parts.length; i++) { if (o == null) return undefined; o = o[parts[i]]; }
+    return o;
+  }
+  function interp(str, scope) {
+    const m = str.match(/^\{\{([^}]+)\}\}$/);
+    if (m) return get(scope, m[1]);
+    return str.replace(/\{\{([^}]+)\}\}/g, function (_, p) { const v = get(scope, p); return v == null ? '' : String(v); });
+  }
+  function on(el, type) {
+    el.__t = el.__t || {};
+    if (el.__t[type]) return;
+    el.__t[type] = true;
+    el.addEventListener(type, function (e) { const f = el.__h && el.__h[type]; if (typeof f === 'function') f(e); });
+  }
+  function build(src, scope, out) {
+    const kids = src.childNodes;
+    for (let i = 0; i < kids.length; i++) {
+      const n = kids[i];
+      if (n.nodeType === 3) { const t = n.nodeValue; out.appendChild(document.createTextNode(t.indexOf('{{') > -1 ? String(interp(t, scope) == null ? '' : interp(t, scope)) : t)); continue; }
+      if (n.nodeType !== 1) continue;
+      const tag = n.localName;
+      if (tag === 'sc-if') { if (get(scope, n.getAttribute('value').replace(/[{}]/g, ''))) build(n, scope, out); continue; }
+      if (tag === 'sc-for') {
+        const list = get(scope, n.getAttribute('list').replace(/[{}]/g, '')) || [];
+        const as = n.getAttribute('as');
+        for (let j = 0; j < list.length; j++) { const sc = Object.create(scope); sc[as] = list[j]; build(n, sc, out); }
+        continue;
+      }
+      const el = n.namespaceURI === SVGNS ? document.createElementNS(SVGNS, tag) : document.createElement(tag);
+      el.__h = {};
+      for (let j = 0; j < n.attributes.length; j++) {
+        const at = n.attributes[j]; const name = at.name;
+        if (name.indexOf('hint-') === 0) continue;
+        if (/^on[a-z]+$/i.test(name) && at.value.indexOf('{{') > -1) { el.__h[name.slice(2).toLowerCase()] = get(scope, at.value.replace(/[{}]/g, '')); continue; }
+        const v = at.value.indexOf('{{') > -1 ? interp(at.value, scope) : at.value;
+        if (v === false || v == null) continue;
+        if (name === 'value' && (tag === 'input' || tag === 'textarea')) { el.__val = String(v); if (tag === 'textarea') continue; }
+        el.setAttribute(name, v === true ? '' : String(v));
+      }
+      build(n, scope, el);
+      out.appendChild(el);
+    }
+  }
+  function sync(na, nb) {
+    const olds = na.attributes;
+    for (let i = olds.length - 1; i >= 0; i--) { const nm = olds[i].name; if (!nb.hasAttribute(nm)) na.removeAttribute(nm); }
+    const news = nb.attributes;
+    for (let i = 0; i < news.length; i++) { const at = news[i]; if (na.getAttribute(at.name) !== at.value) na.setAttribute(at.name, at.value); }
+  }
+  function wire(el) {
+    for (const t in el.__h) on(el, t);
+    if (el.__val !== undefined && el.value !== el.__val && document.activeElement !== el) el.value = el.__val;
+  }
+  function morph(a, b) {
+    const bc = Array.prototype.slice.call(b.childNodes);
+    for (let i = 0; i < bc.length; i++) {
+      const nb = bc[i], na = a.childNodes[i];
+      if (!na) { a.appendChild(nb); wireAll(nb); continue; }
+      if (na.nodeType !== nb.nodeType || na.nodeName !== nb.nodeName || na.namespaceURI !== nb.namespaceURI) { a.replaceChild(nb, na); wireAll(nb); continue; }
+      if (na.nodeType === 3) { if (na.nodeValue !== nb.nodeValue) na.nodeValue = nb.nodeValue; continue; }
+      if (na.nodeType !== 1) continue;
+      sync(na, nb);
+      na.__h = nb.__h; na.__val = nb.__val;
+      wire(na);
+      morph(na, nb);
+    }
+    while (a.childNodes.length > bc.length) a.removeChild(a.lastChild);
+  }
+  function wireAll(el) {
+    if (el.nodeType !== 1) return;
+    if (el.__h) wire(el);
+    for (let i = 0; i < el.children.length; i++) wireAll(el.children[i]);
+  }
+  let comp = null, queued = false;
+  function render() {
+    queued = false;
+    const vals = comp.renderVals();
+    const tmp = document.createElement('div');
+    build(tpl.content, vals, tmp);
+    morph(app, tmp);
+  }
+  window.__pamyatSchedule = function () { if (!queued && comp) { queued = true; requestAnimationFrame(render); } };
+  comp = new Component();
+  render();
+})();
+
+</script>
+</body>
+</html>
